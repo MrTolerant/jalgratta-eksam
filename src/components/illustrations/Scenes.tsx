@@ -301,6 +301,7 @@ export function SceneHandSignals({ lang }: SceneProps) {
         <rect width="420" height="260" fill="#e8f5e9" />
         <rect x="0" y="170" width="420" height="90" fill="#9ccc65" />
         <rect x="0" y="150" width="420" height="28" fill="#78909c" />
+        {/* Bike side view */}
         <g transform="translate(150 70)">
           <ellipse cx="40" cy="108" rx="22" ry="6" fill="rgba(15,23,42,0.15)" />
           <ellipse cx="140" cy="108" rx="22" ry="6" fill="rgba(15,23,42,0.15)" />
@@ -312,10 +313,12 @@ export function SceneHandSignals({ lang }: SceneProps) {
           <path d="M78 100 L108 52 L140 100" fill="none" stroke="#059669" strokeWidth="5" strokeLinejoin="round" />
           <path d="M108 52 L158 44" stroke="#0f172a" strokeWidth="5" strokeLinecap="round" />
           <rect x="52" y="44" width="16" height="6" rx="2" fill="#0f172a" />
+          {/* rider */}
           <circle cx="92" cy="28" r="12" fill="#f59e0b" />
           <path d="M80 22 Q92 12 104 22" fill="#065f46" />
           <path d="M92 40 L88 70 L78 100" fill="none" stroke="#1e293b" strokeWidth="6" strokeLinecap="round" />
           <path d="M92 48 L118 62 L140 48" fill="none" stroke="#1e293b" strokeWidth="6" strokeLinecap="round" />
+          {/* left arm out */}
           <path d="M92 48 L40 36" fill="none" stroke="#1e293b" strokeWidth="6" strokeLinecap="round" />
           <circle cx="36" cy="34" r="5" fill="#f59e0b" />
         </g>
