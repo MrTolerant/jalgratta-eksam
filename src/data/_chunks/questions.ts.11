@@ -1,0 +1,91 @@
+
+  {
+    id: 'q_safe_01',
+    categoryId: 'safety_and_equipment',
+    difficulty: 'easy',
+    question: {
+      et: 'Kellele on Eestis jalgrattaga sõitmisel jalgratturikiivri kandmine kohustuslik?',
+      ru: 'Для кого в Эстонии ношение застегнутого велосипедного шлема является обязательным по закону?',
+      en: 'For whom is wearing a fastened bicycle helmet mandatory by law in Estonia?',
+    },
+    options: [
+      {
+        id: 'opt_1',
+        text: {
+          et: 'Kõigile alla 16-aastastele jalgratturitele.',
+          ru: 'Всем велосипедистам моложе 16 лет.',
+          en: 'All cyclists under 16 years of age.',
+        },
+      },
+      {
+        id: 'opt_2',
+        text: {
+          et: 'Ainult professionaalsetele võidusõitjatele.',
+          ru: 'Только профессиональным спортсменам.',
+          en: 'Only professional bicycle racers.',
+        },
+      },
+      {
+        id: 'opt_3',
+        text: {
+          et: 'Ainult pensioniealistele ratturitele.',
+          ru: 'Только велосипедистам пенсионного возраста.',
+          en: 'Only senior citizen cyclists.',
+        },
+      },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Eesti Liiklusseaduse kohaselt peab alla 16-aastane jalgrattur teel (sh kõnniteel ja kergliiklusteel) sõites kandma kinnirihmatud jalgratturikiivrit.',
+      ru: 'Согласно ПДД Эстонии, велосипедист в возрасте до 16 лет при движении по дороге (включая тротуары и велодорожки) обязан носить застегнутый шлем.',
+      en: 'Under Estonian Traffic Act, cyclists under 16 must wear a properly fastened bicycle helmet when riding on any road or path.',
+    },
+    lawReference: 'LS § 31 lg 6',
+    visual: {
+      type: 'svg_equipment',
+      svgVariant: 'helmet_safety',
+    },
+  },
+  {
+    id: 'q_safe_02',
+    categoryId: 'safety_and_equipment',
+    difficulty: 'medium',
+    question: {
+      et: 'Mis vanusest alates tohib laps iseseisvalt (ilma täiskasvanu järelevalveta) sõita sõiduteel ja millal on vaja juhiluba?',
+      ru: 'С какого возраста ребенок может самостоятельно ехать по проезжей части и когда требуются права?',
+      en: 'From what age may a child ride independently on the roadway and when is a license required?',
+    },
+    options: [
+      {
+        id: 'opt_1',
+        text: {
+          et: 'Alates 10. eluaastast. 10–15-aastasel ratturil peab sõiduteel sõites olema kaasas jalgratturi juhiluba.',
+          ru: 'С 10 лет. В возрасте 10–15 лет при движении по проезжей части обязательно иметь при себе права велосипедиста.',
+          en: 'From 10 years of age. Cyclists aged 10–15 must carry a cyclist driver license on the roadway.',
+        },
+      },
+      {
+        id: 'opt_2',
+        text: {
+          et: 'Alates 6. eluaastast ja juhiluba pole kunagi vaja.',
+          ru: 'С 6 лет, и права никогда не нужны.',
+          en: 'From 6 years old and a license is never needed.',
+        },
+      },
+      {
+        id: 'opt_3',
+        text: {
+          et: 'Alates 18. eluaastast koos autojuhiloaga.',
+          ru: 'С 18 лет только с автомобильными правами.',
+          en: 'From 18 years old only with a car license.',
+        },
+      },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Sõiduteel võib iseseisvalt jalgrattaga sõita vähemalt 10-aastane isik. 10–15-aastasel peab olema kaasas jalgratturi juhiluba. Alates 16. eluaastast juhiluba ei nõuta.',
+      ru: 'По проезжей части самостоятельно можно ехать с 10 лет. В возрасте 10–15 лет обязательно наличие прав. С 16 лет права велосипедиста не требуются.',
+      en: 'A person aged 10 or older may ride independently on the roadway. Between 10 and 15, carrying a bicycle license is mandatory. From 16, no license is required.',
+    },
+    lawReference: 'LS § 148 lg 1',
+  },
