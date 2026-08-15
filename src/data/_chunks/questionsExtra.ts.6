@@ -1,0 +1,46 @@
+  q({
+    id: 'q_sig_01',
+    categoryId: 'hand_signals',
+    difficulty: 'easy',
+    question: {
+      et: 'Kuidas näitad vasakpööret käega?',
+      ru: 'Как показать левый поворот рукой?',
+      en: 'How do you signal a left turn with your arm?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Sirutad vasaku käe horisontaalselt küljele.', ru: 'Вытягиваешь левую руку горизонтально в сторону.', en: 'Extend the left arm horizontally to the side.' } },
+      { id: 'opt_2', text: { et: 'Tõstad parema käe üles.', ru: 'Поднимаешь правую руку вверх.', en: 'Raise the right arm straight up.' } },
+      { id: 'opt_3', text: { et: 'Vehid mõlema käega pea kohal.', ru: 'Машешь обеими руками над головой.', en: 'Wave both arms above your head.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Suunamärguanne: vasak käsi küljele = vasakpööre; parem käsi küljele = parempööre. Märku anna aegsasti.',
+      ru: 'Левая рука в сторону — поворот налево; правая — направо. Сигнал подавай заранее.',
+      en: 'Left arm out = left turn; right arm out = right turn. Signal in good time.',
+    },
+    lawReference: 'LS § 47',
+    visual: { type: 'svg_turning', svgVariant: 'hand_signals' },
+  }),
+  q({
+    id: 'q_sig_02',
+    categoryId: 'hand_signals',
+    difficulty: 'medium',
+    question: {
+      et: 'Millal pead suunamärguande andma?',
+      ru: 'Когда нужно подавать сигнал поворота?',
+      en: 'When must you give a turning signal?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Aegsasti enne manöövri algust, et teised jõuaksid reageerida.', ru: 'Заблаговременно до начала манёвра, чтобы другие успели среагировать.', en: 'Well before the manoeuvre starts, so others can react.' } },
+      { id: 'opt_2', text: { et: 'Alles siis, kui oled juba pööramas.', ru: 'Только когда уже поворачиваешь.', en: 'Only once you are already turning.' } },
+      { id: 'opt_3', text: { et: 'Ainult politsei nähes.', ru: 'Только если видна полиция.', en: 'Only if police are watching.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Märguanne peab olema arusaadav ja antud piisavalt vara, mitte manöövri ajal.',
+      ru: 'Сигнал должен быть понятным и поданным достаточно рано, а не во время манёвра.',
+      en: 'The signal must be clear and given early enough, not during the manoeuvre.',
+    },
+    lawReference: 'LS § 47',
+    visual: { type: 'svg_turning', svgVariant: 'hand_signals' },
+  }),
