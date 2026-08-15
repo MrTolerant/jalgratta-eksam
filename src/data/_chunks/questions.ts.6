@@ -1,0 +1,95 @@
+
+  {
+    id: 'q_inter_01',
+    categoryId: 'intersections',
+    difficulty: 'medium',
+    question: {
+      et: 'Lähened samaliigiliste teede ristmikule (reguleerimata, liiklusmärke pole). Kellel on eesõigus?',
+      ru: 'Вы подъезжаете к перекрестку равнозначных дорог (нерегулируемый, знаков нет). Кто имеет преимущество?',
+      en: 'You approach an uncontrolled intersection of equal roads (no signs). Who has priority?',
+    },
+    options: [
+      {
+        id: 'opt_1',
+        text: {
+          et: 'Sõidukil, mis liigub kiiremini.',
+          ru: 'Транспортное средство, которое движется быстрее.',
+          en: 'The vehicle that is traveling faster.',
+        },
+      },
+      {
+        id: 'opt_2',
+        text: {
+          et: 'Peab andma teed paremalt lähenevale sõidukijuhile (parema käe reegel).',
+          ru: 'Необходимо уступить дорогу водителю, приближающемуся справа (правило правой руки).',
+          en: 'Must give way to a driver approaching from the right (priority to the right).',
+        },
+      },
+      {
+        id: 'opt_3',
+        text: {
+          et: 'Jalgratturil on alati eesõigus auto ees.',
+          ru: 'Велосипедист всегда имеет преимущество перед автомобилем.',
+          en: 'A cyclist always has priority over cars.',
+        },
+      },
+    ],
+    correctAnswerId: 'opt_2',
+    explanation: {
+      et: 'Samaliigiliste teede ristmikul kehtib parema käe reegel: juht peab andma teed paremalt lähenevale juhile.',
+      ru: 'На равнозначном перекрестке действует правило помехи справа: водитель обязан уступить дорогу приближающемуся справа транспортному средству.',
+      en: 'At an intersection of equivalent roads, the priority-to-the-right rule applies: give way to traffic from the right.',
+    },
+    lawReference: 'LS § 58 lg 1',
+    visual: {
+      type: 'svg_intersection',
+      svgVariant: 'equal_intersection',
+    },
+  },
+  {
+    id: 'q_inter_02',
+    categoryId: 'intersections',
+    difficulty: 'medium',
+    question: {
+      et: 'Sõidad reguleeritaval ristmikul rohelise fooritulega otse. Vastutulev auto soovib sooritada vasakpööret. Kes peab teed andma?',
+      ru: 'Вы едете прямо на перекрестке на зеленый сигнал светофора. Встречный автомобиль хочет повернуть налево. Кто должен уступить дорогу?',
+      en: 'You are going straight through a traffic light intersection on green. An oncoming car wants to turn left. Who gives way?',
+    },
+    options: [
+      {
+        id: 'opt_1',
+        text: {
+          et: 'Vasakpööret sooritav auto juht peab andma teed otse sõitvale jalgratturile.',
+          ru: 'Водитель поворачивающего налево автомобиля должен уступить дорогу велосипедисту, едущему прямо.',
+          en: 'The oncoming driver turning left must give way to the cyclist going straight.',
+        },
+      },
+      {
+        id: 'opt_2',
+        text: {
+          et: 'Jalgrattur peab alati autole teed andma.',
+          ru: 'Велосипедист всегда обязан уступить дорогу автомобилю.',
+          en: 'The cyclist must always yield to the car.',
+        },
+      },
+      {
+        id: 'opt_3',
+        text: {
+          et: 'Mõlemad peavad seisma jääma ja ootama politseid.',
+          ru: 'Оба обязаны остановиться и ждать полицию.',
+          en: 'Both must stop and wait for police.',
+        },
+      },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Vasakpööret või tagasipööret tegev juht peab andma teed vastassuunast otse või paremale liikuvatele sõidukijuhtidele.',
+      ru: 'Водитель, совершающий левый поворот, обязан уступить дорогу встречным транспортным средствам, движущимся прямо или направо.',
+      en: 'A driver turning left must give way to oncoming traffic going straight or turning right.',
+    },
+    lawReference: 'LS § 58 lg 2',
+    visual: {
+      type: 'svg_intersection',
+      svgVariant: 'traffic_lights_turn',
+    },
+  },
