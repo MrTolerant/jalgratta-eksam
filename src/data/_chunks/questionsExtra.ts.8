@@ -1,0 +1,46 @@
+  q({
+    id: 'q_zone_02',
+    categoryId: 'special_zones',
+    difficulty: 'medium',
+    question: {
+      et: 'Kes tohib õuealal mängida sõiduteel?',
+      ru: 'Кто может играть на проезжей части в жилой зоне?',
+      en: 'Who may play on the roadway in a living zone?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Jalakäijad, sh lapsed — juht peab nendega arvestama ja olema valmis peatuma.', ru: 'Пешеходы, включая детей — водитель обязан их учитывать и быть готовым остановиться.', en: 'Pedestrians, including children — drivers must expect them and be ready to stop.' } },
+      { id: 'opt_2', text: { et: 'Mitte keegi, lapsed tohivad olla ainult toas.', ru: 'Никто, детям можно только дома.', en: 'Nobody; children must stay indoors.' } },
+      { id: 'opt_3', text: { et: 'Ainult ratturid.', ru: 'Только велосипедисты.', en: 'Only cyclists.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Õueala on mõeldud elamiseks ja mängimiseks. Juht (ka rattur) peab olema eriti tähelepanelik.',
+      ru: 'Жилая зона предназначена для жизни и игр. Водитель (и велосипедист) должен быть особенно внимателен.',
+      en: 'A living zone is for living and play. Drivers, including cyclists, must be extra careful.',
+    },
+    lawReference: 'LS § 16',
+    visual: { type: 'sign', signCode: '573', signName: { et: 'Märk 573: Õueala', ru: 'Знак 573: Жилая зона', en: 'Sign 573: Living zone' } },
+  }),
+  q({
+    id: 'q_zone_03',
+    categoryId: 'special_zones',
+    difficulty: 'easy',
+    question: {
+      et: 'Kas rattur tohib jalakäijate alal (jalgtee / jalakäijate tsoon) vabalt kihutada?',
+      ru: 'Можно ли велосипедисту свободно мчаться по пешеходной зоне?',
+      en: 'May a cyclist speed freely in a pedestrian zone?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Kui sõit on üldse lubatud, pead sõitma jalakäija tempos ega tohi kedagi ohustada.', ru: 'Нет. Если езда вообще разрешена, двигайся со скоростью пешехода и никого не подвергай опасности.', en: 'No. If riding is allowed at all, go at walking pace and endanger no one.' } },
+      { id: 'opt_2', text: { et: 'Jah, sest rattur on juht.', ru: 'Да, потому что велосипедист — водитель.', en: 'Yes, because a cyclist is a driver.' } },
+      { id: 'opt_3', text: { et: 'Jah, pärast kella 22.', ru: 'Да, после 22:00.', en: 'Yes after 22:00.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Jalakäijate tsoonis on esikohal jalakäija. Rattur tohib seal sõita vaid kui see on lubatud, ja ainult ohutu kiirusega.',
+      ru: 'В пешеходной зоне главное — пешеход. Велосипедист может ехать лишь если это разрешено и только с безопасной скоростью.',
+      en: 'Pedestrians come first in a pedestrian zone. Cycling is allowed only if permitted, and only at a safe speed.',
+    },
+    lawReference: 'LS § 16',
+    visual: { type: 'sign', signCode: '571' },
+  }),
