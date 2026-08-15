@@ -1,0 +1,45 @@
+  q({
+    id: 'q_pass_03',
+    categoryId: 'passengers_cargo',
+    difficulty: 'medium',
+    question: {
+      et: 'Kuidas peab olema kinnitatud veos rattal?',
+      ru: 'Как должен быть закреплён груз на велосипеде?',
+      en: 'How must cargo be secured on a bicycle?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Nii, et see ei takista juhtimist, ei ulatu ohtlikult välja ega varja tulesid.', ru: 'Так, чтобы не мешать управлению, не торчать опасно и не закрывать фонари.', en: 'So it does not hinder steering, stick out dangerously, or hide the lights.' } },
+      { id: 'opt_2', text: { et: 'Kuidas iganes, peaasi et mahub.', ru: 'Как угодно, лишь бы влезло.', en: 'Any way, as long as it fits.' } },
+      { id: 'opt_3', text: { et: 'Ainult ühe käega hoidev kott on parim.', ru: 'Лучше всего пакет в одной руке.', en: 'A bag held in one hand is best.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Veos ei tohi muuta ratast ebastabiilseks ega varjata tulesid/helkureid. Ühe käega sõitmine on ohtlik.',
+      ru: 'Груз не должен делать велосипед неустойчивым и закрывать фары/катафоты. Езда одной рукой опасна.',
+      en: 'Cargo must not make the bike unstable or hide lights/reflectors. One-handed riding is unsafe.',
+    },
+    lawReference: 'LS § 34',
+  }),
+  q({
+    id: 'q_ban_01',
+    categoryId: 'prohibitions',
+    difficulty: 'easy',
+    question: {
+      et: 'Kas tohid sõidu ajal hoida telefoni käes?',
+      ru: 'Можно ли держать телефон в руке во время езды?',
+      en: 'May you hold a phone in your hand while riding?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Ei. Juhtimine ühe käega ja tähelepanu hajumine on ohtlik ja keelatud.', ru: 'Нет. Управление одной рукой и отвлечение внимания опасно и запрещено.', en: 'No. One-handed riding and distraction are dangerous and forbidden.' } },
+      { id: 'opt_2', text: { et: 'Jah, kui räägid lühidalt.', ru: 'Да, если разговор короткий.', en: 'Yes if the call is short.' } },
+      { id: 'opt_3', text: { et: 'Jah, kui oled kõnniteel.', ru: 'Да, если ты на тротуаре.', en: 'Yes if you are on the sidewalk.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Juht peab suutma ratast juhtida ja liiklust jälgida. Käes hoitav telefon võtab käe ja tähelepanu.',
+      ru: 'Водитель должен управлять велосипедом и следить за дорогой. Телефон в руке забирает и руку, и внимание.',
+      en: 'A rider must control the bike and watch traffic. A handheld phone takes a hand and attention.',
+    },
+    lawReference: 'LS § 69 / § 33',
+    visual: { type: 'svg_equipment', svgVariant: 'phone_ban' },
+  }),
