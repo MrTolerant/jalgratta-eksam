@@ -27,9 +27,9 @@ export const translations = {
     en: 'Practice by Topic',
   },
   practiceDesc: {
-    et: 'Harjuta küsimusi 10 ametliku teemavaldkonna järgi kohese selgitusega.',
-    ru: 'Тренируйтесь по 10 официальным темам с мгновенным разбором ответов.',
-    en: 'Practice by 10 official syllabus topics with instant explanations.',
+    et: 'Harjuta küsimusi 15 teemavaldkonna järgi kohese selgitusega.',
+    ru: 'Тренируйтесь по 15 темам с мгновенным разбором ответов.',
+    en: 'Practice by 15 syllabus topics with instant explanations.',
   },
   mistakesMode: {
     et: 'Vigade parandus',
@@ -185,6 +185,56 @@ export const translations = {
     et: 'Filtreeri teema järgi',
     ru: 'Фильтр по теме',
     en: 'Filter by topic',
+  },
+  gamesTitle: {
+    et: 'Õppemängud',
+    ru: 'Игры для запоминания',
+    en: 'Learning games',
+  },
+  gamesDesc: {
+    et: 'Mängi ja jäta meelde just jalgratturi reeglid: kes sõidab esimesena, märgid, varustus.',
+    ru: 'Играй и запоминай правила велосипедиста: кто едет первым, знаки, оснащение.',
+    en: 'Play and memorise cyclist rules: who goes first, signs, and equipment.',
+  },
+  gamePriority: {
+    et: 'Kes sõidab esimesena?',
+    ru: 'Кто едет первым?',
+    en: 'Who goes first?',
+  },
+  gamePriorityDesc: {
+    et: 'Vaata skeemi ja toksa liiklejad õiges järjekorras.',
+    ru: 'Смотри схему и нажимай участников в правильном порядке.',
+    en: 'Look at the scene and tap road users in the correct order.',
+  },
+  gameSigns: {
+    et: 'Märgiflash',
+    ru: 'Флеш-знаки',
+    en: 'Sign flash',
+  },
+  gameSignsDesc: {
+    et: 'Tuvasta liiklusmärk 10 sekundi jooksul. Jää järjestikku õigeks.',
+    ru: 'Узнай знак за 10 секунд. Собери серию правильных ответов.',
+    en: 'Name the sign in 10 seconds. Build a correct streak.',
+  },
+  gameEquipment: {
+    et: 'Mis rattal puudu on?',
+    ru: 'Чего не хватает на велосипеде?',
+    en: 'What is missing on the bike?',
+  },
+  gameEquipmentDesc: {
+    et: 'Leia, mis varustusest on puudu või vale — tuled, helkurid, kiiver, kell.',
+    ru: 'Найди, чего не хватает или что неверно — фары, катафоты, шлем, звонок.',
+    en: 'Spot missing or wrong kit — lights, reflectors, helmet, bell.',
+  },
+  gameSprint: {
+    et: 'Reeglisprint',
+    ru: 'Спринт по правилам',
+    en: 'Rule sprint',
+  },
+  gameSprintDesc: {
+    et: 'Jah / ei küsimused kella vastu. Kinnista reeglid mällu.',
+    ru: 'Вопросы да / нет на время. Закрепи правила в памяти.',
+    en: 'Yes / no questions against the clock. Lock the rules in memory.',
   },
 };
 
