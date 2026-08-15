@@ -121,4 +121,154 @@ export const trafficSigns: TrafficSign[] = [
     category: 'informative',
     svgType: 'sign_573_living_zone',
   },
+  {
+    code: '132',
+    name: {
+      et: 'Jalgratturid',
+      ru: 'Велосипедисты',
+      en: 'Cyclists',
+    },
+    description: {
+      et: 'Hoiatus: ees võib olla jalgrattureid või jalgrattatee lõikumine.',
+      ru: 'Предупреждение: впереди возможны велосипедисты или пересечение велодорожки.',
+      en: 'Warning: cyclists ahead or a cycle path crossing.',
+    },
+    category: 'warning',
+    svgType: 'sign_132_cyclists',
+  },
+  {
+    code: '151',
+    name: {
+      et: 'Lapsed',
+      ru: 'Дети',
+      en: 'Children',
+    },
+    description: {
+      et: 'Hoiatus: ees võib olla lapsi (kool, mänguväljak). Vähenda kiirust.',
+      ru: 'Предупреждение: впереди возможны дети (школа, площадка). Снизь скорость.',
+      en: 'Warning: children ahead (school, playground). Slow down.',
+    },
+    category: 'warning',
+    svgType: 'sign_151_children',
+  },
+  {
+    code: '212',
+    name: {
+      et: 'Peatee lõpp',
+      ru: 'Конец главной дороги',
+      en: 'End of priority road',
+    },
+    description: {
+      et: 'Peatee lõpeb. Edasi kehtivad tavalised teeandmise reeglid.',
+      ru: 'Главная дорога заканчивается. Дальше действуют обычные правила уступки.',
+      en: 'Priority road ends. Normal give-way rules apply after this sign.',
+    },
+    category: 'priority',
+    svgType: 'sign_212_end_priority',
+  },
+  {
+    code: '331',
+    name: {
+      et: 'Suurim kiirus 20',
+      ru: 'Ограничение скорости 20',
+      en: 'Speed limit 20',
+    },
+    description: {
+      et: 'Suurim lubatud kiirus 20 km/h. Õuealal kehtib sama piirang.',
+      ru: 'Максимальная скорость 20 км/ч. В жилой зоне действует тот же лимит.',
+      en: 'Maximum speed 20 km/h. The same limit applies in living zones.',
+    },
+    category: 'prohibitory',
+    svgType: 'sign_331_speed_20',
+  },
+  {
+    code: '351',
+    name: {
+      et: 'Sissesõidu keeld',
+      ru: 'Въезд запрещён',
+      en: 'No entry',
+    },
+    description: {
+      et: 'Keelab sissesõidu kõikidele sõidukitele, sh jalgratastele, kui pole erandit.',
+      ru: 'Запрещает въезд всем ТС, включая велосипеды, если нет исключения.',
+      en: 'Forbids entry for all vehicles, including bicycles, unless excepted.',
+    },
+    category: 'prohibitory',
+    svgType: 'sign_351_no_entry',
+  },
+  {
+    code: '414',
+    name: {
+      et: 'Möödasõit paremalt',
+      ru: 'Объезд справа',
+      en: 'Pass on this side',
+    },
+    description: {
+      et: 'Kohustab mööduma tähistatud takistusest või saarekesest paremal pool.',
+      ru: 'Обязательно объезжать препятствие или островок с указанной стороны.',
+      en: 'Requires passing an island or obstacle on the indicated side.',
+    },
+    category: 'mandatory',
+    svgType: 'sign_414_keep_right',
+  },
+  {
+    code: '432',
+    name: {
+      et: 'Jalgtee',
+      ru: 'Пешеходная дорожка',
+      en: 'Footpath',
+    },
+    description: {
+      et: 'Kohustuslik jalgtee jalakäijatele. Rattaga tohid sõita vaid erandjuhtudel.',
+      ru: 'Предписанная пешеходная дорожка. На велосипеде — только в виде исключения.',
+      en: 'Mandatory footpath for pedestrians. Cycling only in exceptional cases.',
+    },
+    category: 'mandatory',
+    svgType: 'sign_432_footpath',
+  },
+  {
+    code: '434',
+    name: {
+      et: 'Jalgratta- ja jalgtee (eraldatud)',
+      ru: 'Разделённая вело- и пешеходная дорожка',
+      en: 'Separated cycle and foot path',
+    },
+    description: {
+      et: 'Ratturid ja jalakäijad sõidavad/kõnnivad oma poolel, mida näitab märk ja märgistus.',
+      ru: 'Велосипедисты и пешеходы движутся каждый по своей стороне, как показывает знак.',
+      en: 'Cyclists and pedestrians keep to their own side as shown on the sign.',
+    },
+    category: 'mandatory',
+    svgType: 'sign_434_separated',
+  },
+  {
+    code: '571',
+    name: {
+      et: 'Jalakäijate ala',
+      ru: 'Пешеходная зона',
+      en: 'Pedestrian zone',
+    },
+    description: {
+      et: 'Ala on jalakäijatele. Rattaga sõit on lubatud ainult siis, kui see on eraldi lubatud, ja jalakäija tempos.',
+      ru: 'Зона для пешеходов. Езда на велосипеде — только если отдельно разрешено и со скоростью шага.',
+      en: 'Area for pedestrians. Cycling only if separately allowed, and at walking pace.',
+    },
+    category: 'informative',
+    svgType: 'sign_571_ped_zone',
+  },
+  {
+    code: '574',
+    name: {
+      et: 'Õueala lõpp',
+      ru: 'Конец жилой зоны',
+      en: 'End of living zone',
+    },
+    description: {
+      et: 'Õueala reeglid (20 km/h, jalakäija eesõigus) lõpevad.',
+      ru: 'Правила жилой зоны (20 км/ч, преимущество пешехода) заканчиваются.',
+      en: 'Living-zone rules (20 km/h, pedestrian priority) end here.',
+    },
+    category: 'informative',
+    svgType: 'sign_574_end_living',
+  },
 ];
