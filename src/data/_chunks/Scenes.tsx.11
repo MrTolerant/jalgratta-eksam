@@ -1,0 +1,74 @@
+        <path d="M250 102 L200 102" stroke="#f59e0b" strokeWidth="3" markerEnd="url(#bsR)" fill="none" />
+        <BikeTop x={80} y={154} rot={90} you label={t(lang, 'Sina', 'Ты', 'You')} />
+      </svg>
+    </Frame>
+  );
+}
+
+export function ScenePhoneBan({ lang }: SceneProps) {
+  return (
+    <Frame caption={t(lang, 'Käes hoitav telefon sõidu ajal on keelatud', 'Телефон в руке во время езды запрещён', 'Handheld phone while riding is forbidden')}>
+      <svg viewBox="0 0 420 260" className="w-full h-auto" aria-hidden>
+        <rect width="420" height="260" fill="#fee2e2" />
+        <g transform="translate(80 50)">
+          <circle cx="40" cy="120" r="22" fill="none" stroke="#0f172a" strokeWidth="5" />
+          <circle cx="140" cy="120" r="22" fill="none" stroke="#0f172a" strokeWidth="5" />
+          <path d="M40 120 L78 120 L108 64 L58 64 Z" fill="none" stroke="#64748b" strokeWidth="5" />
+          <circle cx="90" cy="40" r="12" fill="#f59e0b" />
+          <rect x="118" y="18" width="22" height="36" rx="4" fill="#0f172a" />
+          <rect x="122" y="24" width="14" height="22" fill="#38bdf8" />
+        </g>
+        <circle cx="320" cy="110" r="48" fill="none" stroke="#dc2626" strokeWidth="10" />
+        <line x1="286" y1="76" x2="354" y2="144" stroke="#dc2626" strokeWidth="10" strokeLinecap="round" />
+      </svg>
+    </Frame>
+  );
+}
+
+export function SceneChildSeat({ lang }: SceneProps) {
+  return (
+    <Frame caption={t(lang, 'Lapseistmel last vedades tohid sõita ka kõnniteel', 'С ребёнком в кресле можно ехать по тротуару', 'With a child in a seat you may use the sidewalk')}>
+      <svg viewBox="0 0 420 260" className="w-full h-auto" aria-hidden>
+        <rect width="420" height="260" fill="#e0f2fe" />
+        <rect x="0" y="180" width="420" height="80" fill="#9ccc65" />
+        <g transform="translate(110 40)">
+          <circle cx="40" cy="120" r="22" fill="none" stroke="#0f172a" strokeWidth="5" />
+          <circle cx="150" cy="120" r="22" fill="none" stroke="#0f172a" strokeWidth="5" />
+          <path d="M40 120 L84 120 L118 66 L62 66 Z" fill="none" stroke="#059669" strokeWidth="5" />
+          <circle cx="100" cy="40" r="12" fill="#f59e0b" />
+          <path d="M88 34 Q100 24 112 34" fill="#16a34a" />
+          <rect x="48" y="70" width="22" height="20" rx="4" fill="#38bdf8" />
+          <circle cx="59" cy="62" r="7" fill="#fde68a" />
+          <path d="M50 58 Q59 50 68 58" fill="#16a34a" />
+        </g>
+      </svg>
+    </Frame>
+  );
+}
+
+export function SceneNightRiding({ lang }: SceneProps) {
+  return <SceneLights lang={lang} />;
+}
+
+const SCENE_MAP: Record<string, React.FC<SceneProps>> = {
+  driveway_exit: SceneDrivewayExit,
+  shoulder_entry: SceneShoulderEntry,
+  road_right_edge: SceneRoadRightEdge,
+  sidewalk_rules: SceneSidewalkRules,
+  left_turn_stages: SceneLeftTurnStages,
+  hand_signals: SceneHandSignals,
+  car_door_zone: SceneCarDoorZone,
+  equal_intersection: SceneEqualIntersection,
+  traffic_lights_turn: SceneTrafficLightsTurn,
+  traffic_officer_side: SceneTrafficOfficer,
+  crosswalk_rules: SceneCrosswalk,
+  dismount_pedestrian: SceneDismount,
+  lights_reflectors: SceneLights,
+  reflectors_diagram: SceneReflectors,
+  helmet_safety: SceneHelmet,
+  bike_lane: SceneBikeLane,
+  shared_path: SceneSharedPath,
+  living_zone: SceneLivingZone,
+  roundabout: SceneRoundabout,
+  obstacle_bypass: SceneObstacle,
+  bus_stop: SceneBusStop,
