@@ -1,6 +1,7 @@
 import { Question } from '@/types';
+import { extraQuestions } from '@/data/questionsExtra';
 
-export const questions: Question[] = [
+const baseQuestions: Question[] = [
   // -------------------------------------------------------------
   // CATEGORY 1: Priority & Give Way (Teeandmise kohustus)
   // -------------------------------------------------------------
@@ -1212,3 +1213,5 @@ export const questions: Question[] = [
     lawReference: 'LS § 69',
   },
 ];
+
+export const questions: Question[] = [...baseQuestions, ...extraQuestions];

@@ -151,4 +151,79 @@ export const categories: Category[] = [
     },
     icon: 'CheckCircle2',
   },
+  {
+    id: 'hand_signals',
+    order: 11,
+    title: {
+      et: 'Suunamärguanded',
+      ru: 'Сигналы рукой',
+      en: 'Hand signals',
+    },
+    description: {
+      et: 'Käemärguanded enne pööret, peatust ja ümberreastumist.',
+      ru: 'Сигналы рукой перед поворотом, остановкой и перестроением.',
+      en: 'Arm signals before turning, stopping, and changing position.',
+    },
+    icon: 'Hand',
+  },
+  {
+    id: 'special_zones',
+    order: 12,
+    title: {
+      et: 'Õueala ja erialad',
+      ru: 'Жилая зона и особые территории',
+      en: 'Living zones & special areas',
+    },
+    description: {
+      et: 'Õueala 20 km/h, jalakäijate ala, hoovid ja piiratud kiirusega tsoonid.',
+      ru: 'Жилая зона 20 км/ч, пешеходная зона, дворы и зоны с ограничением скорости.',
+      en: 'Living zones at 20 km/h, pedestrian areas, courtyards, and speed-limited zones.',
+    },
+    icon: 'Home',
+  },
+  {
+    id: 'passengers_cargo',
+    order: 13,
+    title: {
+      et: 'Reisijad ja veos',
+      ru: 'Пассажиры и груз',
+      en: 'Passengers and cargo',
+    },
+    description: {
+      et: 'Lapseiste, kaassõitja, haagis ja lasti kinnitamine.',
+      ru: 'Детское кресло, пассажир, прицеп и крепление груза.',
+      en: 'Child seats, passengers, trailers, and securing cargo.',
+    },
+    icon: 'Baby',
+  },
+  {
+    id: 'prohibitions',
+    order: 14,
+    title: {
+      et: 'Keelud ja vastutus',
+      ru: 'Запреты и ответственность',
+      en: 'Prohibitions and liability',
+    },
+    description: {
+      et: 'Alkohol, telefon, kõrvaklapid, haaramine teise sõiduki külge.',
+      ru: 'Алкоголь, телефон, наушники, держаться за другое ТС.',
+      en: 'Alcohol, phones, headphones, and holding onto other vehicles.',
+    },
+    icon: 'Ban',
+  },
+  {
+    id: 'roundabouts_transit',
+    order: 15,
+    title: {
+      et: 'Ringristmikud ja ühistransport',
+      ru: 'Кольца и общественный транспорт',
+      en: 'Roundabouts and transit',
+    },
+    description: {
+      et: 'Ringristmik, bussipeatus, trammitee ja taksopeatus.',
+      ru: 'Кольцевой перекресток, автобусная остановка, трамвайные пути.',
+      en: 'Roundabouts, bus stops, tram tracks, and taxi stands.',
+    },
+    icon: 'RefreshCw',
+  },
 ];

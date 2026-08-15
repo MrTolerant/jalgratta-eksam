@@ -21,6 +21,11 @@ const defaultStats: UserStats = {
     bicycle_paths: { answered: 0, correct: 0 },
     darkness_and_visibility: { answered: 0, correct: 0 },
     safety_and_equipment: { answered: 0, correct: 0 },
+    hand_signals: { answered: 0, correct: 0 },
+    special_zones: { answered: 0, correct: 0 },
+    passengers_cargo: { answered: 0, correct: 0 },
+    prohibitions: { answered: 0, correct: 0 },
+    roundabouts_transit: { answered: 0, correct: 0 },
   },
   history: [],
 };
@@ -102,11 +107,28 @@ export function recordExamSession(session: ExamSession) {
 }
 
 export function generateExamQuestions(): string[] {
-  // Real Transpordiamet exam: 15 questions from 10 categories
-  // Select questions fairly across categories
-  const shuffled = [...questions].sort(() => 0.5 - Math.random());
-  
-  // Pick up to 15 questions
-  const selected = shuffled.slice(0, 15);
-  return selected.map((q) => q.id);
+  const byCat = new Map<string, typeof questions>();
+  for (const q of questions) {
+    const list = byCat.get(q.categoryId) || [];
+    list.push(q);
+    byCat.set(q.categoryId, list);
+  }
+
+  const cats = [...byCat.keys()].sort(() => Math.random() - 0.5);
+  const selected: string[] = [];
+
+  for (const cat of cats) {
+    if (selected.length >= 15) break;
+    const pool = byCat.get(cat);
+    if (!pool?.length) continue;
+    const pick = pool[Math.floor(Math.random() * pool.length)];
+    selected.push(pick.id);
+  }
+
+  const rest = questions.filter((q) => !selected.includes(q.id)).sort(() => Math.random() - 0.5);
+  while (selected.length < 15 && rest.length) {
+    selected.push(rest.pop()!.id);
+  }
+
+  return selected;
 }

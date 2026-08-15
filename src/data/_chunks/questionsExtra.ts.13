@@ -1,0 +1,45 @@
+  q({
+    id: 'q_rnd_02',
+    categoryId: 'roundabouts_transit',
+    difficulty: 'medium',
+    question: {
+      et: 'Asulas hakkab buss peatusest välja sõitma ja näitab suunda. Mida rattur teeb?',
+      ru: 'В городе автобус выезжает с остановки и показывает поворот. Что делает велосипедист?',
+      en: 'In a built-up area a bus is leaving a stop and signalling. What should the cyclist do?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Annab bussile teed, et see saaks peatusest välja.', ru: 'Уступает автобусу, чтобы тот мог выехать с остановки.', en: 'Gives way so the bus can leave the stop.' } },
+      { id: 'opt_2', text: { et: 'Kiirendab, et bussist mööda lipsata.', ru: 'Ускоряется, чтобы проскочить перед автобусом.', en: 'Speeds up to slip past the bus.' } },
+      { id: 'opt_3', text: { et: 'Helistab kellaga, buss peab ootama.', ru: 'Звонит в звонок — автобус должен ждать.', en: 'Rings the bell; the bus must wait.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Asulas tuleb bussile või trollile, kes näitab, et soovib peatusest väljuda, teed anda.',
+      ru: 'В населённом пункте нужно уступить автобусу или троллейбусу, который сигналом показывает выезд с остановки.',
+      en: 'In built-up areas you must give way to a bus or trolley signalling to leave a stop.',
+    },
+    lawReference: 'LS § 17',
+    visual: { type: 'svg_intersection', svgVariant: 'bus_stop' },
+  }),
+  q({
+    id: 'q_rnd_03',
+    categoryId: 'roundabouts_transit',
+    difficulty: 'medium',
+    question: {
+      et: 'Tramm ja rattur lähenevad samale lõikekohale ilma foorita. Kes annab tavaliselt teed?',
+      ru: 'Трамвай и велосипедист подъезжают к одному пересечению без светофора. Кто обычно уступает?',
+      en: 'A tram and a cyclist approach the same uncontrolled crossing. Who usually gives way?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Rattur annab teed trammile, kui märgid ei ütle teisiti.', ru: 'Велосипедист уступает трамваю, если знаки не говорят иного.', en: 'The cyclist gives way to the tram unless signs say otherwise.' } },
+      { id: 'opt_2', text: { et: 'Tramm peab alati ratturile teed andma.', ru: 'Трамвай всегда уступает велосипедисту.', en: 'The tram must always give way to the cyclist.' } },
+      { id: 'opt_3', text: { et: 'Kes enne kellaga heliseb.', ru: 'Кто первым позвонит.', en: 'Whoever rings first.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Trammil on raske pidurdada ja ta sõidab rööbastel. Juht (sh rattur) annab talle tavaliselt teed.',
+      ru: 'Трамваю сложно тормозить, он привязан к рельсам. Водитель (включая велосипедиста) обычно ему уступает.',
+      en: 'A tram cannot swerve and stops slowly. Drivers, including cyclists, normally give way.',
+    },
+    lawReference: 'LS § 17',
+  }),

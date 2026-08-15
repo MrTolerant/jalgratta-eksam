@@ -1,0 +1,46 @@
+  q({
+    id: 'q_sig_03',
+    categoryId: 'hand_signals',
+    difficulty: 'easy',
+    question: {
+      et: 'Kuidas hoiatad teisi, et peatud?',
+      ru: 'Как предупредить других, что ты останавливаешься?',
+      en: 'How do you warn others that you are stopping?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Tõstad käe üles või näitad selgelt, et kiirus langeb, ja vaatad taha.', ru: 'Поднимаешь руку вверх или ясно показываешь снижение скорости и смотришь назад.', en: 'Raise an arm or clearly show you are slowing, and look behind.' } },
+      { id: 'opt_2', text: { et: 'Pidurdad järsult ilma märguandeta.', ru: 'Резко тормозишь без сигнала.', en: 'Brake hard with no signal.' } },
+      { id: 'opt_3', text: { et: 'Hüüad ainult „stopp“.', ru: 'Просто кричишь «стоп».', en: 'Only shout “stop”.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Järsk peatus tagant tulevale juhile on ohtlik. Anna märku ja kontrolli tagumist liiklust.',
+      ru: 'Внезапная остановка опасна для едущих сзади. Подай сигнал и проверь задний транспорт.',
+      en: 'A sudden stop is dangerous for traffic behind. Signal and check behind you.',
+    },
+    lawReference: 'LS § 47',
+    visual: { type: 'svg_turning', svgVariant: 'hand_signals' },
+  }),
+  q({
+    id: 'q_zone_01',
+    categoryId: 'special_zones',
+    difficulty: 'easy',
+    question: {
+      et: 'Mis on suurim lubatud kiirus õuealal?',
+      ru: 'Какая максимальная скорость в жилой зоне?',
+      en: 'What is the maximum speed in a living zone?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: '20 km/h.', ru: '20 км/ч.', en: '20 km/h.' } },
+      { id: 'opt_2', text: { et: '50 km/h.', ru: '50 км/ч.', en: '50 km/h.' } },
+      { id: 'opt_3', text: { et: 'Piirangut ei ole.', ru: 'Ограничения нет.', en: 'There is no limit.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Õuealal on suurim kiirus 20 km/h. Jalakäijatel on kogu alal eesõigus.',
+      ru: 'В жилой зоне максимум 20 км/ч. Пешеходы имеют преимущество на всей территории.',
+      en: 'In a living zone the limit is 20 km/h. Pedestrians have priority throughout the area.',
+    },
+    lawReference: 'LS § 16',
+    visual: { type: 'svg_intersection', svgVariant: 'living_zone' },
+  }),

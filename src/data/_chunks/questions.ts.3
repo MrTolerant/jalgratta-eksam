@@ -1,0 +1,95 @@
+
+  {
+    id: 'q_pos_01',
+    categoryId: 'road_position',
+    difficulty: 'easy',
+    question: {
+      et: 'Kus peab jalgrattur sõitma sõiduteel liigeldes?',
+      ru: 'Где должен двигаться велосипедист при движении по проезжей части?',
+      en: 'Where should a cyclist ride when traveling on the roadway?',
+    },
+    options: [
+      {
+        id: 'opt_1',
+        text: {
+          et: 'Võimalikult sõidutee parema ääre lähedal ühes reas.',
+          ru: 'Как можно ближе к правому краю проезжей части в один ряд.',
+          en: 'As close to the right edge of the roadway as possible in a single file.',
+        },
+      },
+      {
+        id: 'opt_2',
+        text: {
+          et: 'Sõiduraja keskel või vasakus servas.',
+          ru: 'Посередине полосы или у левого края.',
+          en: 'In the middle or left side of the lane.',
+        },
+      },
+      {
+        id: 'opt_3',
+        text: {
+          et: 'Mitmekesi kõrvuti tervet sõidurada hõivates.',
+          ru: 'В несколько рядов рядом друг с другом, занимая всю полосу.',
+          en: 'Riding side by side occupying the whole lane.',
+        },
+      },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Jalgrattur peab sõiduteel sõitma võimalikult parema ääre lähedal ja üksteise järel (üksikreas), välja arvatud enne ümberreastumist või vasakpööret.',
+      ru: 'Велосипедист обязан двигаться по проезжей части как можно ближе к правому краю в один ряд, за исключением перестроения и поворота налево.',
+      en: 'A cyclist must ride as close to the right edge of the roadway as possible in a single file, except before maneuvering or turning left.',
+    },
+    lawReference: 'LS § 31 lg 1',
+    visual: {
+      type: 'svg_bike_lane',
+      svgVariant: 'road_right_edge',
+    },
+  },
+  {
+    id: 'q_pos_02',
+    categoryId: 'road_position',
+    difficulty: 'medium',
+    question: {
+      et: 'Millal tohib üle 13-aastane jalgrattur sõita kõnniteel?',
+      ru: 'Когда велосипедисту старше 13 лет разрешено ехать по тротуару?',
+      en: 'When is a cyclist over 13 years old permitted to ride on a sidewalk?',
+    },
+    options: [
+      {
+        id: 'opt_1',
+        text: {
+          et: 'Mitte kunagi, see on alati rangelt keelatud.',
+          ru: 'Никогда, это всегда строго запрещено.',
+          en: 'Never, it is strictly forbidden in all cases.',
+        },
+      },
+      {
+        id: 'opt_2',
+        text: {
+          et: 'Kui sõiduteel sõitmine on tee seisukorra tõttu oluliselt raskendatud, samuti alla 10-aastase lapse saatmisel või lapseistmel last vedades.',
+          ru: 'Если движение по проезжей части существенно затруднено состоянием дороги, а также при сопровождении ребенка до 10 лет или перевозке ребенка в кресле.',
+          en: 'If riding on the road is significantly impeded due to road conditions, or when accompanying a child under 10 or carrying a child.',
+        },
+      },
+      {
+        id: 'opt_3',
+        text: {
+          et: 'Alati, kui autojuhtidele meeldib kiiremini sõita.',
+          ru: 'Всегда, если машинам на дороге хочется ехать быстрее.',
+          en: 'Always, whenever motorists drive fast.',
+        },
+      },
+    ],
+    correctAnswerId: 'opt_2',
+    explanation: {
+      et: 'Kõnniteel võivad sõita alla 13-aastased, lapse saatjad (kuni 10 a), last vedavad ratturid või kui sõidutee seisukord teeb seal sõitmise oluliselt raskendatuks. Jalakäijat ei tohi ohustada!',
+      ru: 'По тротуару разрешено ехать детям до 13 лет, сопровождающим ребенка до 10 лет, с ребенком в кресле, либо если состояние ПЧ делает езду по ней существенно затрудненной.',
+      en: 'Children under 13, their escorts (up to 10 yo), riders carrying child passengers, or when road conditions make roadway riding severely impeded may ride on sidewalks.',
+    },
+    lawReference: 'LS § 32 lg 1',
+    visual: {
+      type: 'svg_bike_lane',
+      svgVariant: 'sidewalk_rules',
+    },
+  },

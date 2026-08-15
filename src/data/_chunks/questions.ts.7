@@ -1,0 +1,99 @@
+
+  {
+    id: 'q_inter_03',
+    categoryId: 'intersections',
+    difficulty: 'easy',
+    question: {
+      et: 'Reguleerija seisab ristmikul küljega teie poole, käed külgedel või välja sirutatud. Mida see tähendab?',
+      ru: 'Регулировщик стоит к вам боком, руки опущены или вытянуты в стороны. Что это разрешает?',
+      en: 'A traffic controller stands with their side facing you, arms down or extended. What does this mean?',
+    },
+    options: [
+      {
+        id: 'opt_1',
+        text: {
+          et: 'Sõit on lubatud otse ja paremale (kui jalgratturina pole keelavat lisamärki).',
+          ru: 'Движение разрешено прямо и направо (при отсутствии других ограничений).',
+          en: 'Movement is permitted straight and to the right.',
+        },
+      },
+      {
+        id: 'opt_2',
+        text: {
+          et: 'Kõikides suundades sõitmine on keelatud (peatumismärguanne).',
+          ru: 'Движение во всех направлениях запрещено (сигнал остановки).',
+          en: 'Movement in all directions is prohibited.',
+        },
+      },
+      {
+        id: 'opt_3',
+        text: {
+          et: 'Lubatud on ainult tagasipööre.',
+          ru: 'Разрешен только разворот.',
+          en: 'Only a U-turn is permitted.',
+        },
+      },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Kui reguleerija seisab liikleja poole küljega, on lubatud sõita otse ja paremale (vasakule pööre sõltub reeglitest ja ohutusest). Rinnaga või seljaga seismine keelab sõidu.',
+      ru: 'Если регулировщик стоит боком к водителю — движение разрешено прямо и направо. Грудь и спина регулировщика — сигнал остановки («стена»).',
+      en: 'If a traffic controller stands with their side to you, you may proceed straight or turn right. Facing chest or back means stop.',
+    },
+    lawReference: 'LS § 8',
+    visual: {
+      type: 'svg_intersection',
+      svgVariant: 'traffic_officer_side',
+    },
+  },
+
+  // -------------------------------------------------------------
+  // CATEGORY 6: Pedestrian Crossings (Sõidutee ületamine ülekäigurajal)
+  // -------------------------------------------------------------
+  {
+    id: 'q_cross_01',
+    categoryId: 'pedestrian_crossings',
+    difficulty: 'hard',
+    question: {
+      et: 'Kas jalgrattaga tohib ületada sõiduteed reguleerimata ülekäigurajal (sebral) sellel sõites?',
+      ru: 'Разрешено ли пересекать проезжую часть по нерегулируемому пешеходному переходу (зебре) верхом на велосипеде?',
+      en: 'Is a cyclist allowed to ride across a roadway on an uncontrolled pedestrian crossing (zebra)?',
+    },
+    options: [
+      {
+        id: 'opt_1',
+        text: {
+          et: 'Ei, sebral tohib ratast alati ainult käekõrval lükata.',
+          ru: 'Нет, по зебре всегда можно передвигаться только ведя велосипед рядом пешком.',
+          en: 'No, on zebra crossings you may only walk your bike.',
+        },
+      },
+      {
+        id: 'opt_2',
+        text: {
+          et: 'Jah, tohib sõita jalakäija kiirusega, kuid reguleerimata ülekäigurajal EI OLE ratturil auto suhtes eesõigust (autojuht ei pea teed andma), v.a juhul, kui auto pöörab sellele teele.',
+          ru: 'Да, можно ехать со скоростью пешехода, но на нерегулируемом переходе у велосипедиста НЕТ преимущества перед авто (машины не обязаны уступать), кроме случая, когда авто поворачивает на эту дорогу.',
+          en: 'Yes, at walking pace, but on uncontrolled crossings the cyclist DOES NOT have priority over cars (cars do not have to yield), unless the car is turning onto that road.',
+        },
+      },
+      {
+        id: 'opt_3',
+        text: {
+          et: 'Jah, ja kõigil autodel on kohustus ratturile kohe teed anda.',
+          ru: 'Да, и все машины обязаны сразу уступить дорогу велосипедисту.',
+          en: 'Yes, and all cars are obligated to yield to the cyclist.',
+        },
+      },
+    ],
+    correctAnswerId: 'opt_2',
+    explanation: {
+      et: 'Eesti Liiklusseaduse järgi tohib ülekäigurajal sõita jalgrattaga, kuid reguleerimata ülekäigurajal ei ole jalgratturil sõidukijuhi suhtes eesõigust (kui autojuht just ei soorita pööret sellele teele). Jalakäijat ei tohi ohustada!',
+      ru: 'По ПДД Эстонии ехать по зебре на велосипеде разрешено (с пешеходной скоростью), но у велосипедиста НЕТ преимущества перед машинами, если авто едет прямо. Преимущество появляется только если авто поворачивает.',
+      en: 'Under Estonian law, you may ride across a crosswalk at pedestrian speed, but you have NO right of way over straight-moving cars unless the car is turning into that road.',
+    },
+    lawReference: 'LS § 100',
+    visual: {
+      type: 'svg_crossing',
+      svgVariant: 'crosswalk_rules',
+    },
+  },

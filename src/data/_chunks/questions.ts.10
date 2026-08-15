@@ -1,0 +1,99 @@
+
+  {
+    id: 'q_dark_01',
+    categoryId: 'darkness_and_visibility',
+    difficulty: 'easy',
+    question: {
+      et: 'Millised tuled peavad jalgrattal põlema pimeda ajal või halva nähtavuse korral sõites?',
+      ru: 'Какие фонари должны гореть на велосипеде при движении в темное время суток или в условиях плохой видимости?',
+      en: 'Which lights must be illuminated on a bicycle in the dark or poor visibility?',
+    },
+    options: [
+      {
+        id: 'opt_1',
+        text: {
+          et: 'Ees valge tuli ja taga punane tuli.',
+          ru: 'Спереди белый фонарь, сзади красный фонарь.',
+          en: 'Front white light and rear red light.',
+        },
+      },
+      {
+        id: 'opt_2',
+        text: {
+          et: 'Mõlemad tuled peavad olema rohelised.',
+          ru: 'Оба фонаря должны быть зелеными.',
+          en: 'Both lights must be green.',
+        },
+      },
+      {
+        id: 'opt_3',
+        text: {
+          et: 'Tuled pole kohustuslikud, kui linnas põlevad tänavalaternad.',
+          ru: 'Фонари не обязательны, если горят уличные фонари.',
+          en: 'Lights are not required if city streetlights are on.',
+        },
+      },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Liiklusseaduse järgi peab pimeda ajal või halva nähtavuse korral jalgrattal põlema ees valge ja taga punane tuli.',
+      ru: 'По Закону о дорожном движении в темноте или при плохой видимости на велосипеде спереди должен гореть белый свет, сзади — красный.',
+      en: 'By law, during darkness or poor visibility, a bicycle must have an active white light in front and red light in back.',
+    },
+    lawReference: 'LS § 87 lg 1',
+    visual: {
+      type: 'svg_equipment',
+      svgVariant: 'lights_reflectors',
+    },
+  },
+  {
+    id: 'q_dark_02',
+    categoryId: 'darkness_and_visibility',
+    difficulty: 'medium',
+    question: {
+      et: 'Millised helkurid peavad jalgrattal olema paigaldatud?',
+      ru: 'Какие светоотражатели (катафоты) должны быть установлены на велосипеде?',
+      en: 'Which reflectors must be fitted on a bicycle?',
+    },
+    options: [
+      {
+        id: 'opt_1',
+        text: {
+          et: 'Ees valge, taga punane ning vähemalt ühe ratta mõlemal küljel kollane või valge helkur.',
+          ru: 'Спереди белый, сзади красный, и минимум на одном колесе с обеих сторон желтый или белый отражатель.',
+          en: 'Front white, rear red, and on at least one wheel on both sides a yellow or white reflector.',
+        },
+      },
+      {
+        id: 'opt_2',
+        text: {
+          et: 'Ainult taga üks sinine helkur.',
+          ru: 'Только сзади один синий катафот.',
+          en: 'Only a single blue reflector at the rear.',
+        },
+      },
+      {
+        id: 'opt_3',
+        text: {
+          et: 'Helkureid pole vaja, kui rattur kannab erksavärvilisi riideid.',
+          ru: 'Отражатели не нужны, если на велосипедисте яркая одежда.',
+          en: 'Reflectors are not needed if the rider wears bright clothes.',
+        },
+      },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Jalgrattal peab olema ees valge ja taga punane helkur ning vähemalt ühe ratta mõlemal küljel kollane või valge helkur (kodarahelkur).',
+      ru: 'На велосипеде спереди должен быть белый катафот, сзади красный, и на колесах (спицах) желтые или белые отражатели с обеих сторон.',
+      en: 'A bicycle must have a white front reflector, red rear reflector, and amber/white side reflectors on at least one wheel.',
+    },
+    lawReference: 'LS § 87',
+    visual: {
+      type: 'svg_equipment',
+      svgVariant: 'reflectors_diagram',
+    },
+  },
+
+  // -------------------------------------------------------------
+  // CATEGORY 10: Safety & Equipment (Ohutus, kiiver ja varustus)
+  // -------------------------------------------------------------

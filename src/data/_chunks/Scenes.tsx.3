@@ -1,0 +1,66 @@
+        <rect x="168" y="160" width="56" height="120" fill="#78909c" />
+        <House x={118} y={188} />
+        <House x={248} y={188} />
+        <Tree x={70} y={210} />
+        <Tree x={360} y={210} />
+        <BikeTop x={196} y={210} rot={0} you label={t(lang, 'Sina', 'Ты', 'You')} />
+        <path d="M196 190 L196 150" stroke="#059669" strokeWidth="3" strokeDasharray="5 4" markerEnd="url(#dG)" fill="none" />
+        <CarTop x={70} y={92} rot={90} color="#ef4444" label={t(lang, 'Auto', 'Авто', 'Car')} />
+        <path d="M100 92 L160 92" stroke="#ef4444" strokeWidth="3" strokeDasharray="5 4" markerEnd="url(#dR)" fill="none" />
+        <CarTop x={350} y={138} rot={-90} color="#3b82f6" />
+        <Pedestrian x={250} y={188} />
+      </svg>
+    </Frame>
+  );
+}
+
+export function SceneShoulderEntry({ lang }: SceneProps) {
+  return (
+    <Frame caption={t(lang, 'Teepeenralt teele: anna teed sõiduteel olijatele', 'С обочины: уступи тем, кто уже на дороге', 'From the shoulder: give way to roadway traffic')}>
+      <svg viewBox="0 0 420 280" className="w-full h-auto" aria-hidden>
+        <defs>
+          <ArrowDef id="sG" color="#059669" />
+          <ArrowDef id="sR" color="#ef4444" />
+        </defs>
+        <rect width="420" height="280" fill="#9ccc65" />
+        <rect x="0" y="70" width="420" height="100" fill="#546e7a" />
+        <rect x="0" y="170" width="420" height="28" fill="#a1887f" />
+        <line x1="0" y1="120" x2="420" y2="120" stroke="#f8fafc" strokeWidth="2" strokeDasharray="10 8" />
+        <line x1="0" y1="168" x2="420" y2="168" stroke="#facc15" strokeWidth="3" />
+        <BikeTop x={200} y={196} rot={-20} you label={t(lang, 'Sina', 'Ты', 'You')} />
+        <path d="M200 178 Q200 150 200 130" stroke="#059669" strokeWidth="3" strokeDasharray="5 4" markerEnd="url(#sG)" fill="none" />
+        <CarTop x={80} y={100} rot={90} color="#ef4444" label={t(lang, 'Auto', 'Авто', 'Car')} />
+        <path d="M110 100 L170 100" stroke="#ef4444" strokeWidth="3" strokeDasharray="5 4" markerEnd="url(#sR)" fill="none" />
+        <Tree x={40} y={220} />
+        <Tree x={380} y={230} />
+      </svg>
+    </Frame>
+  );
+}
+
+export function SceneRoadRightEdge({ lang }: SceneProps) {
+  return (
+    <Frame caption={t(lang, 'Sõida parema ääre lähedal, ühes reas', 'Держись правого края, в один ряд', 'Stay near the right edge, single file')}>
+      <svg viewBox="0 0 420 280" className="w-full h-auto" aria-hidden>
+        <rect width="420" height="280" fill="#9ccc65" />
+        <rect x="70" y="0" width="200" height="280" fill="#546e7a" />
+        <line x1="170" y1="0" x2="170" y2="280" stroke="#f8fafc" strokeWidth="2" strokeDasharray="10 8" />
+        <rect x="258" y="0" width="14" height="280" fill="#a1887f" />
+        <CarTop x={128} y={70} rot={180} color="#64748b" />
+        <CarTop x={128} y={200} rot={180} color="#3b82f6" />
+        <BikeTop x={236} y={90} rot={180} you />
+        <BikeTop x={236} y={150} rot={180} you={false} />
+        <BikeTop x={236} y={210} rot={180} you={false} />
+        <text x="300" y="150" fill="#0f172a" fontSize="12" fontWeight="700" fontFamily="system-ui">
+          {t(lang, '1 rida', '1 ряд', '1 file')}
+        </text>
+        <Tree x={40} y={60} />
+        <Tree x={40} y={200} />
+        <Tree x={360} y={80} />
+      </svg>
+    </Frame>
+  );
+}
+
+export function SceneSidewalkRules({ lang }: SceneProps) {
+  return (

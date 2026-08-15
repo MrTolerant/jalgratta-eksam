@@ -1,0 +1,99 @@
+
+  {
+    id: 'q_cross_02',
+    categoryId: 'pedestrian_crossings',
+    difficulty: 'medium',
+    question: {
+      et: 'Kuidas saab jalgrattur ülekäigurajal (sebral) kindla eesõiguse läheneva auto ees?',
+      ru: 'Как велосипедист может получить гарантированное преимущество перед приближающимся автомобилем на нерегулируемой зебре?',
+      en: 'How can a cyclist ensure full right of way over approaching cars at an uncontrolled crosswalk?',
+    },
+    options: [
+      {
+        id: 'opt_1',
+        text: {
+          et: 'Tulles jalgrattalt maha ja lükates seda käekõrval jalakäijana.',
+          ru: 'Спешившись с велосипеда и ведя его рядом в качестве пешехода.',
+          en: 'By dismounting and walking the bicycle across as a pedestrian.',
+        },
+      },
+      {
+        id: 'opt_2',
+        text: {
+          et: 'Helistades kella ja kiirendades üle tee.',
+          ru: 'Позвонив в звонок и ускорившись через дорогу.',
+          en: 'By ringing the bell and accelerating across.',
+        },
+      },
+      {
+        id: 'opt_3',
+        text: {
+          et: 'Tõstes käe üles ja silmad kinni pigistades.',
+          ru: 'Подняв руку вверх и зажмурившись.',
+          en: 'By raising a hand and closing eyes.',
+        },
+      },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Jalgrattalt maha tulnud ja ratast käekõrval lükkav isik on seaduse silmis jalakäija. Autojuhid on kohustatud reguleerimata ülekäigurajal jalakäijale teed andma.',
+      ru: 'Человек, ведущий велосипед рядом, считается пешеходом. Водители автомобилей обязаны уступать дорогу пешеходам на нерегулируемом переходе.',
+      en: 'A person walking a bicycle is considered a pedestrian. Motorists are legally required to give way to pedestrians at crosswalks.',
+    },
+    lawReference: 'LS § 2 p 16, LS § 35',
+    visual: {
+      type: 'svg_crossing',
+      svgVariant: 'dismount_pedestrian',
+    },
+  },
+
+  // -------------------------------------------------------------
+  // CATEGORY 7: Pedestrian Safety (Jalakäijate ohutus)
+  // -------------------------------------------------------------
+  {
+    id: 'q_pedsaf_01',
+    categoryId: 'pedestrian_safety',
+    difficulty: 'easy',
+    question: {
+      et: 'Sõidad jalgratta- ja jalgteel ning lähened jalakäijatele selja tagant. Kuidas käitud?',
+      ru: 'Вы едете по совмещенной вело-пешеходной дорожке и приближаетесь к пешеходам со спины. Ваши действия?',
+      en: 'You are riding on a shared pedestrian and cycle path approaching pedestrians from behind. What do you do?',
+    },
+    options: [
+      {
+        id: 'opt_1',
+        text: {
+          et: 'Vähendad kiirust jalakäija kiiruseni, vajadusel hoiatad aegsasti kellaga ja möödud ohutu külgvahega.',
+          ru: 'Снизить скорость до скорости пешехода, при необходимости заблаговременно предупредить звонком и объехать с безопасным интервалом.',
+          en: 'Reduce speed to walking pace, warn gently with bell if necessary, and pass with safe clearance.',
+        },
+      },
+      {
+        id: 'opt_2',
+        text: {
+          et: 'Kihutad maksimaalsel kiirusel otse nende vahelt läbi.',
+          ru: 'Пронестись на максимальной скорости прямо между ними.',
+          en: 'Speed through directly between them at maximum speed.',
+        },
+      },
+      {
+        id: 'opt_3',
+        text: {
+          et: 'Nõuad häälekalt, et nad teelt viivitamatult murule hüppaksid.',
+          ru: 'Громко требовать, чтобы они немедленно спрыгнули на траву.',
+          en: 'Shout demands that they jump onto the grass immediately.',
+        },
+      },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Kõnniteel ning jalgratta- ja jalgteel liigeldes ei tohi jalgrattur jalakäijaid ohustada ega takistada; jalakäijate vahetus läheduses tohib sõita vaid jalakäija kiirusega.',
+      ru: 'На тротуарах и совместных дорожках велосипедист не должен подвергать опасности пешеходов; вблизи пешеходов разрешено двигаться только с их скоростью.',
+      en: 'On sidewalks and shared paths, cyclists must not endanger pedestrians and must ride at walking speed near them.',
+    },
+    lawReference: 'LS § 32 lg 2',
+  },
+
+  // -------------------------------------------------------------
+  // CATEGORY 8: Bicycle Paths & Lanes (Jalgrattateed ja -rajad)
+  // -------------------------------------------------------------

@@ -1,0 +1,44 @@
+  q({
+    id: 'q_ban_02',
+    categoryId: 'prohibitions',
+    difficulty: 'easy',
+    question: {
+      et: 'Kas tohid haakida jalgratta teise sõiduki (nt auto või bussi) külge, et „sõita kaasa“?',
+      ru: 'Можно ли зацепиться велосипедом за другую машину (авто или автобус), чтобы «прокатиться»?',
+      en: 'May you hold onto another vehicle (car or bus) to get a tow?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Ei. See on rangelt keelatud ja väga ohtlik.', ru: 'Нет. Это строго запрещено и очень опасно.', en: 'No. It is strictly forbidden and extremely dangerous.' } },
+      { id: 'opt_2', text: { et: 'Jah, kui autojuht on nõus.', ru: 'Да, если водитель согласен.', en: 'Yes if the driver agrees.' } },
+      { id: 'opt_3', text: { et: 'Jah, alla 20 km/h.', ru: 'Да, до 20 км/ч.', en: 'Yes under 20 km/h.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Teise sõiduki haaramine või järelvedu ilma haakeseadmeta on keelatud. Pidurdus- ja pöördeohutus kaob.',
+      ru: 'Цепляться за другое ТС или ехать на буксире без сцепки запрещено. Теряется контроль над торможением и поворотом.',
+      en: 'Holding onto another vehicle is forbidden. You lose braking and steering control.',
+    },
+    lawReference: 'LS § 33',
+  }),
+  q({
+    id: 'q_ban_03',
+    categoryId: 'prohibitions',
+    difficulty: 'medium',
+    question: {
+      et: 'Kas kõrvaklapid mõlemas kõrvas on rattaga teel sõites hea mõte?',
+      ru: 'Нормально ли ехать по дороге в наушниках в обоих ушах?',
+      en: 'Is it a good idea to ride on the road with headphones in both ears?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Ei. Pead kuulma liiklust (autosid, kella, hoiatusi).', ru: 'Нет. Ты должен слышать дорогу (машины, звонок, предупреждения).', en: 'No. You must hear traffic (cars, bells, warnings).' } },
+      { id: 'opt_2', text: { et: 'Jah, valjem muusika aitab keskenduda.', ru: 'Да, громкая музыка помогает сосредоточиться.', en: 'Yes, loud music helps you focus.' } },
+      { id: 'opt_3', text: { et: 'Jah, kui video tuleb peale.', ru: 'Да, если ещё и видео смотреть.', en: 'Yes, especially with video.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Juht peab tajuma ümbrust. Mõlemas kõrvas klapid varjavad olulisi helisid.',
+      ru: 'Водитель должен воспринимать окружение. Наушники в обоих ушах закрывают важные звуки.',
+      en: 'A rider must perceive surroundings. Headphones in both ears hide important sounds.',
+    },
+    lawReference: 'LS § 33',
+  }),

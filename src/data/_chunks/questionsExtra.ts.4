@@ -1,0 +1,46 @@
+  q({
+    id: 'q_dark_03',
+    categoryId: 'darkness_and_visibility',
+    difficulty: 'easy',
+    question: {
+      et: 'Milline tagatuli peab pimeda ajal põlema?',
+      ru: 'Какой задний фонарь должен гореть в темноте?',
+      en: 'Which rear light must be on in the dark?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Punane tagatuli.', ru: 'Красный задний фонарь.', en: 'A red rear light.' } },
+      { id: 'opt_2', text: { et: 'Valge tagatuli.', ru: 'Белый задний фонарь.', en: 'A white rear light.' } },
+      { id: 'opt_3', text: { et: 'Sinine vilkur.', ru: 'Синяя мигалка.', en: 'A blue flashing light.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Ees valge või kollane tuli, taga punane. See aitab teistel sinu suunda mõista.',
+      ru: 'Спереди белый или жёлтый свет, сзади красный. Так другие понимают твоё направление.',
+      en: 'White or amber at the front, red at the rear, so others can read your direction.',
+    },
+    lawReference: 'LS § 34',
+    visual: { type: 'svg_equipment', svgVariant: 'lights_reflectors' },
+  }),
+  q({
+    id: 'q_dark_04',
+    categoryId: 'darkness_and_visibility',
+    difficulty: 'medium',
+    question: {
+      et: 'Kas helkurid asendavad tulesid pimeda ajal?',
+      ru: 'Заменяют ли катафоты фары в темноте?',
+      en: 'Do reflectors replace lights in the dark?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Ei. Vaja on nii tulesid kui ka helkureid.', ru: 'Нет. Нужны и фары, и катафоты.', en: 'No. You need both lights and reflectors.' } },
+      { id: 'opt_2', text: { et: 'Jah, piisab ainult helkuritest.', ru: 'Да, достаточно только катафотов.', en: 'Yes, reflectors alone are enough.' } },
+      { id: 'opt_3', text: { et: 'Jah, kui kannad valget särki.', ru: 'Да, если на тебе белая футболка.', en: 'Yes if you wear a white shirt.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Helkur peegeldab valgust, aga ei asenda aktiivset tuld. Pimeda ajal peavad tuled põlema.',
+      ru: 'Катафот отражает свет, но не заменяет активный фонарь. В темноте фары обязательны.',
+      en: 'A reflector bounces light but does not replace an active lamp. Lights are required in the dark.',
+    },
+    lawReference: 'LS § 34',
+    visual: { type: 'svg_equipment', svgVariant: 'reflectors_diagram' },
+  }),

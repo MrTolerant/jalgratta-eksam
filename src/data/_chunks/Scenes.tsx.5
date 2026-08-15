@@ -1,0 +1,58 @@
+          <path d="M108 52 L158 44" stroke="#0f172a" strokeWidth="5" strokeLinecap="round" />
+          <rect x="52" y="44" width="16" height="6" rx="2" fill="#0f172a" />
+          {/* rider */}
+          <circle cx="92" cy="28" r="12" fill="#f59e0b" />
+          <path d="M80 22 Q92 12 104 22" fill="#065f46" />
+          <path d="M92 40 L88 70 L78 100" fill="none" stroke="#1e293b" strokeWidth="6" strokeLinecap="round" />
+          <path d="M92 48 L118 62 L140 48" fill="none" stroke="#1e293b" strokeWidth="6" strokeLinecap="round" />
+          {/* left arm out */}
+          <path d="M92 48 L40 36" fill="none" stroke="#1e293b" strokeWidth="6" strokeLinecap="round" />
+          <circle cx="36" cy="34" r="5" fill="#f59e0b" />
+        </g>
+        <path d="M70 100 L30 100" stroke="#0284c7" strokeWidth="3" markerEnd="url(#hs)" fill="none" />
+        <defs>
+          <ArrowDef id="hs" color="#0284c7" />
+        </defs>
+        <text x="24" y="88" fill="#0284c7" fontSize="12" fontWeight="800" fontFamily="system-ui">
+          {t(lang, 'Vasak', 'Левый', 'Left')}
+        </text>
+      </svg>
+    </Frame>
+  );
+}
+
+export function SceneCarDoorZone({ lang }: SceneProps) {
+  return (
+    <Frame caption={t(lang, 'Hoia vahe pargitud autode ustest', 'Держи дистанцию от дверей припаркованных авто', 'Keep clear of parked-car doors')}>
+      <svg viewBox="0 0 420 280" className="w-full h-auto" aria-hidden>
+        <defs>
+          <ArrowDef id="doorA" color="#ef4444" />
+        </defs>
+        <rect width="420" height="280" fill="#9ccc65" />
+        <rect x="0" y="40" width="420" height="160" fill="#546e7a" />
+        <line x1="0" y1="120" x2="420" y2="120" stroke="#f8fafc" strokeWidth="2" strokeDasharray="10 8" />
+        <rect x="0" y="200" width="420" height="16" fill="#a1887f" />
+        <CarTop x={80} y={178} rot={90} color="#64748b" />
+        <CarTop x={160} y={178} rot={90} color="#0ea5e9" />
+        <CarTop x={240} y={178} rot={90} color="#f59e0b" />
+        <path d="M160 160 L160 130" stroke="#ef4444" strokeWidth="3" markerEnd="url(#doorA)" fill="none" />
+        <rect x="148" y="148" width="24" height="8" rx="2" fill="#7f1d1d" transform="rotate(-25 160 152)" />
+        <text x="168" y="132" fill="#b91c1c" fontSize="11" fontWeight="800" fontFamily="system-ui">
+          {t(lang, 'Uks!', 'Дверь!', 'Door!')}
+        </text>
+        <BikeTop x={160} y={70} rot={90} you label={t(lang, 'Ohutu kaugus', 'Безопасный зазор', 'Safe gap')} />
+      </svg>
+    </Frame>
+  );
+}
+
+export function SceneEqualIntersection({ lang }: SceneProps) {
+  return (
+    <Frame caption={t(lang, 'Samaliigiline ristmik: parema käe reegel', 'Равнозначный перекресток: помеха справа', 'Equal intersection: priority to the right')}>
+      <CrossRoads>
+        <BikeTop x={232} y={230} rot={0} you label={t(lang, 'Sina', 'Ты', 'You')} />
+        <path d="M232 210 L232 160" stroke="#059669" strokeWidth="3" strokeDasharray="5 4" markerEnd="url(#arrG)" fill="none" />
+        <CarTop x={340} y={122} rot={-90} color="#ef4444" label={t(lang, 'Paremalt', 'Справа', 'Right')} />
+        <path d="M316 122 L260 122" stroke="#ef4444" strokeWidth="3" strokeDasharray="5 4" markerEnd="url(#arrR)" fill="none" />
+        <rect x="12" y="12" width="150" height="36" rx="8" fill="#0f172a" />
+        <text x="22" y="35" fill="#38bdf8" fontSize="12" fontWeight="700" fontFamily="system-ui">

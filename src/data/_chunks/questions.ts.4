@@ -1,0 +1,95 @@
+
+  {
+    id: 'q_pos_03',
+    categoryId: 'road_position',
+    difficulty: 'easy',
+    question: {
+      et: 'Kas jalgratturid tohivad sõiduteel sõita kõrvuti (kahes reas)?',
+      ru: 'Разрешено ли велосипедистам ехать по проезжей части рядом друг с другом (в два ряда)?',
+      en: 'Are cyclists allowed to ride side by side (two abreast) on the roadway?',
+    },
+    options: [
+      {
+        id: 'opt_1',
+        text: {
+          et: 'Jah, kui nad vestlevad omavahel.',
+          ru: 'Да, если они разговаривают друг с другом.',
+          en: 'Yes, if they are conversing.',
+        },
+      },
+      {
+        id: 'opt_2',
+        text: {
+          et: 'Ei, sõiduteel tohib sõita ainult üksteise järel ühes reas.',
+          ru: 'Нет, по проезжей части разрешено ехать только друг за другом в один ряд.',
+          en: 'No, cyclists may only ride one behind the other in a single file on the roadway.',
+        },
+      },
+      {
+        id: 'opt_3',
+        text: {
+          et: 'Jah, kui liiklustihedus on madal.',
+          ru: 'Да, если на дороге мало машин.',
+          en: 'Yes, if traffic density is low.',
+        },
+      },
+    ],
+    correctAnswerId: 'opt_2',
+    explanation: {
+      et: 'Sõiduteel peavad jalgratturid liikuma ühes reas (üksteise järel), et tagada ohutus ja mitte takistada teisi sõidukeid.',
+      ru: 'На проезжей части велосипедисты должны двигаться строго в один ряд друг за другом.',
+      en: 'On the roadway, cyclists must move in a single file behind each other to maintain safety and not obstruct traffic.',
+    },
+    lawReference: 'LS § 31 lg 1',
+  },
+
+  // -------------------------------------------------------------
+  // CATEGORY 3: Turns (Vasak- ja tagasipööre)
+  // -------------------------------------------------------------
+  {
+    id: 'q_turns_01',
+    categoryId: 'turns',
+    difficulty: 'hard',
+    question: {
+      et: 'Kuidas peab jalgrattur sooritama vasakpöörde mitmerajalisel tiheda liiklusega teel asulas?',
+      ru: 'Как велосипедист должен выполнять поворот налево на многополосной дороге с интенсивным движением в городе?',
+      en: 'How should a cyclist make a left turn on a multi-lane road with heavy traffic in an urban area?',
+    },
+    options: [
+      {
+        id: 'opt_1',
+        text: {
+          et: 'Reastuma järsult vasakpoolsele rajale otse autode ette.',
+          ru: 'Резко перестроиться в крайний левый ряд прямо перед автомобилями.',
+          en: 'Abruptly change to the leftmost lane directly in front of cars.',
+        },
+      },
+      {
+        id: 'opt_2',
+        text: {
+          et: 'Ohutum on sõita otse üle ristmiku, tulla rattalt maha ja ületada tee jalakäijana (nn kaheetapiline vasakpööre).',
+          ru: 'Безопаснее проехать прямо через перекресток, спешиться и пересечь дорогу пешком (двухэтапный поворот).',
+          en: 'It is safer to ride straight across the intersection, dismount, and cross the roadway as a pedestrian (two-stage turn).',
+        },
+      },
+      {
+        id: 'opt_3',
+        text: {
+          et: 'Vasakpööre on jalgratturile seadusega igal pool keelatud.',
+          ru: 'Поворот налево для велосипедистов запрещен везде законом.',
+          en: 'Left turns are strictly prohibited everywhere for cyclists.',
+        },
+      },
+    ],
+    correctAnswerId: 'opt_2',
+    explanation: {
+      et: 'Kui sõiduteel on samas suunas mitu sõidurada või liiklus on tihe, on jalgratturil ohutuim sooritada vasakpööre kahe etapina või ületada sõidutee jalakäijana ratast käekõrval lükates.',
+      ru: 'На многополосных дорогах или при интенсивном движении наиболее безопасный способ повернуть налево — прямой проезд перекрестка с последующим спешиванием и переходом по переходу (2-этапный поворот).',
+      en: 'On multi-lane roads or in dense traffic, the safest method for a left turn is a two-stage turn or dismounting and walking across as a pedestrian.',
+    },
+    lawReference: 'LS § 48 lg 2',
+    visual: {
+      type: 'svg_turning',
+      svgVariant: 'left_turn_stages',
+    },
+  },

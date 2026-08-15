@@ -10,7 +10,12 @@ export type CategoryId =
   | 'pedestrian_safety'       // 7. Juhi kohustused jalakäijate ohutuse tagamisel
   | 'bicycle_paths'           // 8. Sõitmine jalgrattateel ja jalgrattarajal
   | 'darkness_and_visibility' // 9. Sõitmine pimeda ajal ja halva nähtavuse tingimustes
-  | 'safety_and_equipment';   // 10. Jalgratturi ohutus, varustus ja käitumine liikluses
+  | 'safety_and_equipment'    // 10. Jalgratturi ohutus, varustus ja käitumine liikluses
+  | 'hand_signals'            // 11. Suunamärguanded
+  | 'special_zones'           // 12. Õueala, jalgtee ja erialad
+  | 'passengers_cargo'        // 13. Reisijad, lastetool ja veos
+  | 'prohibitions'            // 14. Keelud ja vastutus
+  | 'roundabouts_transit';    // 15. Ringristmikud ja ühistransport
 
 export interface Category {
   id: CategoryId;

@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { Language } from '@/types';
-import { Bike, ShieldCheck, BookOpen } from 'lucide-react';
+import { Bike, ShieldCheck, BookOpen, Gamepad2 } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const { lang, setLang } = useLanguage();
@@ -33,6 +33,16 @@ export const Navbar: React.FC = () => {
         </Link>
 
         <nav className="flex items-center gap-2 sm:gap-4">
+          <Link
+            href="/games"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 rounded-lg transition-colors"
+          >
+            <Gamepad2 className="w-4 h-4" />
+            <span className="hidden sm:inline">
+              {lang === 'et' ? 'Mängud' : lang === 'ru' ? 'Игры' : 'Games'}
+            </span>
+          </Link>
+
           <Link
             href="/signs"
             className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 rounded-lg transition-colors"

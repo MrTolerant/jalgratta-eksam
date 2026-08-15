@@ -1,0 +1,45 @@
+  q({
+    id: 'q_ban_04',
+    categoryId: 'prohibitions',
+    difficulty: 'easy',
+    question: {
+      et: 'Kas joobe piirmäär kehtib ka jalgratturile?',
+      ru: 'Действует ли порог опьянения и на велосипедиста?',
+      en: 'Does the intoxication limit apply to cyclists too?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Jah. Joobes ei tohi juhtida ühtegi sõidukit, sh jalgratast.', ru: 'Да. В состоянии опьянения нельзя управлять никаким ТС, включая велосипед.', en: 'Yes. You must not operate any vehicle, including a bicycle, while intoxicated.' } },
+      { id: 'opt_2', text: { et: 'Ei, ratturile alkohol ei kehti.', ru: 'Нет, к велосипедисту алкоголь не относится.', en: 'No, alcohol rules ignore cyclists.' } },
+      { id: 'opt_3', text: { et: 'Kehtib ainult üle 50 km/h teedel.', ru: 'Только на дорогах быстрее 50 км/ч.', en: 'Only on roads faster than 50 km/h.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Joobe keeld kehtib kõigile juhtidele. Politsei võib joobes ratturit karistada.',
+      ru: 'Запрет опьянения действует на всех водителей. Полиция может наказать пьяного велосипедиста.',
+      en: 'The intoxication ban applies to all drivers. Police can penalise a drunk cyclist.',
+    },
+    lawReference: 'LS § 69',
+  }),
+  q({
+    id: 'q_rnd_01',
+    categoryId: 'roundabouts_transit',
+    difficulty: 'easy',
+    question: {
+      et: 'Kes annab teed tavalisel ringristmikul, kui märgid ei ütle teisiti?',
+      ru: 'Кто уступает на обычном кольце, если знаки не говорят иного?',
+      en: 'Who gives way at a normal roundabout if signs do not say otherwise?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Ringile siseneja annab teed juba ringil sõitjatele.', ru: 'Въезжающий на круг уступает тем, кто уже на кольце.', en: 'The rider entering gives way to traffic already in the circle.' } },
+      { id: 'opt_2', text: { et: 'Ringil olijad peatuvad alati.', ru: 'Те, кто на круге, всегда останавливаются.', en: 'Those already in the circle always stop.' } },
+      { id: 'opt_3', text: { et: 'Ratturil on alati eesõigus.', ru: 'У велосипедиста всегда преимущество.', en: 'Cyclists always have priority.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Klassikalisel ringristmikul annab siseneja teed ringil juba liikuvatele juhtidele.',
+      ru: 'На классическом кольце въезжающий уступает уже движущимся по кругу.',
+      en: 'At a classic roundabout, entering traffic yields to traffic already circulating.',
+    },
+    lawReference: 'LS § 17',
+    visual: { type: 'svg_intersection', svgVariant: 'roundabout' },
+  }),

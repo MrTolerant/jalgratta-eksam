@@ -1,0 +1,45 @@
+name: Assemble uploaded file chunks
+on:
+  push:
+    paths:
+      - "src/data/_chunks/**"
+      - ".github/workflows/assemble-chunks.yml"
+permissions:
+  contents: write
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Concatenate chunks
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          chunks_dir = Path("src/data/_chunks")
+          expected = {
+              "questionsExtra.ts.": 14,
+              "questions.ts.": 13,
+              "Scenes.tsx.": 12,
+          }
+          for prefix, n in expected.items():
+              parts = list(chunks_dir.glob(prefix + "*"))
+              if len(parts) < n:
+                  print("incomplete", prefix, len(parts), "of", n)
+                  raise SystemExit(0)
+          for prefix, dest in [
+              ("questionsExtra.ts.", "src/data/questionsExtra.ts"),
+              ("questions.ts.", "src/data/questions.ts"),
+              ("Scenes.tsx.", "src/components/illustrations/Scenes.tsx"),
+          ]:
+              parts = sorted(chunks_dir.glob(prefix + "*"), key=lambda p: int(p.name.rsplit(".", 1)[1]))
+              data = b"".join(p.read_bytes() for p in parts)
+              Path(dest).write_bytes(data)
+              print(dest, len(data))
+          PY
+      - name: Commit assembled files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/questionsExtra.ts src/data/questions.ts src/components/illustrations/Scenes.tsx
+          git diff --cached --quiet || git commit -m "feat: assemble complete extra questions, wire-in, and scene comments"
+          git push
