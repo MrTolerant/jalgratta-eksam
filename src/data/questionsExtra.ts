@@ -144,4 +144,50 @@ export const extraQuestions: Question[] = [
     },
     lawReference: 'LS § 48',
   }),
+  q({
+    id: 'q_obst_02',
+    categoryId: 'obstacle_avoidance',
+    difficulty: 'medium',
+    question: {
+      et: 'Sõidutee paremas servas on parkiv auto. Kuidas möödud ohutult?',
+      ru: 'У правого края стоит припаркованная машина. Как безопасно объехать?',
+      en: 'A car is parked at the right edge. How do you pass it safely?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Vaata taha, anna märku, hoia uste avamise varu ja möödu alles siis, kui see on ohutu.', ru: 'Посмотри назад, покажи сигнал, оставь запас на открытие двери и объезжай только когда безопасно.', en: 'Look back, signal, leave a door-opening gap, and pass only when safe.' } },
+      { id: 'opt_2', text: { et: 'Sõida tihedalt auto kõrvalt, et mitte takistada tagaolevaid.', ru: 'Проезжай вплотную к машине, чтобы не мешать тем, кто сзади.', en: 'Ride tightly past the car so you do not delay traffic behind.' } },
+      { id: 'opt_3', text: { et: 'Helista kella ja sõida ilma vaatamata.', ru: 'Позвони в звонок и едь не глядя.', en: 'Ring the bell and ride without looking.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Pargitud auto uks võib ootamatult avaneda. Vaja on tagasivaadet, märguannet ja piisavat külgvahet.',
+      ru: 'Дверь припаркованной машины может внезапно открыться. Нужны взгляд назад, сигнал и боковой интервал.',
+      en: 'A parked-car door can open suddenly. Check behind, signal, and keep a side gap.',
+    },
+    lawReference: 'LS § 33',
+    visual: { type: 'svg_intersection', svgVariant: 'car_door_zone' },
+  }),
+  q({
+    id: 'q_obst_03',
+    categoryId: 'obstacle_avoidance',
+    difficulty: 'easy',
+    question: {
+      et: 'Teel on auk. Tagant tuleb auto. Mida teed?',
+      ru: 'На дороге яма. Сзади едет машина. Что делать?',
+      en: 'There is a pothole. A car is coming from behind. What do you do?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Ootan, kuni auto on möödunud, või annan selge märguande ja möödun takistusest alles ohutult.', ru: 'Жду, пока машина проедет, либо чётко сигналю и объезжаю только когда безопасно.', en: 'Wait until the car has passed, or signal clearly and bypass only when safe.' } },
+      { id: 'opt_2', text: { et: 'Hüppan järsult vasakule ilma vaatamata.', ru: 'Резко прыгаю влево не глядя.', en: 'Swerve left without looking.' } },
+      { id: 'opt_3', text: { et: 'Sõidan august läbi igal juhul.', ru: 'Еду через яму в любом случае.', en: 'Ride through the hole no matter what.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Ümberpõige on manööver: enne tuleb veenduda, et teisi ei ohustata.',
+      ru: 'Объезд — это манёвр: сначала убедись, что никого не подвергнешь опасности.',
+      en: 'Bypassing is a manoeuvre: first make sure you will not endanger others.',
+    },
+    lawReference: 'LS § 33',
+    visual: { type: 'svg_intersection', svgVariant: 'obstacle_bypass' },
+  }),
 ];
