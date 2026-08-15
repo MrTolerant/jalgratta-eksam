@@ -190,4 +190,50 @@ export const extraQuestions: Question[] = [
     lawReference: 'LS § 33',
     visual: { type: 'svg_intersection', svgVariant: 'obstacle_bypass' },
   }),
+  q({
+    id: 'q_inter_04',
+    categoryId: 'intersections',
+    difficulty: 'medium',
+    question: {
+      et: 'Fooris põleb ratturile punane. Kas tohid sõita, kui autosid ei ole?',
+      ru: 'Велосипедисту горит красный. Можно ли ехать, если машин нет?',
+      en: 'The cyclist signal is red. May you go if no cars are visible?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Ei. Punane foor kehtib jalgratturile samamoodi.', ru: 'Нет. Красный сигнал обязателен и для велосипедиста.', en: 'No. A red light binds cyclists the same way.' } },
+      { id: 'opt_2', text: { et: 'Jah, rattur tohib punasega alati sõita.', ru: 'Да, велосипедисту всегда можно на красный.', en: 'Yes, cyclists may always go on red.' } },
+      { id: 'opt_3', text: { et: 'Jah, kui helistad kella.', ru: 'Да, если позвонить в звонок.', en: 'Yes if you ring the bell.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Foor signaalid kehtivad kõigile juhtidele. Punasega sõitmine on rikkumine.',
+      ru: 'Сигналы светофора обязательны для всех водителей. Езда на красный — нарушение.',
+      en: 'Traffic lights apply to all drivers. Going on red is an offence.',
+    },
+    lawReference: 'LS § 8',
+    visual: { type: 'svg_intersection', svgVariant: 'traffic_lights_turn' },
+  }),
+  q({
+    id: 'q_inter_05',
+    categoryId: 'intersections',
+    difficulty: 'hard',
+    question: {
+      et: 'Reguleerija ja foor näitavad vastuolulisi signaale. Kumba järgid?',
+      ru: 'Регулировщик и светофор показывают разные сигналы. Кого слушаться?',
+      en: 'A traffic officer and the lights give conflicting signals. Which do you follow?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Reguleerijat. Tema märguanded on ülimuslikud.', ru: 'Регулировщика. Его сигналы главнее.', en: 'The officer. Their signals take precedence.' } },
+      { id: 'opt_2', text: { et: 'Alati foori.', ru: 'Всегда светофор.', en: 'Always the traffic light.' } },
+      { id: 'opt_3', text: { et: 'Sõidad kuidas tahad.', ru: 'Едешь как хочешь.', en: 'Ride however you like.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Reguleerija märguanded on ülimuslikud foori ja märkide suhtes.',
+      ru: 'Сигналы регулировщика имеют приоритет над светофором и знаками.',
+      en: 'A traffic officer’s signals override lights and signs.',
+    },
+    lawReference: 'LS § 8',
+    visual: { type: 'svg_intersection', svgVariant: 'traffic_officer_side' },
+  }),
 ];
