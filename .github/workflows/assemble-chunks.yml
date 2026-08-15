@@ -17,9 +17,9 @@ jobs:
           from pathlib import Path
           chunks_dir = Path("src/data/_chunks")
           expected = {
-              "questionsExtra.ts.": 3,
-              "questions.ts.": 4,
-              "Scenes.tsx.": 2,
+              "questionsExtra.ts.": 14,
+              "questions.ts.": 13,
+              "Scenes.tsx.": 12,
           }
           for prefix, n in expected.items():
               parts = list(chunks_dir.glob(prefix + "*"))
