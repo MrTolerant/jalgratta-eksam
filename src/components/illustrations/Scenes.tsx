@@ -201,3 +201,27 @@ export function SceneDrivewayExit({ lang }: SceneProps) {
     </Frame>
   );
 }
+
+export function SceneShoulderEntry({ lang }: SceneProps) {
+  return (
+    <Frame caption={t(lang, 'Teepeenralt teele: anna teed sõiduteel olijatele', 'С обочины: уступи тем, кто уже на дороге', 'From the shoulder: give way to roadway traffic')}>
+      <svg viewBox="0 0 420 280" className="w-full h-auto" aria-hidden>
+        <defs>
+          <ArrowDef id="sG" color="#059669" />
+          <ArrowDef id="sR" color="#ef4444" />
+        </defs>
+        <rect width="420" height="280" fill="#9ccc65" />
+        <rect x="0" y="70" width="420" height="100" fill="#546e7a" />
+        <rect x="0" y="170" width="420" height="28" fill="#a1887f" />
+        <line x1="0" y1="120" x2="420" y2="120" stroke="#f8fafc" strokeWidth="2" strokeDasharray="10 8" />
+        <line x1="0" y1="168" x2="420" y2="168" stroke="#facc15" strokeWidth="3" />
+        <BikeTop x={200} y={196} rot={-20} you label={t(lang, 'Sina', 'Ты', 'You')} />
+        <path d="M200 178 Q200 150 200 130" stroke="#059669" strokeWidth="3" strokeDasharray="5 4" markerEnd="url(#sG)" fill="none" />
+        <CarTop x={80} y={100} rot={90} color="#ef4444" label={t(lang, 'Auto', 'Авто', 'Car')} />
+        <path d="M110 100 L170 100" stroke="#ef4444" strokeWidth="3" strokeDasharray="5 4" markerEnd="url(#sR)" fill="none" />
+        <Tree x={40} y={220} />
+        <Tree x={380} y={230} />
+      </svg>
+    </Frame>
+  );
+}
