@@ -236,4 +236,50 @@ export const extraQuestions: Question[] = [
     lawReference: 'LS § 8',
     visual: { type: 'svg_intersection', svgVariant: 'traffic_officer_side' },
   }),
+  q({
+    id: 'q_cross_03',
+    categoryId: 'pedestrian_crossings',
+    difficulty: 'medium',
+    question: {
+      et: 'Kuidas on kõige ohutum ületada sõiduteed ülekäigurajal rattaga, kui liiklus on tihe?',
+      ru: 'Как безопаснее пересечь дорогу по зебре на велосипеде при плотном движении?',
+      en: 'What is the safest way to cross at a zebra on a bike in heavy traffic?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Tulla rattalt maha ja lükata ratast käekõrval — siis kehtivad jalakäija õigused.', ru: 'Спешиться и вести велосипед рядом — тогда действуют права пешехода.', en: 'Dismount and walk the bike — then pedestrian rights apply.' } },
+      { id: 'opt_2', text: { et: 'Sõita täiskiirusel üle, et autod jõuaksid pidurdada.', ru: 'Проскочить на полной скорости, чтобы машины успели затормозить.', en: 'Sprint across so cars have time to brake.' } },
+      { id: 'opt_3', text: { et: 'Sõita tagurpidi.', ru: 'Ехать задом.', en: 'Ride backwards.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Rattaga ülekäigurajal sõites ei ole sul jalakäija eesõigust. Käekõrval lükates oled jalakäija.',
+      ru: 'Едучи по зебре на велосипеде, ты не имеешь преимущества пешехода. Ведя велосипед — ты пешеход.',
+      en: 'Riding across a zebra does not give pedestrian priority. Walking the bike does.',
+    },
+    lawReference: 'LS § 32',
+    visual: { type: 'svg_crossing', svgVariant: 'dismount_pedestrian' },
+  }),
+  q({
+    id: 'q_pedsaf_02',
+    categoryId: 'pedestrian_safety',
+    difficulty: 'easy',
+    question: {
+      et: 'Kergliiklustee on ühine jalakäijate ja ratturitega. Kellel on eesõigus kitsas kohas?',
+      ru: 'Совмещённая дорожка для пешеходов и велосипедистов. У кого преимущество в узком месте?',
+      en: 'On a shared path, who has priority in a narrow spot?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Jalakäija. Rattur peab valima kiiruse, mis ei ohusta jalakäijat.', ru: 'Пешеход. Велосипедист обязан выбрать скорость, не создающую опасность.', en: 'The pedestrian. The cyclist must choose a speed that does not endanger walkers.' } },
+      { id: 'opt_2', text: { et: 'Rattur, sest ta on kiirem.', ru: 'Велосипедист, потому что он быстрее.', en: 'The cyclist, because they are faster.' } },
+      { id: 'opt_3', text: { et: 'See, kes heliseb valjemini.', ru: 'Тот, кто громче звонит.', en: 'Whoever rings louder.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Ühisel teel ei tohi rattur jalakäijat ohustada ega takistada. Kiirus peab olema olukorrale vastav.',
+      ru: 'На совместной дорожке велосипедист не должен подвергать пешехода опасности или мешать ему.',
+      en: 'On a shared path a cyclist must not endanger or obstruct pedestrians.',
+    },
+    lawReference: 'LS § 32',
+    visual: { type: 'svg_bike_lane', svgVariant: 'shared_path' },
+  }),
 ];
