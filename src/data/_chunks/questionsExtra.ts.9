@@ -1,0 +1,46 @@
+  q({
+    id: 'q_pass_01',
+    categoryId: 'passengers_cargo',
+    difficulty: 'easy',
+    question: {
+      et: 'Kas täiskasvanud rattur tohib vedada last spetsiaalses lapseistmes?',
+      ru: 'Может ли взрослый велосипедист перевозить ребёнка в специальном кресле?',
+      en: 'May an adult cyclist carry a child in a proper child seat?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Jah, kui iste on kinnitatud nõuetekohaselt ja lapsel on kiiver (alla 16 a).', ru: 'Да, если кресло закреплено правильно и у ребёнка есть шлем (до 16 лет).', en: 'Yes if the seat is properly fitted and the child wears a helmet (under 16).' } },
+      { id: 'opt_2', text: { et: 'Ei, last vedada on alati keelatud.', ru: 'Нет, перевозить детей всегда запрещено.', en: 'No, carrying children is always forbidden.' } },
+      { id: 'opt_3', text: { et: 'Jah, ka ilma istmeta raamil istudes.', ru: 'Да, даже без кресла сидя на раме.', en: 'Yes, even sitting on the frame without a seat.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Last tohib vedada selleks ettenähtud istmel. Alla 16-aastasele on kiiver kohustuslik.',
+      ru: 'Ребёнка можно перевозить в предназначенном кресле. До 16 лет шлем обязателен.',
+      en: 'A child may be carried in a dedicated seat. A helmet is mandatory under 16.',
+    },
+    lawReference: 'LS § 31 / § 32',
+    visual: { type: 'svg_equipment', svgVariant: 'child_seat' },
+  }),
+  q({
+    id: 'q_pass_02',
+    categoryId: 'passengers_cargo',
+    difficulty: 'medium',
+    question: {
+      et: 'Kas tohid sõita kõnniteel, kui vead last lapseistmel?',
+      ru: 'Можно ли ехать по тротуару, если везёшь ребёнка в кресле?',
+      en: 'May you ride on the sidewalk when carrying a child in a seat?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Jah. Last vedav rattur tohib kõnniteel sõita, ohustamata jalakäijaid.', ru: 'Да. Велосипедист с ребёнком может ехать по тротуару, не подвергая опасности пешеходов.', en: 'Yes. A rider carrying a child may use the sidewalk without endangering pedestrians.' } },
+      { id: 'opt_2', text: { et: 'Ei, kõnnitee on alati keelatud.', ru: 'Нет, тротуар всегда запрещён.', en: 'No, the sidewalk is always forbidden.' } },
+      { id: 'opt_3', text: { et: 'Ainult öösel.', ru: 'Только ночью.', en: 'Only at night.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Kõnniteel tohivad sõita muu hulgas last vedavad ratturid ja alla 10-aastase saatjad.',
+      ru: 'По тротуару можно ехать в том числе перевозя ребёнка или сопровождая ребёнка до 10 лет.',
+      en: 'Sidewalk riding is allowed when carrying a child or accompanying a child under 10.',
+    },
+    lawReference: 'LS § 32 lg 1',
+    visual: { type: 'svg_equipment', svgVariant: 'child_seat' },
+  }),
