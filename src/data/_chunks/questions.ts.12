@@ -1,0 +1,87 @@
+
+  {
+    id: 'q_safe_03',
+    categoryId: 'safety_and_equipment',
+    difficulty: 'easy',
+    question: {
+      et: 'Millised tehnilised seadmed peavad jalgrattal kindlasti olema töökorras?',
+      ru: 'Какое обязательное техническое оснащение должно быть в исправном состоянии на велосипеде?',
+      en: 'Which technical safety devices must be in working order on a bicycle?',
+    },
+    options: [
+      {
+        id: 'opt_1',
+        text: {
+          et: 'Töökorras pidur ja helisignaal (signaalkell).',
+          ru: 'Исправный тормоз и звуковой сигнал (звонок).',
+          en: 'Working brakes and a sound signal (bell).',
+        },
+      },
+      {
+        id: 'opt_2',
+        text: {
+          et: 'Mootor ja tahavaatepeegel.',
+          ru: 'Мотор и зеркало заднего вида.',
+          en: 'Engine and rearview mirror.',
+        },
+      },
+      {
+        id: 'opt_3',
+        text: {
+          et: 'Kiirusmõõdik ja turvapadi.',
+          ru: 'Спидометр и подушка безопасности.',
+          en: 'Speedometer and airbag.',
+        },
+      },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Jalgrattal peab olema töökorras pidur ja signaalkell ning nõuetekohased helkurid ja valgustusseadmed.',
+      ru: 'Велосипед обязан иметь исправные тормоза, звонок (звуковой сигнал), а также установленные катафоты и фонари.',
+      en: 'A bicycle must have working brakes, a bell, and appropriate reflectors and lighting.',
+    },
+    lawReference: 'LS § 87',
+  },
+  {
+    id: 'q_safe_04',
+    categoryId: 'safety_and_equipment',
+    difficulty: 'easy',
+    question: {
+      et: 'Kas jalgrattaga sõites tohib hoida käes telefoni ja rääkida või sõnumeid saata?',
+      ru: 'Разрешено ли во время езды на велосипеде держать в руке телефон, разговаривать или писать сообщения?',
+      en: 'Are you allowed to hold a phone to call or text while riding a bicycle?',
+    },
+    options: [
+      {
+        id: 'opt_1',
+        text: {
+          et: 'Ei, juhtrauast tuleb hoida mõlema käega (v.a manöövrimärguande andmisel) ja telefoni käeshoidmine on keelatud.',
+          ru: 'Нет, руль нужно держать обеими руками (кроме подачи сигналов), держать телефон в руке запрещено.',
+          en: 'No, handlebars must be held with both hands (except signaling), holding a phone is forbidden.',
+        },
+      },
+      {
+        id: 'opt_2',
+        text: {
+          et: 'Jah, kui sõidad alla 10 km/h.',
+          ru: 'Да, если скорость меньше 10 км/ч.',
+          en: 'Yes, if riding below 10 km/h.',
+        },
+      },
+      {
+        id: 'opt_3',
+        text: {
+          et: 'Jah, kui vaatad samal ajal ainult ekraani.',
+          ru: 'Да, если смотреть только в экран.',
+          en: 'Yes, if looking only at the screen.',
+        },
+      },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Sõidu ajal telefoni käes hoidmine hajutab tähelepanu ja halvendab ratta juhitavust, mis on ohtlik ja keelatud.',
+      ru: 'Использование телефона в руке во время езды рассеивает внимание и мешает управлению велосипедом, создавая опасность.',
+      en: 'Holding a mobile device while riding is distracting, degrades control, and is illegal.',
+    },
+    lawReference: 'LS § 31',
+  },
