@@ -1,0 +1,23 @@
+  q({
+    id: 'q_pedsaf_02',
+    categoryId: 'pedestrian_safety',
+    difficulty: 'easy',
+    question: {
+      et: 'Kergliiklustee on ühine jalakäijate ja ratturitega. Kellel on eesõigus kitsas kohas?',
+      ru: 'Совмещённая дорожка для пешеходов и велосипедистов. У кого преимущество в узком месте?',
+      en: 'On a shared path, who has priority in a narrow spot?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Jalakäija. Rattur peab valima kiiruse, mis ei ohusta jalakäijat.', ru: 'Пешеход. Велосипедист обязан выбрать скорость, не создающую опасность.', en: 'The pedestrian. The cyclist must choose a speed that does not endanger walkers.' } },
+      { id: 'opt_2', text: { et: 'Rattur, sest ta on kiirem.', ru: 'Велосипедист, потому что он быстрее.', en: 'The cyclist, because they are faster.' } },
+      { id: 'opt_3', text: { et: 'See, kes heliseb valjemini.', ru: 'Тот, кто громче звонит.', en: 'Whoever rings louder.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Ühisel teel ei tohi rattur jalakäijat ohustada ega takistada. Kiirus peab olema olukorrale vastav.',
+      ru: 'На совместной дорожке велосипедист не должен подвергать пешехода опасности или мешать ему.',
+      en: 'On a shared path a cyclist must not endanger or obstruct pedestrians.',
+    },
+    lawReference: 'LS § 32',
+    visual: { type: 'svg_bike_lane', svgVariant: 'shared_path' },
+  }),
