@@ -1,0 +1,24 @@
+  q({
+    id: 'q_rnd_04',
+    categoryId: 'roundabouts_transit',
+    difficulty: 'easy',
+    question: {
+      et: 'Kuidas näitad ringristmikult väljumist?',
+      ru: 'Как показать съезд с кольца?',
+      en: 'How do you signal leaving a roundabout?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Enne oma väljasõitu annad parema käega märku.', ru: 'Перед своим съездом показываешь сигнал правой рукой.', en: 'Before your exit, signal with the right arm.' } },
+      { id: 'opt_2', text: { et: 'Märku ei ole vaja.', ru: 'Сигнал не нужен.', en: 'No signal is needed.' } },
+      { id: 'opt_3', text: { et: 'Sõidad ringil vastupäeva.', ru: 'Едешь по кругу против часовой стрелки.', en: 'Ride the circle anti-clockwise the wrong way.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Ringilt väljudes anna suunamärku paremale, et taga- ja kõrvalolijad mõistaksid su kavatsust.',
+      ru: 'Съезжая с кольца, покажи сигнал направо, чтобы другие поняли твоё намерение.',
+      en: 'When leaving the circle, signal right so others understand your intention.',
+    },
+    lawReference: 'LS § 47',
+    visual: { type: 'svg_intersection', svgVariant: 'roundabout' },
+  }),
+];
