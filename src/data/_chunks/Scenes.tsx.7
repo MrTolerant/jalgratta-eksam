@@ -1,0 +1,56 @@
+        <path d="M210 218 L210 90" stroke="#0284c7" strokeWidth="3" strokeDasharray="5 4" markerEnd="url(#cwG)" fill="none" />
+        <CarTop x={70} y={168} rot={90} color="#ef4444" label={t(lang, 'Auto', 'Авто', 'Car')} />
+        <path d="M100 168 L160 168" stroke="#ef4444" strokeWidth="3" strokeDasharray="5 4" markerEnd="url(#cwR)" fill="none" />
+        <rect x="250" y="12" width="158" height="28" rx="8" fill="#7f1d1d" />
+        <text x="260" y="31" fill="#fecaca" fontSize="11" fontWeight="800" fontFamily="system-ui">
+          {t(lang, 'Ratturil pole eesõigust', 'Нет преимущества', 'No cyclist priority')}
+        </text>
+      </svg>
+    </Frame>
+  );
+}
+
+export function SceneDismount({ lang }: SceneProps) {
+  return (
+    <Frame caption={t(lang, 'Ratast käekõrval lükates oled jalakäija', 'Ведя велосипед рядом, ты пешеход', 'Walking the bike makes you a pedestrian')}>
+      <svg viewBox="0 0 420 260" className="w-full h-auto" aria-hidden>
+        <rect width="420" height="260" fill="#e8f5e9" />
+        <rect x="0" y="170" width="420" height="90" fill="#9ccc65" />
+        <rect x="0" y="150" width="420" height="28" fill="#c4b5a0" />
+        {Array.from({ length: 7 }).map((_, i) => (
+          <rect key={i} x={160} y={40 + i * 14} width="90" height="8" fill="#f8fafc" />
+        ))}
+        <rect x="140" y="30" width="130" height="130" fill="#546e7a" />
+        {Array.from({ length: 7 }).map((_, i) => (
+          <rect key={`z${i}`} x={168} y={40 + i * 16} width="74" height="9" fill="#f8fafc" />
+        ))}
+        <g transform="translate(130 70)">
+          <circle cx="40" cy="100" r="16" fill="none" stroke="#0f172a" strokeWidth="4" />
+          <circle cx="110" cy="100" r="16" fill="none" stroke="#0f172a" strokeWidth="4" />
+          <path d="M40 100 L70 100 L90 68 L55 68 Z" fill="none" stroke="#059669" strokeWidth="4" />
+          <path d="M70 100 L90 68 L110 100" fill="none" stroke="#059669" strokeWidth="4" />
+        </g>
+        <Pedestrian x={118} y={168} walking />
+        <text x="24" y="40" fill="#0f172a" fontSize="13" fontWeight="800" fontFamily="system-ui">
+          {t(lang, 'Jalakäija õigused', 'Права пешехода', 'Pedestrian rights')}
+        </text>
+      </svg>
+    </Frame>
+  );
+}
+
+export function SceneLights({ lang }: SceneProps) {
+  return (
+    <Frame caption={t(lang, 'Pimeda ajal: valge tuli ees, punane taga', 'В темноте: белый свет спереди, красный сзади', 'In the dark: white front light, red rear light')}>
+      <svg viewBox="0 0 420 260" className="w-full h-auto" aria-hidden>
+        <rect width="420" height="260" fill="#0f172a" />
+        <rect x="0" y="180" width="420" height="80" fill="#1e293b" />
+        <ellipse cx="210" cy="200" rx="160" ry="16" fill="#334155" />
+        <g transform="translate(110 40)">
+          <circle cx="40" cy="120" r="24" fill="none" stroke="#94a3b8" strokeWidth="5" />
+          <circle cx="160" cy="120" r="24" fill="none" stroke="#94a3b8" strokeWidth="5" />
+          <path d="M40 120 L86 120 L124 64 L64 64 Z" fill="none" stroke="#38bdf8" strokeWidth="5" />
+          <path d="M86 120 L124 64 L160 120" fill="none" stroke="#38bdf8" strokeWidth="5" />
+          <circle cx="108" cy="40" r="13" fill="#f59e0b" />
+          <path d="M96 34 Q108 24 120 34" fill="#22c55e" />
+          <circle cx="168" cy="56" r="8" fill="#f8fafc">
