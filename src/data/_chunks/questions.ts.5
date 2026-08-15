@@ -1,0 +1,103 @@
+
+  {
+    id: 'q_turns_02',
+    categoryId: 'turns',
+    difficulty: 'medium',
+    question: {
+      et: 'Kuidas peab jalgrattur näitama suunamärguannet enne vasakpööret?',
+      ru: 'Как велосипедист должен подавать сигнал поворота перед поворотом налево?',
+      en: 'How must a cyclist signal before making a left turn?',
+    },
+    options: [
+      {
+        id: 'opt_1',
+        text: {
+          et: 'Sirutama vasaku käe kõrvale (või kõverdama parema käe küünarnukist ülespoole) aegsasti enne manöövrit.',
+          ru: 'Вытянуть левую руку в сторону (или согнуть правую руку в локте вверх) заблаговременно до маневра.',
+          en: 'Extend the left arm sideways (or bend the right arm upward at the elbow) well in advance.',
+        },
+      },
+      {
+        id: 'opt_2',
+        text: {
+          et: 'Hõikama valjult „Pööran vasakule!“ vahetult pööramise hetkel.',
+          ru: 'Громко крикнуть «Поворачиваю налево!» непосредственно в момент поворота.',
+          en: 'Shout loudly "Turning left!" right at the moment of turning.',
+        },
+      },
+      {
+        id: 'opt_3',
+        text: {
+          et: 'Kätega märku andma ei pea, piisab pea pööramisest.',
+          ru: 'Подавать сигналы руками не нужно, достаточно повернуть голову.',
+          en: 'No hand signals are needed, just look in that direction.',
+        },
+      },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Enne manöövri alustamist peab jalgrattur andma käega selge suunamärguande ja lõpetama selle vahetult enne pööramist, et hoida mõlema käega juhtrauast kinni.',
+      ru: 'Перед началом маневра велосипедист должен заблаговременно подать сигнал рукой (левая рука в сторону) и вернуть руку на руль непосредственно перед поворотом.',
+      en: 'Before maneuvering, the cyclist must give a clear hand signal (left arm outstretched) in advance, returning hands to handlebars right before turning.',
+    },
+    lawReference: 'LS § 39 lg 1',
+    visual: {
+      type: 'svg_turning',
+      svgVariant: 'hand_signals',
+    },
+  },
+
+  // -------------------------------------------------------------
+  // CATEGORY 4: Obstacle Avoidance (Ümberpõige)
+  // -------------------------------------------------------------
+  {
+    id: 'q_obst_01',
+    categoryId: 'obstacle_avoidance',
+    difficulty: 'medium',
+    question: {
+      et: 'Sõidad tee paremas servas ja ees seisab pargitud auto. Kuidas teed ümberpõike?',
+      ru: 'Вы едете по правому краю дороги, впереди припаркована машина. Как выполнить объезд?',
+      en: 'You are riding along the right edge of the road and a parked car is ahead. How do you bypass it?',
+    },
+    options: [
+      {
+        id: 'opt_1',
+        text: {
+          et: 'Vaatad taha, veendud ohutuses, annad vasakule suunamärguande ja möödud autost ohutu külgvahega (ustest kaugemal).',
+          ru: 'Посмотреть назад, убедиться в безопасности, подать сигнал левого поворота и объехать с безопасным боковым интервалом (учитывая возможное открытие дверей).',
+          en: 'Look back, ensure safety, signal left, and bypass with a safe lateral distance (away from opening doors).',
+        },
+      },
+      {
+        id: 'opt_2',
+        text: {
+          et: 'Pöörad koheselt kõrvale ilma taha vaatamata, sest takistuse korral on sul eesõigus.',
+          ru: 'Сразу повернуть руль, не глядя назад, так как при препятствии у вас преимущество.',
+          en: 'Immediately steer around without looking back, as you have priority.',
+        },
+      },
+      {
+        id: 'opt_3',
+        text: {
+          et: 'Sõidad autole võimalikult lähedalt (5 cm kauguselt).',
+          ru: 'Проехать как можно ближе к машине (в 5 см).',
+          en: 'Ride as close as possible (5 cm) to the parked car.',
+        },
+      },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Takistusest ümberpõikel peab juht veenduma manöövri ohutuses, näitama suunamärguannet ja hoidma piisavat külgvahet, et vältida kokkupõrget ootamatult avaneva auto uksega.',
+      ru: 'При объезде препятствия необходимо убедиться в безопасности, подать сигнал рукой и держать достаточный боковой интервал на случай внезапного открытия двери авто.',
+      en: 'When avoiding an obstacle, check behind, signal, and keep a safe lateral distance to avoid opening car doors.',
+    },
+    lawReference: 'LS § 45',
+    visual: {
+      type: 'svg_intersection',
+      svgVariant: 'car_door_zone',
+    },
+  },
+
+  // -------------------------------------------------------------
+  // CATEGORY 5: Intersections (Sõitmine ristmikel)
+  // -------------------------------------------------------------
