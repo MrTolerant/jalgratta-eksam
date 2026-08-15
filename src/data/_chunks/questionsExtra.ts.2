@@ -21,3 +21,26 @@
     lawReference: 'LS § 32',
     visual: { type: 'svg_bike_lane', svgVariant: 'shared_path' },
   }),
+  q({
+    id: 'q_pedsaf_03',
+    categoryId: 'pedestrian_safety',
+    difficulty: 'medium',
+    question: {
+      et: 'Lähened bussipeatusele, kus inimesed väljuvad. Mida teed?',
+      ru: 'Подъезжаешь к остановке, где выходят люди. Что делать?',
+      en: 'You approach a bus stop where people are getting off. What do you do?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Vähendan kiirust, olen valmis peatuma ja annan teed väljuvatele inimestele.', ru: 'Снижаю скорость, готов остановиться и уступаю выходящим.', en: 'Slow down, be ready to stop, and give way to people leaving the vehicle.' } },
+      { id: 'opt_2', text: { et: 'Sõidan nende vahelt täiskiirusel.', ru: 'Проезжаю между ними на полной скорости.', en: 'Ride through them at full speed.' } },
+      { id: 'opt_3', text: { et: 'Helistan kella, et nad annaksid mulle teed.', ru: 'Звоню, чтобы они уступили мне.', en: 'Ring so they give way to me.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Peatuse juures on jalakäijad eriti haavatavad. Rattur peab olema valmis peatuma.',
+      ru: 'У остановки пешеходы особенно уязвимы. Велосипедист должен быть готов остановиться.',
+      en: 'Pedestrians at stops are especially vulnerable. Be ready to stop.',
+    },
+    lawReference: 'LS § 32',
+    visual: { type: 'svg_intersection', svgVariant: 'bus_stop' },
+  }),
