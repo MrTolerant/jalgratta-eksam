@@ -1,0 +1,22 @@
+  phone_ban: ScenePhoneBan,
+  child_seat: SceneChildSeat,
+  night_riding: SceneNightRiding,
+};
+
+export function SceneIllustration({ variant, lang }: { variant: string; lang: Language }) {
+  const Cmp = SCENE_MAP[variant];
+  if (!Cmp) {
+    return (
+      <Frame caption={t(lang, 'Liiklussituatsioon', 'Дорожная ситуация', 'Traffic situation')}>
+        <svg viewBox="0 0 420 200" className="w-full h-auto">
+          <rect width="420" height="200" fill="#9ccc65" />
+          <rect x="0" y="70" width="420" height="60" fill="#546e7a" />
+          <BikeTop x={210} y={100} rot={90} you />
+        </svg>
+      </Frame>
+    );
+  }
+  return <Cmp lang={lang} />;
+}
+
+export { BikeTop, CarTop, Pedestrian };
