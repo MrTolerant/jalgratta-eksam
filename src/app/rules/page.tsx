@@ -89,7 +89,7 @@ export default function RulesPage() {
       <section className="space-y-3">
         <h2 className="text-sm font-bold uppercase tracking-wide text-slate-500">
           {lang === 'et'
-            ? 'Ülеjäänud eksamiteemad (siit tuleb suurem osa 15 küsimusest)'
+            ? 'Ülejäänud eksamiteemad (siit tuleb suurem osa 15 küsimusest)'
             : lang === 'ru'
             ? 'Остальные темы экзамена (отсюда большая часть из 15 вопросов)'
             : 'The rest of the exam (most of the 15 questions come from here)'}

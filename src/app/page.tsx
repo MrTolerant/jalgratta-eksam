@@ -475,10 +475,10 @@ export default function HomePage() {
             <h3 className="text-xl font-bold">{getTranslation('rulesSummary', lang)}</h3>
             <p className="text-xs text-slate-300 max-w-sm">
               {lang === 'et'
-                ? 'Kiivrinõuded, vanusepiirid, kohustuslik varustus ja käitumine ülekäigurajal.'
+                ? 'Kõik 10 ametlikku eksamiteemat: eesõigus, ristmikud, kiiver, sebra ja varustus.'
                 : lang === 'ru'
-                ? 'Требования к шлему, возрастные нормы, светоотражатели и проезд пешеходных переходов.'
-                : 'Helmet rules, age limits, required bike equipment, and zebra crossing rules.'}
+                ? 'Все 10 официальных тем: приоритет, перекрёстки, шлем, зебра и оснащение.'
+                : 'All 10 official exam topics: priority, junctions, helmet, zebra and equipment.'}
             </p>
           </div>
           <ChevronRight className="w-6 h-6 text-emerald-400 group-hover:translate-x-1.5 transition-transform" />
