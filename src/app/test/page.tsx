@@ -17,7 +17,7 @@ import {
   quizPassed,
   unseenCount,
 } from '@/lib/quizEngine';
-import { examFingerprint, getFlaggedIds, shortVisitorTag, toggleFlaggedQuestion } from '@/lib/visitor';
+import { examFingerprint, getFlaggedIds, markQuestionsSeen, shortVisitorTag, toggleFlaggedQuestion } from '@/lib/visitor';
 import confetti from 'canvas-confetti';
 import {
   Timer,
@@ -144,6 +144,11 @@ function TestContent() {
   }, [timerActive, isFinished, handleFinish]);
 
   const currentQ = sessionQuestions[currentIndex];
+
+  useEffect(() => {
+    if (!currentQ || isFinished || isLoading) return;
+    markQuestionsSeen([currentQ.id]);
+  }, [currentQ, isFinished, isLoading]);
 
   const handleSelectOption = useCallback((optId: string) => {
     if (isFinished) return;
