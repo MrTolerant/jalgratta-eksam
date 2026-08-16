@@ -53,4 +53,50 @@ export const extraQuestions: Question[] = [
     lawReference: 'Liiklusmärgid märk 211',
     visual: { type: 'sign', signCode: '211', signName: { et: 'Märk 211: Peatee', ru: 'Знак 211: Главная дорога', en: 'Sign 211: Priority road' } },
   }),
+  q({
+    id: 'q_pos_04',
+    categoryId: 'road_position',
+    difficulty: 'medium',
+    question: {
+      et: 'Kas asulavälisel teel tohib rattur sõita teepeenral?',
+      ru: 'Можно ли за городом ехать по обочине?',
+      en: 'May a cyclist ride on the shoulder outside a built-up area?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Jah, kui see on ohutu ega takista teisi; muidu sõidutee paremas servas.', ru: 'Да, если это безопасно и не мешает другим; иначе — у правого края проезжей части.', en: 'Yes if it is safe and does not obstruct others; otherwise on the right edge of the roadway.' } },
+      { id: 'opt_2', text: { et: 'Ei, teepeenar on ainult autodele.', ru: 'Нет, обочина только для машин.', en: 'No, the shoulder is only for cars.' } },
+      { id: 'opt_3', text: { et: 'Jah, aga ainult pimedal ajal.', ru: 'Да, но только ночью.', en: 'Yes, but only at night.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Asulavälisel teel võib rattur kasutada teepeenart, kui see on sõidetav ja ohutu. Takistada ei tohi jalakäijaid.',
+      ru: 'Вне населённого пункта велосипедист может ехать по обочине, если она пригодна и безопасна.',
+      en: 'Outside built-up areas a cyclist may use the shoulder when it is rideable and safe.',
+    },
+    lawReference: 'LS § 31',
+    visual: { type: 'svg_bike_lane', svgVariant: 'shoulder_entry' },
+  }),
+  q({
+    id: 'q_pos_05',
+    categoryId: 'road_position',
+    difficulty: 'easy',
+    question: {
+      et: 'Kui teel on kasutatav jalgrattarada, kus peab rattur sõitma?',
+      ru: 'Если на дороге есть пригодная велополоса, где должен ехать велосипедист?',
+      en: 'If a usable cycle lane is present, where must the cyclist ride?',
+    },
+    options: [
+      { id: 'opt_1', text: { et: 'Jalgrattarajal, kui see on kasutatav ja ohutu.', ru: 'По велополосе, если ею можно безопасно пользоваться.', en: 'In the cycle lane, if it is usable and safe.' } },
+      { id: 'opt_2', text: { et: 'Sõiduraja keskel, et autod näeksid paremini.', ru: 'По центру полосы, чтобы машины лучше видели.', en: 'In the middle of the car lane for visibility.' } },
+      { id: 'opt_3', text: { et: 'Vasakul sõidurajal.', ru: 'В левом ряду.', en: 'In the left traffic lane.' } },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Kui jalgrattatee või -rada on olemas ja kasutatav, peab rattur seda kasutama.',
+      ru: 'При наличии пригодной велодорожки или полосы велосипедист обязан ею пользоваться.',
+      en: 'If a cycle track or lane exists and is usable, the cyclist must use it.',
+    },
+    lawReference: 'LS § 31',
+    visual: { type: 'svg_bike_lane', svgVariant: 'bike_lane' },
+  }),
 ];
