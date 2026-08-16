@@ -58,6 +58,7 @@ export default function HomePage() {
 
   return (
     <div className="space-y-10 sm:space-y-12">
+      {/* Hero Section */}
       <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-sky-600 via-indigo-600 to-slate-900 text-white p-6 sm:p-10 md:p-12 shadow-xl shadow-sky-600/10">
         <div className="relative z-10 max-w-2xl space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-sky-200 text-xs font-semibold border border-white/10">
@@ -99,6 +100,7 @@ export default function HomePage() {
           </div>
         </div>
 
+        {/* Decorative bike watermark icon */}
         <div className="absolute -right-8 -bottom-10 opacity-10 pointer-events-none">
           <Bike className="w-96 h-96 text-white" />
         </div>
@@ -133,6 +135,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Quick Statistics Banner */}
       {stats && stats.totalQuestionsAnswered > 0 && (
         <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex items-center gap-3.5">
@@ -193,6 +196,7 @@ export default function HomePage() {
         </section>
       )}
 
+      {/* Learning Modes Grid */}
       <section className="space-y-4">
         <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
           <Zap className="w-6 h-6 text-amber-500" />
@@ -287,6 +291,7 @@ export default function HomePage() {
             </Link>
           )}
 
+          {/* 1. Exam Simulation */}
           <Link
             href="/test?mode=exam"
             className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-sky-500 dark:hover:border-sky-500 shadow-sm hover:shadow-md transition-all"
@@ -308,6 +313,7 @@ export default function HomePage() {
             </div>
           </Link>
 
+          {/* 2. Topic Practice */}
           <Link
             href="/topics"
             className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500 shadow-sm hover:shadow-md transition-all"
@@ -329,6 +335,7 @@ export default function HomePage() {
             </div>
           </Link>
 
+          {/* 3. Mistakes Review */}
           <Link
             href="/test?mode=mistakes"
             className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-rose-500 dark:hover:border-rose-500 shadow-sm hover:shadow-md transition-all"
@@ -350,6 +357,7 @@ export default function HomePage() {
             </div>
           </Link>
 
+          {/* 4. Marathon Mode */}
           <Link
             href="/test?mode=marathon"
             className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-amber-500 dark:hover:border-amber-500 shadow-sm hover:shadow-md transition-all"
@@ -373,6 +381,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 10 Official Topics Overview */}
       <section className="space-y-4">
         <div className="flex items-center justify-between">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -455,6 +464,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Road signs & quick cheat-sheet promo */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Link
           href="/signs"
