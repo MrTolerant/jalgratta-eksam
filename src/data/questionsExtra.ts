@@ -30,27 +30,4 @@ export const extraQuestions: Question[] = [
     lawReference: 'LS § 17',
     visual: { type: 'svg_intersection', svgVariant: 'driveway_exit' },
   }),
-  q({
-    id: 'q_prio_06',
-    categoryId: 'priority_give_way',
-    difficulty: 'hard',
-    question: {
-      et: 'Peateel sõitev rattur läheneb ristmikule. Kõrvalteel on märk „Anna teed“. Kes sõidab esimesena?',
-      ru: 'Велосипедист едет по главной дороге к перекрёстку. На второстепенной стоит «Уступите дорогу». Кто едет первым?',
-      en: 'A cyclist is on a priority road. A side road has a Give way sign. Who goes first?',
-    },
-    options: [
-      { id: 'opt_1', text: { et: 'Peateel sõitev rattur, sest peatee annab eesõiguse ka jalgratturile.', ru: 'Велосипедист на главной: главная дорога даёт преимущество и велосипеду.', en: 'The cyclist on the priority road — priority applies to bicycles too.' } },
-      { id: 'opt_2', text: { et: 'Alati auto, sest auto on raskem.', ru: 'Всегда машина, потому что она тяжелее.', en: 'Always the car, because it is heavier.' } },
-      { id: 'opt_3', text: { et: 'Kehtib ainult parema käe reegel.', ru: 'Действует только правило помехи справа.', en: 'Only the priority-to-the-right rule applies.' } },
-    ],
-    correctAnswerId: 'opt_1',
-    explanation: {
-      et: 'Peatee kehtib kõigile juhtidele, sealhulgas jalgratturitele. Kõrvalteelt tulev juht peab teed andma.',
-      ru: 'Главная дорога действует для всех водителей, включая велосипедистов.',
-      en: 'A priority road applies to all drivers, including cyclists.',
-    },
-    lawReference: 'Liiklusmärgid märk 211',
-    visual: { type: 'sign', signCode: '211', signName: { et: 'Märk 211: Peatee', ru: 'Знак 211: Главная дорога', en: 'Sign 211: Priority road' } },
-  }),
 ]
