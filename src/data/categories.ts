@@ -11,7 +11,7 @@ export const categories: Category[] = [
     },
     description: {
       et: 'Sõiduteele sõit hoovist, teega külgnevalt alalt ja teepeenralt ning ristmikel.',
-      ru: 'Выезд на проезжую часть со двора, прилегающей территории, обочины и на перекрестках.',
+      ru: 'Выезд на проезжую часть со двора, прилегающей территории, обочины и на перекрёстках.',
       en: 'Entering the roadway from courtyards, adjacent areas, road shoulders, and intersections.',
     },
     icon: 'ShieldAlert',
@@ -26,7 +26,7 @@ export const categories: Category[] = [
     },
     description: {
       et: 'Sõitmine asulas, väljaspool asulat, kõnniteel ja manöövri sooritamisel.',
-      ru: 'Движение в населенном пункте, вне его, по тротуару и при выполнении маневров.',
+      ru: 'Движение в населённом пункте, вне его, по тротуару и при выполнении манёвров.',
       en: 'Riding in urban and rural areas, on sidewalks, and during maneuvers.',
     },
     icon: 'Navigation',
@@ -41,7 +41,7 @@ export const categories: Category[] = [
     },
     description: {
       et: 'Ohutu vasak- ja tagasipöörde sooritamine ristmikel ja ristmikevahelisel alal.',
-      ru: 'Безопасное выполнение левого поворота и разворота на перекрестках и перегонах.',
+      ru: 'Безопасное выполнение левого поворота и разворота на перекрёстках и перегонах.',
       en: 'Safe execution of left turns and U-turns at intersections and between them.',
     },
     icon: 'CornerUpLeft',
@@ -66,7 +66,7 @@ export const categories: Category[] = [
     order: 5,
     title: {
       et: 'Sõitmine ristmikel',
-      ru: 'Проезд перекрестков',
+      ru: 'Проезд перекрёстков',
       en: 'Passing intersections',
     },
     description: {
@@ -116,7 +116,7 @@ export const categories: Category[] = [
     },
     description: {
       et: 'Jalgrattatee, jalgratta- ja jalgtee ning jalgrattaraja kasutamise reeglid ja märgistus.',
-      ru: 'Правила движения по велодорожкам, совмещенным дорожкам и велополосам на ПЧ.',
+      ru: 'Правила движения по велодорожкам, совмещённым дорожкам и велополосам на проезжей части.',
       en: 'Rules and signs for cycle tracks, shared foot/cycle paths, and cycle lanes.',
     },
     icon: 'Bike',
@@ -126,7 +126,7 @@ export const categories: Category[] = [
     order: 9,
     title: {
       et: 'Pime aeg ja nähtavus',
-      ru: 'Темное время суток и видимость',
+      ru: 'Тёмное время суток и видимость',
       en: 'Darkness and poor visibility',
     },
     description: {
@@ -145,9 +145,9 @@ export const categories: Category[] = [
       en: 'Safety, helmet & equipment',
     },
     description: {
-      et: 'Kiivri kandmise nõue (kuni 16 a), vanusepiirangud (10 a, juhiluba 10-15 a), pidurid ja signaalkell.',
-      ru: 'Требования к шлему (до 16 лет), возраст (10 лет, права 10-15 лет), звонок и тормоза.',
-      en: 'Mandatory helmet rule (under 16), age requirements (10+ yrs, license 10-15), bell and brakes.',
+      et: 'Kiivri kandmise nõue (kuni 16 a), vanusepiirangud (10 a, juhiluba 10–15 a), pidurid ja signaalkell.',
+      ru: 'Требования к шлему (до 16 лет), возраст (10 лет, права 10–15 лет), звонок и тормоза.',
+      en: 'Mandatory helmet rule (under 16), age requirements (10+ yrs, licence 10–15), bell and brakes.',
     },
     icon: 'CheckCircle2',
   },
