@@ -3,6 +3,9 @@ import { moreQuestions } from '@/data/questionsMore';
 import { extraBankQuestions } from '@/data/questionsBank3';
 
 const baseQuestions: Question[] = [
+  // -------------------------------------------------------------
+  // CATEGORY 1: Priority & Give Way (Teeandmise kohustus)
+  // -------------------------------------------------------------
   {
     id: 'q_prio_01',
     categoryId: 'priority_give_way',
