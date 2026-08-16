@@ -76,10 +76,11 @@ export function recordExamSession(session: ExamSession) {
     }
 
     const cat = qObj.categoryId;
-    if (stats.categoryStats[cat]) {
-      stats.categoryStats[cat].answered += 1;
-      if (isCorrect) stats.categoryStats[cat].correct += 1;
+    if (!stats.categoryStats[cat]) {
+      stats.categoryStats[cat] = { answered: 0, correct: 0 };
     }
+    stats.categoryStats[cat].answered += 1;
+    if (isCorrect) stats.categoryStats[cat].correct += 1;
   });
 
   stats.totalQuestionsAnswered += session.questionIds.filter((id) => session.userAnswers[id]).length;
@@ -107,28 +108,11 @@ export function recordExamSession(session: ExamSession) {
 }
 
 export function generateExamQuestions(): string[] {
-  const byCat = new Map<string, typeof questions>();
-  for (const q of questions) {
-    const list = byCat.get(q.categoryId) || [];
-    list.push(q);
-    byCat.set(q.categoryId, list);
-  }
-
-  const cats = [...byCat.keys()].sort(() => Math.random() - 0.5);
-  const selected: string[] = [];
-
-  for (const cat of cats) {
-    if (selected.length >= 15) break;
-    const pool = byCat.get(cat);
-    if (!pool?.length) continue;
-    const pick = pool[Math.floor(Math.random() * pool.length)];
-    selected.push(pick.id);
-  }
-
-  const rest = questions.filter((q) => !selected.includes(q.id)).sort(() => Math.random() - 0.5);
-  while (selected.length < 15 && rest.length) {
-    selected.push(rest.pop()!.id);
-  }
-
-  return selected;
+  // Real Transpordiamet exam: 15 questions from 10 categories
+  // Select questions fairly across categories
+  const shuffled = [...questions].sort(() => 0.5 - Math.random());
+  
+  // Pick up to 15 questions
+  const selected = shuffled.slice(0, 15);
+  return selected.map((q) => q.id);
 }

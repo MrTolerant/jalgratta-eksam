@@ -27,9 +27,9 @@ export const translations = {
     en: 'Practice by Topic',
   },
   practiceDesc: {
-    et: 'Harjuta küsimusi 15 teemavaldkonna järgi kohese selgitusega.',
-    ru: 'Тренируйтесь по 15 темам с мгновенным разбором ответов.',
-    en: 'Practice by 15 syllabus topics with instant explanations.',
+    et: 'Harjuta küsimusi 10 ametliku teemavaldkonna järgi kohese selgitusega.',
+    ru: 'Тренируйтесь по 10 официальным темам с мгновенным разбором ответов.',
+    en: 'Practice by 10 official syllabus topics with instant explanations.',
   },
   mistakesMode: {
     et: 'Vigade parandus',
@@ -186,55 +186,85 @@ export const translations = {
     ru: 'Фильтр по теме',
     en: 'Filter by topic',
   },
-  gamesTitle: {
-    et: 'Õppemängud',
-    ru: 'Игры для запоминания',
-    en: 'Learning games',
+  dailyMode: {
+    et: 'Päeva väljakutse',
+    ru: 'Вызов дня',
+    en: 'Daily challenge',
   },
-  gamesDesc: {
-    et: 'Mängi ja jäta meelde just jalgratturi reeglid: kes sõidab esimesena, märgid, varustus.',
-    ru: 'Играй и запоминай правила велосипедиста: кто едет первым, знаки, оснащение.',
-    en: 'Play and memorise cyclist rules: who goes first, signs, and equipment.',
+  dailyDesc: {
+    et: '10 küsimust, mis on täna ainult sinu küpsise järgi. Teisel inimesel on teine komplekt.',
+    ru: '10 вопросов только для тебя на сегодня по cookie. У другого человека другой набор.',
+    en: '10 questions unique to your cookie today. Another visitor gets a different set.',
   },
-  gamePriority: {
-    et: 'Kes sõidab esimesena?',
-    ru: 'Кто едет первым?',
-    en: 'Who goes first?',
+  quickMode: {
+    et: 'Kiirblitz',
+    ru: 'Блиц',
+    en: 'Quick blitz',
   },
-  gamePriorityDesc: {
-    et: 'Vaata skeemi ja toksa liiklejad õiges järjekorras.',
-    ru: 'Смотри схему и нажимай участников в правильном порядке.',
-    en: 'Look at the scene and tap road users in the correct order.',
+  quickDesc: {
+    et: '7 juhuslikku küsimust 7 minutiga. Iga kord uus valik, mida sa veel ei näinud.',
+    ru: '7 случайных вопросов за 7 минут. Каждый раз новый набор из ещё не виденных.',
+    en: '7 random questions in 7 minutes. A fresh unseen mix every time.',
   },
-  gameSigns: {
-    et: 'Märgiflash',
-    ru: 'Флеш-знаки',
-    en: 'Sign flash',
+  weakMode: {
+    et: 'Nõrgad teemad',
+    ru: 'Слабые темы',
+    en: 'Weak topics',
   },
-  gameSignsDesc: {
-    et: 'Tuvasta liiklusmärk 10 sekundi jooksul. Jää järjestikku õigeks.',
-    ru: 'Узнай знак за 10 секунд. Собери серию правильных ответов.',
-    en: 'Name the sign in 10 seconds. Build a correct streak.',
+  weakDesc: {
+    et: '12 küsimust teemadest, kus su täpsus on kõige madalam.',
+    ru: '12 вопросов из тем с самой низкой точностью.',
+    en: '12 questions from the topics where your accuracy is lowest.',
   },
-  gameEquipment: {
-    et: 'Mis rattal puudu on?',
-    ru: 'Чего не хватает на велосипеде?',
-    en: 'What is missing on the bike?',
+  uniqueSet: {
+    et: 'Sinu unikaalne komplekt',
+    ru: 'Твой уникальный набор',
+    en: 'Your unique set',
   },
-  gameEquipmentDesc: {
-    et: 'Leia, mis varustusest on puudu või vale — tuled, helkurid, kiiver, kell.',
-    ru: 'Найди, чего не хватает или что неверно — фары, катафоты, шлем, звонок.',
-    en: 'Spot missing or wrong kit — lights, reflectors, helmet, bell.',
+  unseenLeft: {
+    et: 'Uusi küsimusi jäänud',
+    ru: 'Новых вопросов осталось',
+    en: 'Unseen questions left',
   },
-  gameSprint: {
-    et: 'Reeglisprint',
-    ru: 'Спринт по правилам',
-    en: 'Rule sprint',
+  streakDays: {
+    et: 'Päevade seeria',
+    ru: 'Серия дней',
+    en: 'Day streak',
   },
-  gameSprintDesc: {
-    et: 'Jah / ei küsimused kella vastu. Kinnista reeglid mällu.',
-    ru: 'Вопросы да / нет на время. Закрепи правила в памяти.',
-    en: 'Yes / no questions against the clock. Lock the rules in memory.',
+  keyboardHint: {
+    et: 'Klaviatuur: 1–3 valik, ← → küsimus, F märgi, H vihje',
+    ru: 'Клавиатура: 1–3 ответ, ← → вопрос, F метка, H подсказка',
+    en: 'Keyboard: 1–3 answer, ← → question, F flag, H hint',
+  },
+  flagQuestion: {
+    et: 'Märgi kordamiseks',
+    ru: 'Отметить для повтора',
+    en: 'Flag for review',
+  },
+  showHint: {
+    et: 'Näita vihjet',
+    ru: 'Показать подсказку',
+    en: 'Show hint',
+  },
+  trainSessionMistakes: {
+    et: 'Treeni ainult need vead',
+    ru: 'Тренировать только эти ошибки',
+    en: 'Train only these mistakes',
+  },
+  visitorRemembered: {
+    et: 'Külastaja meeles (küpsis)',
+    ru: 'Посетитель запомнен (cookie)',
+    en: 'Visitor remembered (cookie)',
+  },
+  extraTopics: {
+    et: 'Lisateemad',
+    ru: 'Дополнительные темы',
+    en: 'Extra topics',
+  },
+  flaggedMode: {
+    et: 'Märgitud küsimused',
+    ru: 'Отмеченные вопросы',
+    en: 'Flagged questions',
   },
 };
 
