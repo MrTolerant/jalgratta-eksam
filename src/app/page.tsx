@@ -75,10 +75,10 @@ export default function HomePage() {
           </p>
           <p className="text-xs sm:text-sm text-sky-100/80">
             {lang === 'et'
-              ? `${bankSize} erinevat küsimust. Iga test on juhuslik ja seotud sinu küpsisega — kahel inimesel ei kordu sama komplekt.`
+              ? `${bankSize} erinevat küsimust. Sama laps näeb igal uuel sisseastumisel uusi küsimusi — juba nähtud jäetakse vahele.`
               : lang === 'ru'
-              ? `${bankSize} разных вопросов. Каждый тест случайный и привязан к cookie — у двух людей набор не совпадёт.`
-              : `${bankSize} distinct questions. Every test is random and tied to your cookie — two people will not get the same set.`}
+              ? `${bankSize} разных вопросов. При каждом новом заходе ребёнок получает ещё не виденные вопросы — старые не повторяются.`
+              : `${bankSize} distinct questions. On every new visit the child gets unseen questions — already viewed ones are skipped.`}
           </p>
 
           <div className="pt-2 flex flex-wrap items-center gap-3">
@@ -127,10 +127,10 @@ export default function HomePage() {
           <div className="text-[11px] uppercase tracking-wide text-slate-500">{getTranslation('uniqueSet', lang)}</div>
           <div className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
             {lang === 'et'
-              ? 'Nähtud küsimused jäetakse vahele, kuni pank saab otsa.'
+              ? 'Juba nähtud küsimused jäetakse vahele. Kui kõik on läbi, algab uus ring.'
               : lang === 'ru'
-              ? 'Уже виденные вопросы пропускаются, пока банк не закончится.'
-              : 'Seen questions are skipped until the bank cycles.'}
+              ? 'Уже виденные вопросы пропускаются. Когда банк кончится — новый круг.'
+              : 'Already seen questions are skipped. When the bank is done, a new cycle starts.'}
           </div>
         </div>
       </section>
