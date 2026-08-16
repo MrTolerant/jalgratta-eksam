@@ -11,7 +11,7 @@ export const Navbar: React.FC = () => {
 
   const languages: { code: Language; label: string; flag: string }[] = [
     { code: 'ru', label: 'Русский', flag: '🇷🇺' },
-    { code: 'et', label: 'Eesti', flag: '🇪🇹' },
+    { code: 'et', label: 'Eesti', flag: '🇪🇪' },
     { code: 'en', label: 'English', flag: '🇬🇧' },
   ];
 
