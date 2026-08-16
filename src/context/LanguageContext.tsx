@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useSyncExternalStore } from 'react';
+import React, { createContext, useContext, useEffect, useState, useSyncExternalStore } from 'react';
 import { Language } from '@/types';
 
 interface LanguageContextType {
@@ -8,13 +8,15 @@ interface LanguageContextType {
   setLang: (lang: Language) => void;
 }
 
+const DEFAULT_LANG: Language = 'ru';
+
 const LanguageContext = createContext<LanguageContextType>({
-  lang: 'et',
+  lang: DEFAULT_LANG,
   setLang: () => {},
 });
 
 function getClientSavedLang(): Language {
-  if (typeof window === 'undefined') return 'et';
+  if (typeof window === 'undefined') return DEFAULT_LANG;
   try {
     const saved = localStorage.getItem('est_bike_lang');
     if (saved === 'et' || saved === 'ru' || saved === 'en') {
@@ -23,7 +25,7 @@ function getClientSavedLang(): Language {
   } catch {
     // ignore
   }
-  return 'et';
+  return DEFAULT_LANG;
 }
 
 function subscribe(callback: () => void) {
@@ -32,8 +34,18 @@ function subscribe(callback: () => void) {
 }
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const initialLang = useSyncExternalStore(subscribe, getClientSavedLang, () => 'et' as Language);
+  const initialLang = useSyncExternalStore(subscribe, getClientSavedLang, () => DEFAULT_LANG);
   const [lang, setLangState] = useState<Language>(initialLang);
+
+  useEffect(() => {
+    if (initialLang !== lang) {
+      setLangState(initialLang);
+    }
+  }, [initialLang, lang]);
+
+  useEffect(() => {
+    document.documentElement.lang = lang || DEFAULT_LANG;
+  }, [lang]);
 
   const setLang = (newLang: Language) => {
     setLangState(newLang);
