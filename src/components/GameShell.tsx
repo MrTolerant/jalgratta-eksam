@@ -29,7 +29,7 @@ export function GameShell({
           className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-500 hover:text-sky-600"
         >
           <Home className="w-4 h-4" />
-          {lang === 'et' ? 'Avaleht' : lang === 'ru' ? 'Домой' : 'Home'}
+          {lang === 'et' ? 'Avaleht' : lang === 'ru' ? 'На главную' : 'Home'}
         </Link>
       </div>
       <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">{title}</h1>
