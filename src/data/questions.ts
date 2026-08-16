@@ -53,4 +53,6 @@ const baseQuestions: Question[] = [
       svgVariant: 'driveway_exit',
     },
   },
-]
+];
+
+export const questions: Question[] = [...baseQuestions, ...moreQuestions, ...extraBankQuestions];
