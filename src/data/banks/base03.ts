@@ -15,7 +15,7 @@ export const base03: Question[] = [
         id: 'opt_1',
         text: {
           et: 'Jalgrattatee – tee, mis on ette nähtud jalgrattaga, kergliikuriga ja pisimopeediga sõitmiseks.',
-          ru: 'Велосипедная дорожка — предназначена для движения на велосипедах, легких персональных средствах и микромопедах.',
+          ru: 'Велосипедная дорожка — предназначена для движения на велосипедах, лёгких персональных средствах и микромопедах.',
           en: 'Cycle path – designated for bicycles, personal light electric vehicles, and mini-mopeds.',
         },
       },
@@ -39,7 +39,7 @@ export const base03: Question[] = [
     correctAnswerId: 'opt_1',
     explanation: {
       et: 'Märk 431 „Jalgrattatee“ on kohustusmärk, mis määrab teeosa jalgratastele ja kergliikuritele.',
-      ru: 'Знак 431 «Велосипедная дорожка» является предписывающим знаком, определяющим дорогу для велосипедистов и легкого электротранспорта.',
+      ru: 'Знак 431 «Велосипедная дорожка» является предписывающим знаком, определяющим дорогу для велосипедистов и лёгкого электротранспорта.',
       en: 'Sign 431 "Cycle path" is a mandatory sign designating a dedicated path for bicycles and light personal vehicles.',
     },
     lawReference: 'Liiklusmärgid märk 431',
@@ -111,7 +111,7 @@ export const base03: Question[] = [
     difficulty: 'easy',
     question: {
       et: 'Millised tuled peavad jalgrattal põlema pimeda ajal või halva nähtavuse korral sõites?',
-      ru: 'Какие фонари должны гореть на велосипеде при движении в темное время суток или в условиях плохой видимости?',
+      ru: 'Какие фонари должны гореть на велосипеде при движении в тёмное время суток или в условиях плохой видимости?',
       en: 'Which lights must be illuminated on a bicycle in the dark or poor visibility?',
     },
     options: [
@@ -127,7 +127,7 @@ export const base03: Question[] = [
         id: 'opt_2',
         text: {
           et: 'Mõlemad tuled peavad olema rohelised.',
-          ru: 'Оба фонаря должны быть зелеными.',
+          ru: 'Оба фонаря должны быть зелёными.',
           en: 'Both lights must be green.',
         },
       },
@@ -166,7 +166,7 @@ export const base03: Question[] = [
         id: 'opt_1',
         text: {
           et: 'Ees valge, taga punane ning vähemalt ühe ratta mõlemal küljel kollane või valge helkur.',
-          ru: 'Спереди белый, сзади красный, и минимум на одном колесе с обеих сторон желтый или белый отражатель.',
+          ru: 'Спереди белый, сзади красный, и минимум на одном колесе с обеих сторон жёлтый или белый отражатель.',
           en: 'Front white, rear red, and on at least one wheel on both sides a yellow or white reflector.',
         },
       },
@@ -190,7 +190,7 @@ export const base03: Question[] = [
     correctAnswerId: 'opt_1',
     explanation: {
       et: 'Jalgrattal peab olema ees valge ja taga punane helkur ning vähemalt ühe ratta mõlemal küljel kollane või valge helkur (kodarahelkur).',
-      ru: 'На велосипеде спереди должен быть белый катафот, сзади красный, и на колесах (спицах) желтые или белые отражатели с обеих сторон.',
+      ru: 'На велосипеде спереди должен быть белый катафот, сзади красный, и на колёсах (спицах) жёлтые или белые отражатели с обеих сторон.',
       en: 'A bicycle must have a white front reflector, red rear reflector, and amber/white side reflectors on at least one wheel.',
     },
     lawReference: 'LS § 87',
@@ -205,7 +205,7 @@ export const base03: Question[] = [
     difficulty: 'easy',
     question: {
       et: 'Kellele on Eestis jalgrattaga sõitmisel jalgratturikiivri kandmine kohustuslik?',
-      ru: 'Для кого в Эстонии ношение застегнутого велосипедного шлема является обязательным по закону?',
+      ru: 'Для кого в Эстонии ношение застёгнутого велосипедного шлема является обязательным по закону?',
       en: 'For whom is wearing a fastened bicycle helmet mandatory by law in Estonia?',
     },
     options: [
@@ -237,7 +237,7 @@ export const base03: Question[] = [
     correctAnswerId: 'opt_1',
     explanation: {
       et: 'Eesti Liiklusseaduse kohaselt peab alla 16-aastane jalgrattur teel (sh kõnniteel ja kergliiklusteel) sõites kandma kinnirihmatud jalgratturikiivrit.',
-      ru: 'Согласно ПДД Эстонии, велосипедист в возрасте до 16 лет при движении по дороге (включая тротуары и велодорожки) обязан носить застегнутый шлем.',
+      ru: 'Согласно ПДД Эстонии, велосипедист в возрасте до 16 лет при движении по дороге (включая тротуары и велодорожки) обязан носить застёгнутый шлем.',
       en: 'Under Estonian Traffic Act, cyclists under 16 must wear a properly fastened bicycle helmet when riding on any road or path.',
     },
     lawReference: 'LS § 31 lg 6',
@@ -252,7 +252,7 @@ export const base03: Question[] = [
     difficulty: 'medium',
     question: {
       et: 'Mis vanusest alates tohib laps iseseisvalt (ilma täiskasvanu järelevalveta) sõita sõiduteel ja millal on vaja juhiluba?',
-      ru: 'С какого возраста ребенок может самостоятельно ехать по проезжей части и когда требуются права?',
+      ru: 'С какого возраста ребёнок может самостоятельно ехать по проезжей части и когда требуются права?',
       en: 'From what age may a child ride independently on the roadway and when is a license required?',
     },
     options: [
