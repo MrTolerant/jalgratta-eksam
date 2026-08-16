@@ -9,7 +9,6 @@ export default function RulesPage() {
 
   return (
     <div className="max-w-4xl mx-auto space-y-8">
-      {/* Title */}
       <div className="space-y-2">
         <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2.5">
           <ShieldCheck className="w-8 h-8 text-emerald-500" />
@@ -24,9 +23,7 @@ export default function RulesPage() {
         </p>
       </div>
 
-      {/* Rules Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {/* Rule 1: Ages & Licenses */}
         <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
           <div className="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center font-bold">
             10+
@@ -59,7 +56,6 @@ export default function RulesPage() {
           </ul>
         </div>
 
-        {/* Rule 2: Helmet requirement */}
         <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
           <div className="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center">
             <Shield className="w-6 h-6" />
@@ -72,7 +68,7 @@ export default function RulesPage() {
               {lang === 'et'
                 ? 'Kõigile alla 16-aastastele jalgratturitele on kiivri kandmine ja kinnitamine KOHUSTUSLIK teel sõites.'
                 : lang === 'ru'
-                ? 'Для всех лиц младше 16 лет ношение застегнутого шлема ОБЯЗАТЕЛЬНО при езде по любой дороге.'
+                ? 'Для всех лиц младше 16 лет ношение застёгнутого шлема ОБЯЗАТЕЛЬНО при езде по любой дороге.'
                 : 'Wearing a securely fastened helmet is MANDATORY for all cyclists under 16 years of age.'}
             </li>
             <li>
@@ -85,7 +81,6 @@ export default function RulesPage() {
           </ul>
         </div>
 
-        {/* Rule 3: Crosswalks & Zebras */}
         <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
           <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center">
             <Users className="w-6 h-6" />
@@ -112,13 +107,12 @@ export default function RulesPage() {
               {lang === 'et'
                 ? 'Ratast käekõrval lükates muutud jalakäijaks ja saad täieliku eesõiguse!'
                 : lang === 'ru'
-                ? 'Спешившись и ведя велосипед рядом, вы становитесь пешеходом с полным преимуществом!'
+                ? 'Спешившись и ведя велосипед рядом, ты становишься пешеходом с полным преимуществом!'
                 : 'Dismounting and walking your bicycle makes you a pedestrian with full right-of-way.'}
             </li>
           </ul>
         </div>
 
-        {/* Rule 4: Equipment & Lights */}
         <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
           <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
             <Bike className="w-6 h-6" />
@@ -138,7 +132,7 @@ export default function RulesPage() {
               {lang === 'et'
                 ? 'Helkurid: ees valge, taga punane, külgedel (ratastel) kollased või valged.'
                 : lang === 'ru'
-                ? 'Отражатели: спереди белый, сзади красный, на колесах желтые или белые.'
+                ? 'Отражатели: спереди белый, сзади красный, на колёсах жёлтые или белые.'
                 : 'Reflectors: white front, red rear, yellow or white wheel side reflectors.'}
             </li>
             <li>
