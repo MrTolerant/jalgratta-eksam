@@ -40,7 +40,7 @@ export const trafficSigns: TrafficSign[] = [
     },
     description: {
       et: 'Annab juhile eesõiguse reguleerimata ristmike ületamisel.',
-      ru: 'Предоставляет право преимущественного проезда нерегулируемых перекрестков.',
+      ru: 'Предоставляет право преимущественного проезда нерегулируемых перекрёстков.',
       en: 'Grants the driver priority at uncontrolled intersections.',
     },
     category: 'priority',
@@ -55,7 +55,7 @@ export const trafficSigns: TrafficSign[] = [
     },
     description: {
       et: 'Kohustuslik teeosa jalgratastele ja kergliikuritele. Jalakäijad ei tohi seal takistada rattureid.',
-      ru: 'Предписано для движения на велосипедах и легком персональном транспорте.',
+      ru: 'Предписано для движения на велосипедах и лёгком персональном транспорте.',
       en: 'Designated path for bicycles and light personal electric vehicles.',
     },
     category: 'mandatory',
