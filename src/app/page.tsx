@@ -58,7 +58,6 @@ export default function HomePage() {
 
   return (
     <div className="space-y-10 sm:space-y-12">
-      {/* Hero Section */}
       <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-sky-600 via-indigo-600 to-slate-900 text-white p-6 sm:p-10 md:p-12 shadow-xl shadow-sky-600/10">
         <div className="relative z-10 max-w-2xl space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-sky-200 text-xs font-semibold border border-white/10">
@@ -75,9 +74,9 @@ export default function HomePage() {
           </p>
           <p className="text-xs sm:text-sm text-sky-100/80">
             {lang === 'et'
-              ? `${bankSize} erinevat küsimust. Sama laps näeb igal uuel sisseastumisel uusi küsimusi — juba nähtud jäetakse vahele.`
+              ? `${bankSize} erinevat küsimust. Sama laps näeb igal uuel külastusel uusi küsimusi — juba nähtud jäetakse vahele.`
               : lang === 'ru'
-              ? `${bankSize} разных вопросов. При каждом новом заходе ребёнок получает ещё не виденные вопросы — старые не повторяются.`
+              ? `${bankSize} разных вопросов. При каждом новом заходе ребёнок получает вопросы, которые ещё не видел, — старые не повторяются.`
               : `${bankSize} distinct questions. On every new visit the child gets unseen questions — already viewed ones are skipped.`}
           </p>
 
@@ -100,7 +99,6 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Decorative bike watermark icon */}
         <div className="absolute -right-8 -bottom-10 opacity-10 pointer-events-none">
           <Bike className="w-96 h-96 text-white" />
         </div>
@@ -129,13 +127,12 @@ export default function HomePage() {
             {lang === 'et'
               ? 'Juba nähtud küsimused jäetakse vahele. Kui kõik on läbi, algab uus ring.'
               : lang === 'ru'
-              ? 'Уже виденные вопросы пропускаются. Когда банк кончится — новый круг.'
+              ? 'Уже просмотренные вопросы пропускаются. Когда банк кончится — новый круг.'
               : 'Already seen questions are skipped. When the bank is done, a new cycle starts.'}
           </div>
         </div>
       </section>
 
-      {/* Quick Statistics Banner */}
       {stats && stats.totalQuestionsAnswered > 0 && (
         <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex items-center gap-3.5">
@@ -196,7 +193,6 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* Learning Modes Grid */}
       <section className="space-y-4">
         <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
           <Zap className="w-6 h-6 text-amber-500" />
@@ -291,7 +287,6 @@ export default function HomePage() {
             </Link>
           )}
 
-          {/* 1. Exam Simulation */}
           <Link
             href="/test?mode=exam"
             className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-sky-500 dark:hover:border-sky-500 shadow-sm hover:shadow-md transition-all"
@@ -313,7 +308,6 @@ export default function HomePage() {
             </div>
           </Link>
 
-          {/* 2. Topic Practice */}
           <Link
             href="/topics"
             className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500 shadow-sm hover:shadow-md transition-all"
@@ -330,12 +324,11 @@ export default function HomePage() {
               </p>
             </div>
             <div className="mt-6 flex items-center gap-1 text-xs font-semibold text-indigo-600 dark:text-indigo-400 group-hover:translate-x-1 transition-transform">
-              <span>{lang === 'et' ? 'Vali teema' : lang === 'ru' ? 'Выбрать тему' : 'Select topic'}</span>
+              <span>{lang === 'et' ? 'Vali teema' : lang === 'ru' ? 'Выбери тему' : 'Select topic'}</span>
               <ChevronRight className="w-4 h-4" />
             </div>
           </Link>
 
-          {/* 3. Mistakes Review */}
           <Link
             href="/test?mode=mistakes"
             className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-rose-500 dark:hover:border-rose-500 shadow-sm hover:shadow-md transition-all"
@@ -357,7 +350,6 @@ export default function HomePage() {
             </div>
           </Link>
 
-          {/* 4. Marathon Mode */}
           <Link
             href="/test?mode=marathon"
             className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-amber-500 dark:hover:border-amber-500 shadow-sm hover:shadow-md transition-all"
@@ -381,7 +373,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 10 Official Topics Overview */}
       <section className="space-y-4">
         <div className="flex items-center justify-between">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -419,7 +410,7 @@ export default function HomePage() {
                   </p>
                 </div>
                 <div className="flex items-center text-xs font-semibold text-sky-600 dark:text-sky-400 gap-1 pt-1">
-                  <span>{lang === 'et' ? 'Harjuta seda teemat' : lang === 'ru' ? 'Тренировать тему' : 'Practice topic'}</span>
+                  <span>{lang === 'et' ? 'Harjuta seda teemat' : lang === 'ru' ? 'Тренируй тему' : 'Practice topic'}</span>
                   <ChevronRight className="w-3.5 h-3.5" />
                 </div>
               </Link>
@@ -464,7 +455,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Road signs & quick cheat-sheet promo */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Link
           href="/signs"
@@ -497,7 +487,7 @@ export default function HomePage() {
               {lang === 'et'
                 ? 'Kiivrinõuded, vanusepiirid, kohustuslik varustus ja käitumine ülekäigurajal.'
                 : lang === 'ru'
-                ? 'Требования к шлему, возрастные нормы, катафоты и проезд пешеходных переходов.'
+                ? 'Требования к шлему, возрастные нормы, светоотражатели и проезд пешеходных переходов.'
                 : 'Helmet rules, age limits, required bike equipment, and zebra crossing rules.'}
             </p>
           </div>
