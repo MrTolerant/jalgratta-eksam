@@ -93,6 +93,8 @@ export interface TrafficSign {
   code: string;
   name: Record<Language, string>;
   description: Record<Language, string>;
+  /** What is drawn on the sign (pictogram legend for learners). */
+  legend: Record<Language, string>;
   category: 'warning' | 'priority' | 'prohibitory' | 'mandatory' | 'informative';
   svgType: string;
 }
