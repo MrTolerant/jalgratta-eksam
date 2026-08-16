@@ -3,7 +3,7 @@ import { Language } from '@/types';
 export const translations = {
   appName: {
     et: 'Jalgratturi Teooriaeksam',
-    ru: 'Теория на велосипедные права',
+    ru: 'Теория на права велосипедиста',
     en: 'Bicycle Theory Exam',
   },
   appTagline: {
@@ -13,12 +13,12 @@ export const translations = {
   },
   examMode: {
     et: 'Eksamirežiim',
-    ru: 'Режим Экзамена',
+    ru: 'Режим экзамена',
     en: 'Exam Mode',
   },
   examDesc: {
-    et: '15 küsimust, 30 minutit. Sooritatud, kui vähemalt 13 õiget (max 2 viga).',
-    ru: '15 вопросов, 30 минут. Сдан при минимум 13 правильных (макс. 2 ошибки).',
+    et: '15 küsimust, 30 minutit. Sooritatud, kui vähemalt 13 on õiged (kuni 2 viga).',
+    ru: '15 вопросов, 30 минут. Сдан, если не меньше 13 правильных (не больше 2 ошибок).',
     en: '15 questions, 30 minutes. Pass with at least 13 correct (max 2 mistakes).',
   },
   practiceMode: {
@@ -28,7 +28,7 @@ export const translations = {
   },
   practiceDesc: {
     et: 'Harjuta küsimusi 10 ametliku teemavaldkonna järgi kohese selgitusega.',
-    ru: 'Тренируйтесь по 10 официальным темам с мгновенным разбором ответов.',
+    ru: 'Тренируйся по 10 официальным темам — ответ разбирается сразу.',
     en: 'Practice by 10 official syllabus topics with instant explanations.',
   },
   mistakesMode: {
@@ -38,7 +38,7 @@ export const translations = {
   },
   mistakesDesc: {
     et: 'Korda küsimusi, kus oled varem eksinud.',
-    ru: 'Повторите вопросы, в которых ранее были допущены ошибки.',
+    ru: 'Повтори вопросы, в которых раньше ошибался.',
     en: 'Review questions you answered incorrectly in past sessions.',
   },
   marathonMode: {
@@ -48,7 +48,7 @@ export const translations = {
   },
   marathonDesc: {
     et: 'Kõik veel nägemata küsimused. Juba õpitu jäetakse vahele.',
-    ru: 'Все ещё не виденные вопросы. Уже пройденные пропускаются.',
+    ru: 'Все вопросы, которые ты ещё не видел. Уже пройденные пропускаются.',
     en: 'All still-unseen questions. Already learned ones are skipped.',
   },
   signsGuide: {
@@ -68,7 +68,7 @@ export const translations = {
   },
   statsTitle: {
     et: 'Sinu statistika',
-    ru: 'Ваша статистика',
+    ru: 'Твоя статистика',
     en: 'Your Statistics',
   },
   startExam: {
@@ -138,7 +138,7 @@ export const translations = {
   },
   examResultScore: {
     et: 'Sinu tulemus',
-    ru: 'Ваш результат',
+    ru: 'Твой результат',
     en: 'Your score',
   },
   correctAnswers: {
@@ -168,12 +168,12 @@ export const translations = {
   },
   selectCategory: {
     et: 'Vali teema',
-    ru: 'Выберите тему',
+    ru: 'Выбери тему',
     en: 'Select Topic',
   },
   noMistakesYet: {
     et: 'Sul pole veel salvestatud vigu! Suurepärane töö.',
-    ru: 'У вас пока нет ошибок! Отличная работа.',
+    ru: 'У тебя пока нет ошибок. Отличная работа!',
     en: 'No recorded mistakes yet! Great job.',
   },
   allTopics: {
@@ -203,7 +203,7 @@ export const translations = {
   },
   quickDesc: {
     et: '7 juhuslikku küsimust 7 minutiga. Iga kord uus valik, mida sa veel ei näinud.',
-    ru: '7 случайных вопросов за 7 минут. Каждый раз новый набор из ещё не виденных.',
+    ru: '7 случайных вопросов за 7 минут. Каждый раз — новый набор из тех, что ты ещё не видел.',
     en: '7 random questions in 7 minutes. A fresh unseen mix every time.',
   },
   weakMode: {
@@ -233,7 +233,7 @@ export const translations = {
   },
   keyboardHint: {
     et: 'Klaviatuur: 1–3 valik, ← → küsimus, F märgi, H vihje',
-    ru: 'Клавиатура: 1–3 ответ, ← → вопрос, F метка, H подсказка',
+    ru: 'Клавиатура: 1–3 — ответ, ← → — вопрос, F — метка, H — подсказка',
     en: 'Keyboard: 1–3 answer, ← → question, F flag, H hint',
   },
   flagQuestion: {
@@ -265,6 +265,66 @@ export const translations = {
     et: 'Märgitud küsimused',
     ru: 'Отмеченные вопросы',
     en: 'Flagged questions',
+  },
+  gamesTitle: {
+    et: 'Mängud',
+    ru: 'Игры',
+    en: 'Games',
+  },
+  gamesDesc: {
+    et: 'Lühikesed mängud märkide, eesõiguse ja varustuse kinnistamiseks.',
+    ru: 'Короткие игры, чтобы закрепить знаки, приоритет и снаряжение.',
+    en: 'Short games to lock in signs, priority and equipment.',
+  },
+  gamePriority: {
+    et: 'Kes sõidab esimesena?',
+    ru: 'Кто едет первым?',
+    en: 'Who goes first?',
+  },
+  gamePriorityDesc: {
+    et: 'Toksa liiklejad õiges järjekorras.',
+    ru: 'Нажимай участников в правильном порядке.',
+    en: 'Tap road users in the correct order.',
+  },
+  gameSigns: {
+    et: 'Tuvasta märk',
+    ru: 'Угадай знак',
+    en: 'Guess the sign',
+  },
+  gameSignsDesc: {
+    et: 'Tuvasta liiklusmärk enne, kui aeg otsa saab.',
+    ru: 'Узнай дорожный знак, пока не вышло время.',
+    en: 'Identify the traffic sign before time runs out.',
+  },
+  gameEquipment: {
+    et: 'Varustus',
+    ru: 'Снаряжение',
+    en: 'Equipment',
+  },
+  gameEquipmentDesc: {
+    et: 'Leia, mis rattal puudu on või mis on vale.',
+    ru: 'Найди, чего не хватает на велосипеде или что неверно.',
+    en: 'Find what is missing or wrong on the bike.',
+  },
+  gameSprint: {
+    et: 'Tõde või vale',
+    ru: 'Правда или нет',
+    en: 'True or false',
+  },
+  gameSprintDesc: {
+    et: 'Kiired jah/ei väited liiklusreeglite kohta.',
+    ru: 'Быстрые утверждения «да / нет» по правилам.',
+    en: 'Quick yes/no statements about the rules.',
+  },
+  footerCopy: {
+    et: '© 2026 JalgrattaEksam.ee — ettevalmistuskeskkond jalgratturi juhiloaks Eestis',
+    ru: '© 2026 JalgrattaEksam.ee — платформа подготовки к правам велосипедиста в Эстонии',
+    en: '© 2026 JalgrattaEksam.ee — training platform for the Estonian cyclist licence',
+  },
+  footerLaw: {
+    et: 'Põhineb Transpordiameti ja Liiklusseaduse nõuetel',
+    ru: 'Основано на требованиях Transpordiamet и Закона о дорожном движении',
+    en: 'Based on Transpordiamet and Traffic Act requirements',
   },
 };
 
