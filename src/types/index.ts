@@ -11,10 +11,10 @@ export type CategoryId =
   | 'bicycle_paths'           // 8. Sõitmine jalgrattateel ja jalgrattarajal
   | 'darkness_and_visibility' // 9. Sõitmine pimeda ajal ja halva nähtavuse tingimustes
   | 'safety_and_equipment'    // 10. Jalgratturi ohutus, varustus ja käitumine liikluses
-  | 'hand_signals'            // 11. Suunamärguanded
-  | 'special_zones'           // 12. Õueala, jalgtee ja erialad
-  | 'passengers_cargo'        // 13. Reisijad, lastetool ja veos
-  | 'prohibitions'            // 14. Keelud ja vastutus
+  | 'hand_signals'            // 11. Käemärguanded
+  | 'special_zones'           // 12. Õueala ja eritsoonid
+  | 'passengers_cargo'        // 13. Sõitjad ja pagas
+  | 'prohibitions'            // 14. Keelud
   | 'roundabouts_transit';    // 15. Ringristmikud ja ühistransport
 
 export interface Category {
@@ -68,7 +68,7 @@ export interface ExamSession {
   isCompleted: boolean;
   score: number;
   passed: boolean;
-  mode: 'exam' | 'practice' | 'mistakes' | 'marathon';
+  mode: 'exam' | 'practice' | 'mistakes' | 'marathon' | 'quick' | 'weak' | 'daily' | 'flagged';
   categoryId?: CategoryId;
 }
 
