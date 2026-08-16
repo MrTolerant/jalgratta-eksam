@@ -2,6 +2,7 @@ import { CategoryId, Question } from '@/types';
 import { questions } from '@/data/questions';
 import { getStoredStats } from '@/lib/storage';
 import {
+  clearSeenInPool,
   examFingerprint,
   getFlaggedIds,
   getVisitorId,
@@ -55,15 +56,24 @@ export function withShuffledOptions(q: Question, rng: () => number): Question {
   };
 }
 
-function preferUnseen(pool: Question[], seen: Set<string>, rng: () => number): Question[] {
-  const fresh = pool.filter((q) => !seen.has(q.id));
-  const used = pool.filter((q) => seen.has(q.id));
-  return [...shuffleInPlace(fresh, rng), ...shuffleInPlace(used, rng)];
+function unseenIn(pool: Question[], seen: Set<string>): Question[] {
+  return pool.filter((q) => !seen.has(q.id));
+}
+
+function ensureFreshPool(pool: Question[], seen: Set<string>): Set<string> {
+  const fresh = unseenIn(pool, seen);
+  if (fresh.length > 0) return seen;
+  clearSeenInPool(pool.map((q) => q.id));
+  return new Set();
 }
 
 function pickBalanced(count: number, pool: Question[], rng: () => number, seen: Set<string>): Question[] {
+  const workingSeen = ensureFreshPool(pool, seen);
+  const freshOnly = unseenIn(pool, workingSeen);
+  const source = freshOnly.length ? freshOnly : pool;
+
   const byCat = new Map<CategoryId, Question[]>();
-  for (const q of preferUnseen(pool, seen, rng)) {
+  for (const q of shuffleInPlace([...source], rng)) {
     const list = byCat.get(q.categoryId) || [];
     list.push(q);
     byCat.set(q.categoryId, list);
@@ -82,7 +92,7 @@ function pickBalanced(count: number, pool: Question[], rng: () => number, seen: 
     }
   }
 
-  const rest = preferUnseen(pool.filter((q) => !used.has(q.id)), seen, rng);
+  const rest = shuffleInPlace(source.filter((q) => !used.has(q.id)), rng);
   while (picked.length < count && rest.length) {
     const q = rest.shift()!;
     picked.push(q);
@@ -96,7 +106,8 @@ export function buildQuiz(mode: QuizMode, categoryId?: CategoryId | null): Quest
   const mem = getVisitorMemory();
   const seen = new Set(mem.seenQuestionIds);
   const sessionSalt = `${mode}:${categoryId || 'all'}:${mem.sessionCount}:${performance.now?.() ?? Date.now()}`;
-  const rng = mode === 'daily' ? createStableRng(`daily:${new Date().toISOString().slice(0, 10)}`) : createRng(sessionSalt);
+  const rng = createRng(sessionSalt);
+  const markWholeSet = mode === 'exam' || mode === 'quick' || mode === 'daily';
 
   let list: Question[] = [];
 
@@ -105,8 +116,7 @@ export function buildQuiz(mode: QuizMode, categoryId?: CategoryId | null): Quest
   } else if (mode === 'quick') {
     list = pickBalanced(7, questions, rng, seen);
   } else if (mode === 'daily') {
-    // Same visitor + same calendar day = same 10 questions; other people get a different set.
-    list = pickBalanced(10, questions, rng, new Set());
+    list = pickBalanced(10, questions, rng, seen);
   } else if (mode === 'weak') {
     const stats = getStoredStats();
     const ranked = (Object.entries(stats.categoryStats) as [CategoryId, { answered: number; correct: number }][])
@@ -121,7 +131,9 @@ export function buildQuiz(mode: QuizMode, categoryId?: CategoryId | null): Quest
     const weakPool = questions.filter((q) => ranked.includes(q.categoryId));
     list = pickBalanced(12, weakPool.length ? weakPool : questions, rng, seen);
   } else if (mode === 'practice' && categoryId) {
-    list = preferUnseen(questions.filter((q) => q.categoryId === categoryId), seen, rng);
+    const pool = questions.filter((q) => q.categoryId === categoryId);
+    const workingSeen = ensureFreshPool(pool, seen);
+    list = shuffleInPlace(unseenIn(pool, workingSeen), rng);
   } else if (mode === 'mistakes') {
     const stats = getStoredStats();
     list = shuffleInPlace(
@@ -129,7 +141,8 @@ export function buildQuiz(mode: QuizMode, categoryId?: CategoryId | null): Quest
       rng
     );
   } else if (mode === 'marathon') {
-    list = preferUnseen([...questions], seen, rng);
+    const workingSeen = ensureFreshPool(questions, seen);
+    list = shuffleInPlace(unseenIn(questions, workingSeen), rng);
   } else if (mode === 'flagged') {
     list = shuffleInPlace(
       getFlaggedIds().map((id) => questions.find((q) => q.id === id)!).filter(Boolean),
@@ -140,11 +153,9 @@ export function buildQuiz(mode: QuizMode, categoryId?: CategoryId | null): Quest
   }
 
   const prepared = list.map((q) => withShuffledOptions(q, rng));
-  if (prepared.length) {
+  if (prepared.length && markWholeSet) {
     markQuestionsSeen(prepared.map((q) => q.id));
-    if (mode === 'exam' || mode === 'quick' || mode === 'daily') {
-      rememberExamFingerprint(examFingerprint(prepared.map((q) => q.id)));
-    }
+    rememberExamFingerprint(examFingerprint(prepared.map((q) => q.id)));
   }
   return prepared;
 }

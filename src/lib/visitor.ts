@@ -1,5 +1,7 @@
 const COOKIE = 'est_bike_vid';
+const SEEN_COOKIE = 'est_bike_seen';
 const MEMORY_KEY = 'est_bike_visitor_mem_v1';
+const SEEN_LIMIT = 800;
 
 export interface VisitorMemory {
   visitorId: string;
@@ -57,6 +59,17 @@ function todayKey(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
+function readSeenCookie(): string[] {
+  const raw = readCookie(SEEN_COOKIE);
+  if (!raw) return [];
+  return raw.split(',').map((id) => id.trim()).filter(Boolean);
+}
+
+function writeSeenCookie(ids: string[]) {
+  // Cookies stay under ~4KB; full history lives in localStorage.
+  writeCookie(SEEN_COOKIE, ids.slice(-220).join(','));
+}
+
 export function getVisitorMemory(): VisitorMemory {
   const visitorId = getVisitorId();
   const empty: VisitorMemory = {
@@ -69,17 +82,22 @@ export function getVisitorMemory(): VisitorMemory {
     sessionCount: 0,
   };
   if (typeof window === 'undefined') return empty;
+  const fromCookie = readSeenCookie();
   try {
     const raw = localStorage.getItem(MEMORY_KEY);
-    if (!raw) return empty;
+    if (!raw) {
+      return { ...empty, seenQuestionIds: fromCookie };
+    }
     const parsed = JSON.parse(raw) as VisitorMemory;
+    const merged = Array.from(new Set([...(parsed.seenQuestionIds || []), ...fromCookie])).slice(-SEEN_LIMIT);
     return {
       ...empty,
       ...parsed,
       visitorId,
+      seenQuestionIds: merged,
     };
   } catch {
-    return empty;
+    return { ...empty, seenQuestionIds: fromCookie };
   }
 }
 
@@ -90,6 +108,7 @@ export function saveVisitorMemory(mem: VisitorMemory) {
   } catch {
     // ignore
   }
+  writeSeenCookie(mem.seenQuestionIds || []);
 }
 
 export function touchVisitorVisit(): VisitorMemory {
@@ -107,11 +126,23 @@ export function touchVisitorVisit(): VisitorMemory {
 }
 
 export function markQuestionsSeen(ids: string[]) {
+  if (!ids.length) return;
   const mem = getVisitorMemory();
   const set = new Set(mem.seenQuestionIds);
+  const before = set.size;
   ids.forEach((id) => set.add(id));
-  mem.seenQuestionIds = Array.from(set).slice(-400);
-  mem.sessionCount += 1;
+  mem.seenQuestionIds = Array.from(set).slice(-SEEN_LIMIT);
+  if (set.size !== before) {
+    mem.sessionCount += 1;
+  }
+  saveVisitorMemory(mem);
+}
+
+/** After the child has seen the whole pool, start a new learning cycle. */
+export function clearSeenInPool(poolIds: string[]) {
+  const mem = getVisitorMemory();
+  const drop = new Set(poolIds);
+  mem.seenQuestionIds = mem.seenQuestionIds.filter((id) => !drop.has(id));
   saveVisitorMemory(mem);
 }
 

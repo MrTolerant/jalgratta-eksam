@@ -20,10 +20,10 @@ export default function TopicsPage() {
         </h1>
         <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
           {lang === 'et'
-            ? 'Ametlikud teemad pluss lisaplokid. Iga kord tulevad veel nägemata küsimused juhuslikus järjekorras.'
+            ? 'Ametlikud teemad pluss lisaplokid. Uuel sisseastumisel tulevad küsimused, mida laps veel ei näinud.'
             : lang === 'ru'
-            ? 'Официальные темы плюс дополнительные блоки. Каждый раз — ещё не виденные вопросы в случайном порядке.'
-            : 'Official topics plus extra blocks. Each run prefers unseen questions in a random order.'}
+            ? 'Официальные темы плюс дополнительные блоки. При новом заходе — только вопросы, которые ребёнок ещё не видел.'
+            : 'Official topics plus extra blocks. A new visit shows questions the child has not seen yet.'}
         </p>
       </div>
 
