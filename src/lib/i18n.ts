@@ -269,7 +269,7 @@ export const translations = {
   gamesTitle: {
     et: 'Mängud',
     ru: 'Игры',
-    en: 'Игры',
+    en: 'Games',
   },
   gamesDesc: {
     et: 'Lühikesed mängud märkide, eesõiguse ja varustuse kinnistamiseks.',
