@@ -21,3 +21,11 @@ function Frame({ children, caption }: { children: React.ReactNode; caption: stri
     </div>
   );
 }
+
+function ArrowDef({ id, color }: { id: string; color: string }) {
+  return (
+    <marker id={id} viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill={color} />
+    </marker>
+  );
+}
