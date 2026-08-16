@@ -98,6 +98,7 @@ export default function SignsPage() {
                   signCode: sign.code,
                 }}
                 lang={lang}
+                mode="icon"
               />
             </div>
 
@@ -113,6 +114,12 @@ export default function SignsPage() {
               <h3 className="font-bold text-base text-slate-900 dark:text-white">
                 {sign.name[lang]}
               </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                <span className="font-semibold text-slate-600 dark:text-slate-300">
+                  {lang === 'ru' ? 'На знаке:' : lang === 'et' ? 'Märgil:' : 'On the sign:'}
+                </span>{' '}
+                {sign.legend[lang]}
+              </p>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                 {sign.description[lang]}
               </p>
