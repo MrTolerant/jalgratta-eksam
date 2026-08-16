@@ -294,7 +294,7 @@ function TestContent() {
                   : 'Transpordiamet requirement: at least 13 of 15 correct (max 2 mistakes).'
                 : mode === 'quick'
                 ? lang === 'et'
-                  ? 'Blitz: sooritatud alates 6/7.'
+                  ? 'Kiirblits: sooritatud alates 6/7.'
                   : lang === 'ru'
                   ? 'Блиц: сдан от 6/7.'
                   : 'Blitz: pass from 6/7.'
