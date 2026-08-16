@@ -82,7 +82,7 @@ export const translations = {
     en: 'Question',
   },
   of: {
-    et: 'st',
+    et: '/',
     ru: 'из',
     en: 'of',
   },
@@ -197,7 +197,7 @@ export const translations = {
     en: '10 new questions this child has not seen yet. The next visit is a different set.',
   },
   quickMode: {
-    et: 'Kiirblitz',
+    et: 'Kiirblits',
     ru: 'Блиц',
     en: 'Quick blitz',
   },
@@ -215,11 +215,6 @@ export const translations = {
     et: '12 küsimust teemadest, kus su täpsus on kõige madalam.',
     ru: '12 вопросов из тем с самой низкой точностью.',
     en: '12 questions from the topics where your accuracy is lowest.',
-  },
-  uniqueSet: {
-    et: 'Sinu unikaalne komplekt',
-    ru: 'Твой уникальный набор',
-    en: 'Your unique set',
   },
   unseenLeft: {
     et: 'Uusi küsimusi jäänud',
@@ -248,13 +243,8 @@ export const translations = {
   },
   trainSessionMistakes: {
     et: 'Treeni ainult need vead',
-    ru: 'Тренировать только эти ошибки',
+    ru: 'Тренируй только эти ошибки',
     en: 'Train only these mistakes',
-  },
-  visitorRemembered: {
-    et: 'Külastaja meeles (küpsis)',
-    ru: 'Посетитель запомнен (cookie)',
-    en: 'Visitor remembered (cookie)',
   },
   extraTopics: {
     et: 'Lisateemad',
@@ -329,5 +319,5 @@ export const translations = {
 };
 
 export function getTranslation(key: keyof typeof translations, lang: Language): string {
-  return translations[key]?.[lang] || translations[key]?.['et'] || '';
+  return translations[key]?.[lang] || translations[key]?.['ru'] || translations[key]?.['et'] || '';
 }

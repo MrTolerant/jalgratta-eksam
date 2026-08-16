@@ -76,9 +76,9 @@ export default function PriorityGamePage() {
         <SceneIllustration variant={round.scene} lang={lang} />
         <p className="text-sm font-semibold text-slate-700 dark:text-slate-200">
           {lang === 'et'
-            ? 'Toksa liiklejad selles järjekorras, kes tohib sõita esimesena.'
+            ? 'Toksa liiklejad selles järjekorras, milles nad tohivad sõita.'
             : lang === 'ru'
-            ? 'Нажимай участников в том порядке, кто может ехать первым.'
+            ? 'Нажимай участников в том порядке, в каком они могут ехать.'
             : 'Tap road users in the order they are allowed to go.'}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">

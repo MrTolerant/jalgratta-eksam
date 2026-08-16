@@ -124,7 +124,7 @@ mq('q3_ps_04', 'pedestrian_safety', 'medium',
 mq('q3_ps_05', 'pedestrian_safety', 'easy',
     ['Kas tohid sõita rattaga otse inimeste vahelt turu / peatuse kobaras?', 'Можно ли ехать на велосипеде сквозь толпу на рынке / у остановки?', 'May you ride through a dense crowd at a market or stop?'],
     [
-      ['Ei. Tule maha ja taluta ratast — hulk inimesi = jalakäija ala.', 'Нет. Спешься и веди велосипед — плотная толпа = пешеходная зона.', 'No. Dismount and walk — a dense crowd is pedestrian space.'],
+      ['Ei. Tule maha ja lükka ratast — hulk inimesi = jalakäija ala.', 'Нет. Спешись и веди велосипед — плотная толпа = пешеходная зона.', 'No. Dismount and walk — a dense crowd is pedestrian space.'],
       ['Jah, kellaga „lõikad tee“.', 'Да, звонком «прорезаешь дорогу».', 'Yes, the bell cuts a path.'],
       ['Jah, kui oled kiirustamas tööle.', 'Да, если опаздываешь на работу.', 'Yes if you are late for work.'],
     ], 0,

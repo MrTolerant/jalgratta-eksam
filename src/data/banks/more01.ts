@@ -89,7 +89,7 @@ mq('q2_pos_01', 'road_position', 'easy',
     ['Mitu ratturit tohib sõiduteel sõita kõrvuti?', 'Сколько велосипедистов можно в ряд по проезжей части?', 'How many cyclists may ride abreast on the roadway?'],
     [
       ['Üks rida — üksteise järel.', 'Один ряд — друг за другом.', 'One file — one behind the other.'],
-      ['Kaks kõrvuti on alati lubatud.', 'Двое рядом всегда можно.', 'Two abreast is always allowed.'],
+      ['Kaks kõrvuti on alati lubatud.', 'Ехать вдвоём рядом всегда можно.', 'Two abreast is always allowed.'],
       ['Kolm, kui räägite.', 'Трое, если разговариваете.', 'Three if you are talking.'],
     ], 0,
     ['Sõiduteel liigutakse ühes reas parema ääre lähedal.', 'По проезжей части едут в один ряд у правого края.', 'On the roadway you ride in single file near the right edge.'],

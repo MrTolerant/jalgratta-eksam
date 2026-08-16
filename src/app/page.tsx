@@ -9,7 +9,7 @@ import { questions } from '@/data/questions';
 import { getStoredStats } from '@/lib/storage';
 import { UserStats } from '@/types';
 import { questionBankSize, unseenCount } from '@/lib/quizEngine';
-import { getFlaggedIds, getVisitorMemory, shortVisitorTag, touchVisitorVisit } from '@/lib/visitor';
+import { getFlaggedIds, touchVisitorVisit } from '@/lib/visitor';
 import {
   Timer,
   Layers,
@@ -28,7 +28,6 @@ import {
   CalendarDays,
   Target,
   Flag,
-  Cookie,
 } from 'lucide-react';
 
 export default function HomePage() {
@@ -36,7 +35,6 @@ export default function HomePage() {
   const [stats, setStats] = useState<UserStats | null>(null);
   const [freshLeft, setFreshLeft] = useState(0);
   const [streak, setStreak] = useState(1);
-  const [visitorTag, setVisitorTag] = useState('');
   const [flaggedCount, setFlaggedCount] = useState(0);
   const bankSize = questionBankSize();
 
@@ -46,7 +44,6 @@ export default function HomePage() {
       const mem = touchVisitorVisit();
       setFreshLeft(unseenCount());
       setStreak(mem.streakDays || 1);
-      setVisitorTag(shortVisitorTag(getVisitorMemory().visitorId));
       setFlaggedCount(getFlaggedIds().length);
     }, 0);
     return () => clearTimeout(timer);
@@ -75,9 +72,9 @@ export default function HomePage() {
           </p>
           <p className="text-xs sm:text-sm text-sky-100/80">
             {lang === 'et'
-              ? `${bankSize} erinevat küsimust. Sama laps näeb igal uuel sisseastumisel uusi küsimusi — juba nähtud jäetakse vahele.`
+              ? `${bankSize} erinevat küsimust. Sama laps näeb igal uuel külastusel uusi küsimusi — juba nähtud jäetakse vahele.`
               : lang === 'ru'
-              ? `${bankSize} разных вопросов. При каждом новом заходе ребёнок получает ещё не виденные вопросы — старые не повторяются.`
+              ? `${bankSize} разных вопросов. При каждом новом заходе ребёнок получает вопросы, которые ещё не видел, — старые не повторяются.`
               : `${bankSize} distinct questions. On every new visit the child gets unseen questions — already viewed ones are skipped.`}
           </p>
 
@@ -106,7 +103,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <section className="grid grid-cols-2 gap-3">
         <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
           <div className="text-[11px] uppercase tracking-wide text-slate-500">{getTranslation('unseenLeft', lang)}</div>
           <div className="text-2xl font-bold text-slate-900 dark:text-white">{freshLeft}</div>
@@ -115,23 +112,6 @@ export default function HomePage() {
         <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
           <div className="text-[11px] uppercase tracking-wide text-slate-500">{getTranslation('streakDays', lang)}</div>
           <div className="text-2xl font-bold text-amber-500">{streak}</div>
-        </div>
-        <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex items-start gap-2">
-          <Cookie className="w-4 h-4 text-sky-500 mt-0.5" />
-          <div>
-            <div className="text-[11px] uppercase tracking-wide text-slate-500">{getTranslation('visitorRemembered', lang)}</div>
-            <div className="text-lg font-mono font-bold text-slate-900 dark:text-white">{visitorTag || '—'}</div>
-          </div>
-        </div>
-        <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-          <div className="text-[11px] uppercase tracking-wide text-slate-500">{getTranslation('uniqueSet', lang)}</div>
-          <div className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-            {lang === 'et'
-              ? 'Juba nähtud küsimused jäetakse vahele. Kui kõik on läbi, algab uus ring.'
-              : lang === 'ru'
-              ? 'Уже виденные вопросы пропускаются. Когда банк кончится — новый круг.'
-              : 'Already seen questions are skipped. When the bank is done, a new cycle starts.'}
-          </div>
         </div>
       </section>
 
@@ -330,7 +310,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="mt-6 flex items-center gap-1 text-xs font-semibold text-indigo-600 dark:text-indigo-400 group-hover:translate-x-1 transition-transform">
-              <span>{lang === 'et' ? 'Vali teema' : lang === 'ru' ? 'Выбрать тему' : 'Select topic'}</span>
+              <span>{lang === 'et' ? 'Vali teema' : lang === 'ru' ? 'Выбери тему' : 'Select topic'}</span>
               <ChevronRight className="w-4 h-4" />
             </div>
           </Link>
@@ -419,7 +399,7 @@ export default function HomePage() {
                   </p>
                 </div>
                 <div className="flex items-center text-xs font-semibold text-sky-600 dark:text-sky-400 gap-1 pt-1">
-                  <span>{lang === 'et' ? 'Harjuta seda teemat' : lang === 'ru' ? 'Тренировать тему' : 'Practice topic'}</span>
+                  <span>{lang === 'et' ? 'Harjuta seda teemat' : lang === 'ru' ? 'Тренируй тему' : 'Practice topic'}</span>
                   <ChevronRight className="w-3.5 h-3.5" />
                 </div>
               </Link>
@@ -495,10 +475,10 @@ export default function HomePage() {
             <h3 className="text-xl font-bold">{getTranslation('rulesSummary', lang)}</h3>
             <p className="text-xs text-slate-300 max-w-sm">
               {lang === 'et'
-                ? 'Kiivrinõuded, vanusepiirid, kohustuslik varustus ja käitumine ülekäigurajal.'
+                ? 'Kõik 10 ametlikku eksamiteemat: eesõigus, ristmikud, kiiver, sebra ja varustus.'
                 : lang === 'ru'
-                ? 'Требования к шлему, возрастные нормы, катафоты и проезд пешеходных переходов.'
-                : 'Helmet rules, age limits, required bike equipment, and zebra crossing rules.'}
+                ? 'Все 10 официальных тем: приоритет, перекрёстки, шлем, зебра и оснащение.'
+                : 'All 10 official exam topics: priority, junctions, helmet, zebra and equipment.'}
             </p>
           </div>
           <ChevronRight className="w-6 h-6 text-emerald-400 group-hover:translate-x-1.5 transition-transform" />

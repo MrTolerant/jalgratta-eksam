@@ -17,9 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jalgratturi Teooriaeksam (Eesti) | Jalgrattaload Liiklustestid",
-  description: "Tasuta ettevalmistus Eesti jalgratturi teooriaeksamiks. Sada+ unikaalset küsimust, juhuslikud testid küpsise järgi, 15 teemat ja selgitused.",
-  keywords: ["jalgratturi eksam", "liiklustestid", "jalgrattaluba", "transpordiamet", "велосипедные права эстония", "bicycle exam estonia"],
+  title: "Теория на права велосипедиста (Эстония) | JalgrattaEksam",
+  description: "Бесплатная подготовка к теоретическому экзамену на права велосипедиста в Эстонии. 195 уникальных вопросов, тесты по cookie, 15 тем и объяснения.",
+  keywords: ["велосипедные права эстония", "теоретический экзамен велосипед", "transpordiamet", "jalgratturi eksam", "liiklustestid", "bicycle exam estonia"],
 };
 
 export default function RootLayout({
@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="et" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="ru" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 selection:bg-sky-500 selection:text-white">
         <LanguageProvider>
           <VisitorBoot />

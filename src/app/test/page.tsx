@@ -17,7 +17,7 @@ import {
   quizPassed,
   unseenCount,
 } from '@/lib/quizEngine';
-import { examFingerprint, getFlaggedIds, markQuestionsSeen, shortVisitorTag, toggleFlaggedQuestion } from '@/lib/visitor';
+import { getFlaggedIds, markQuestionsSeen, toggleFlaggedQuestion } from '@/lib/visitor';
 import confetti from 'canvas-confetti';
 import {
   Timer,
@@ -62,7 +62,6 @@ function TestContent() {
   const [isLoading, setIsLoading] = useState(true);
   const [flagged, setFlagged] = useState<string[]>([]);
   const [freshLeft, setFreshLeft] = useState(0);
-  const [setTag, setSetTag] = useState('');
 
   const startQuiz = useCallback((override?: Question[]) => {
     const qList = override ?? buildQuiz(mode, categoryParam);
@@ -76,7 +75,6 @@ function TestContent() {
     setTimerActive(duration > 0);
     setFlagged(getFlaggedIds());
     setFreshLeft(unseenCount());
-    setSetTag(qList.length ? examFingerprint(qList.map((q) => q.id)).slice(0, 10) : '');
     setIsLoading(false);
   }, [mode, categoryParam, duration]);
 
@@ -294,7 +292,7 @@ function TestContent() {
                   : 'Transpordiamet requirement: at least 13 of 15 correct (max 2 mistakes).'
                 : mode === 'quick'
                 ? lang === 'et'
-                  ? 'Blitz: sooritatud alates 6/7.'
+                  ? 'Kiirblits: sooritatud alates 6/7.'
                   : lang === 'ru'
                   ? 'Блиц: сдан от 6/7.'
                   : 'Blitz: pass from 6/7.'
@@ -484,10 +482,7 @@ function TestContent() {
         </button>
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500">
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-violet-500/10 text-violet-600 dark:text-violet-300 font-semibold">
-          {getTranslation('uniqueSet', lang)} · {shortVisitorTag()} · {setTag}
-        </span>
+      <div className="flex flex-wrap items-center justify-end gap-2 text-[11px] text-slate-500">
         <span>
           {getTranslation('unseenLeft', lang)}: {freshLeft}
         </span>

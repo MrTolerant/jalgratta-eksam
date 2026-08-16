@@ -361,7 +361,7 @@ export function SceneCarDoorZone({ lang }: SceneProps) {
 
 export function SceneEqualIntersection({ lang }: SceneProps) {
   return (
-    <Frame caption={t(lang, 'Samaliigiline ristmik: parema käe reegel', 'Равнозначный перекресток: помеха справа', 'Equal intersection: priority to the right')}>
+    <Frame caption={t(lang, 'Samaliigiline ristmik: parema käe reegel', 'Равнозначный перекрёсток: помеха справа', 'Equal intersection: priority to the right')}>
       <CrossRoads>
         <BikeTop x={232} y={230} rot={0} you label={t(lang, 'Sina', 'Ты', 'You')} />
         <path d="M232 210 L232 160" stroke="#059669" strokeWidth="3" strokeDasharray="5 4" markerEnd="url(#arrG)" fill="none" />

@@ -101,7 +101,7 @@ export const base01: Question[] = [
     difficulty: 'medium',
     question: {
       et: 'Rattur läheneb ristmikule, mille ees on märk „Anna teed“ (kolmnurk teravikuga alla). Mida see märk kohustab tegema?',
-      ru: 'Велосипедист приближается к перекрестку с установленным знаком «Уступите дорогу» (треугольник вершиной вниз). Что требует этот знак?',
+      ru: 'Велосипедист приближается к перекрёстку с установленным знаком «Уступите дорогу» (треугольник вершиной вниз). Что требует этот знак?',
       en: 'A cyclist approaches an intersection with a "Give way" sign (inverted triangle). What is required?',
     },
     options: [
@@ -109,7 +109,7 @@ export const base01: Question[] = [
         id: 'opt_1',
         text: {
           et: 'Peatuma igal juhul vähemalt 3 sekundiks enne ristmikku.',
-          ru: 'Остановиться в любом случае минимум на 3 секунды перед перекрестком.',
+          ru: 'Остановиться в любом случае минимум на 3 секунды перед перекрёстком.',
           en: 'Stop in all cases for at least 3 seconds before the intersection.',
         },
       },
@@ -153,7 +153,7 @@ export const base01: Question[] = [
     difficulty: 'easy',
     question: {
       et: 'Ristmiku ees on märk „Peatu ja anna teed“ (STOP). Kus peab jalgrattur peatuma?',
-      ru: 'Перед перекрестком установлен знак «STOP» (Стоп и уступи дорогу). Где обязан остановиться велосипедист?',
+      ru: 'Перед перекрёстком установлен знак «STOP» (Стоп и уступи дорогу). Где обязан остановиться велосипедист?',
       en: 'There is a "STOP and Give way" sign at an intersection. Where must the cyclist stop?',
     },
     options: [
@@ -161,7 +161,7 @@ export const base01: Question[] = [
         id: 'opt_1',
         text: {
           et: 'Stoppjoone ees, selle puudumisel lõikuva sõidutee ääre ees.',
-          ru: 'Перед стоп-линией, а при ее отсутствии — перед краем пересекаемой проезжей части.',
+          ru: 'Перед стоп-линией, а при её отсутствии — перед краем пересекаемой проезжей части.',
           en: 'Before the stop line, or if absent, before the edge of the intersecting roadway.',
         },
       },
@@ -177,7 +177,7 @@ export const base01: Question[] = [
         id: 'opt_3',
         text: {
           et: 'Ristmiku keskel.',
-          ru: 'Посреди перекрестка.',
+          ru: 'Посреди перекрёстка.',
           en: 'In the middle of the intersection.',
         },
       },
@@ -236,7 +236,7 @@ export const base01: Question[] = [
     ],
     correctAnswerId: 'opt_1',
     explanation: {
-      et: 'Jalgrattur peab sõiduteel sõitma võimalikult parema ääre lähedal ja üksteise järel (yksikreas), välja arvatud enne ümberreastumist või vasakpööret.',
+      et: 'Jalgrattur peab sõiduteel sõitma võimalikult parema ääre lähedal ja üksteise järel (üksikreas), välja arvatud enne ümberreastumist või vasakpööret.',
       ru: 'Велосипедист обязан двигаться по проезжей части как можно ближе к правому краю в один ряд, за исключением перестроения и поворота налево.',
       en: 'A cyclist must ride as close to the right edge of the roadway as possible in a single file, except before maneuvering or turning left.',
     },
@@ -268,7 +268,7 @@ export const base01: Question[] = [
         id: 'opt_2',
         text: {
           et: 'Kui sõiduteel sõitmine on tee seisukorra tõttu oluliselt raskendatud, samuti alla 10-aastase lapse saatmisel või lapseistmel last vedades.',
-          ru: 'Если движение по проезжей части существенно затруднено состоянием дороги, а также при сопровождении ребенка до 10 лет или перевозке ребенка в кресле.',
+          ru: 'Если движение по проезжей части существенно затруднено состоянием дороги, а также при сопровождении ребёнка до 10 лет или перевозке ребёнка в кресле.',
           en: 'If riding on the road is significantly impeded due to road conditions, or when accompanying a child under 10 or carrying a child.',
         },
       },
@@ -284,7 +284,7 @@ export const base01: Question[] = [
     correctAnswerId: 'opt_2',
     explanation: {
       et: 'Kõnniteel võivad sõita alla 13-aastased, lapse saatjad (kuni 10 a), last vedavad ratturid või kui sõidutee seisukord teeb seal sõitmise oluliselt raskendatuks. Jalakäijat ei tohi ohustada!',
-      ru: 'По тротуару разрешено ехать детям до 13 лет, сопровождающим ребенка до 10 лет, с ребенком в кресле, либо если состояние ПЧ делает езду по ней существенно затрудненной.',
+      ru: 'По тротуару разрешено ехать детям до 13 лет, сопровождающим ребёнка до 10 лет, с ребёнком в кресле, либо если состояние ПЧ делает езду по ней существенно затруднённой.',
       en: 'Children under 13, their escorts (up to 10 yo), riders carrying child passengers, or when road conditions make roadway riding severely impeded may ride on sidewalks.',
     },
     lawReference: 'LS § 32 lg 1',
@@ -358,7 +358,7 @@ export const base01: Question[] = [
         id: 'opt_2',
         text: {
           et: 'Ohutum on sõita otse üle ristmiku, tulla rattalt maha ja ületada tee jalakäijana (nn kaheetapiline vasakpööre).',
-          ru: 'Безопаснее проехать прямо через перекресток, спешиться и пересечь дорогу пешком (двухэтапный поворот).',
+          ru: 'Безопаснее проехать прямо через перекрёсток, спешиться и пересечь дорогу пешком (двухэтапный поворот).',
           en: 'It is safer to ride straight across the intersection, dismount, and cross the roadway as a pedestrian (two-stage turn).',
         },
       },
@@ -366,7 +366,7 @@ export const base01: Question[] = [
         id: 'opt_3',
         text: {
           et: 'Vasakpööre on jalgratturile seadusega igal pool keelatud.',
-          ru: 'Поворот налево для велосипедистов запрещен везде законом.',
+          ru: 'Поворот налево для велосипедистов запрещён везде законом.',
           en: 'Left turns are strictly prohibited everywhere for cyclists.',
         },
       },
@@ -374,7 +374,7 @@ export const base01: Question[] = [
     correctAnswerId: 'opt_2',
     explanation: {
       et: 'Kui sõiduteel on samas suunas mitu sõidurada või liiklus on tihe, on jalgratturil ohutuim sooritada vasakpööre kahe etapina või ületada sõidutee jalakäijana ratast käekõrval lükates.',
-      ru: 'На многополосных дорогах или при интенсивном движении наиболее безопасный способ повернуть налево — прямой проезд перекрестка с последующим спешиванием и переходом по переходу (2-этапный поворот).',
+      ru: 'На многополосных дорогах или при интенсивном движении наиболее безопасный способ повернуть налево — прямой проезд перекрёстка с последующим спешиванием и переходом по переходу (2-этапный поворот).',
       en: 'On multi-lane roads or in dense traffic, the safest method for a left turn is a two-stage turn or dismounting and walking across as a pedestrian.',
     },
     lawReference: 'LS § 48 lg 2',

@@ -10,8 +10,8 @@ export const Navbar: React.FC = () => {
   const { lang, setLang } = useLanguage();
 
   const languages: { code: Language; label: string; flag: string }[] = [
-    { code: 'et', label: 'Eesti', flag: '🇪🇪' },
     { code: 'ru', label: 'Русский', flag: '🇷🇺' },
+    { code: 'et', label: 'Eesti', flag: '🇪🇪' },
     { code: 'en', label: 'English', flag: '🇬🇧' },
   ];
 
@@ -27,7 +27,7 @@ export const Navbar: React.FC = () => {
               JalgrattaEksam
             </span>
             <span className="text-[11px] font-medium text-sky-600 dark:text-sky-400">
-              Eesti Liiklustestid
+              {lang === 'ru' ? 'Велоэкзамен Эстонии' : lang === 'et' ? 'Eesti Liiklustestid' : 'Estonian bike tests'}
             </span>
           </div>
         </Link>
