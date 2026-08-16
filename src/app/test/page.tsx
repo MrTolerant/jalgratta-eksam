@@ -5,11 +5,19 @@ import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { getTranslation } from '@/lib/i18n';
-import { questions } from '@/data/questions';
 import { categories } from '@/data/categories';
 import { Question, ExamSession, CategoryId } from '@/types';
-import { generateExamQuestions, recordExamSession, getStoredStats } from '@/lib/storage';
+import { recordExamSession } from '@/lib/storage';
 import { VisualIllustration } from '@/components/VisualIllustration';
+import {
+  QuizMode,
+  buildQuiz,
+  isLearningMode,
+  quizDurationSeconds,
+  quizPassed,
+  unseenCount,
+} from '@/lib/quizEngine';
+import { examFingerprint, getFlaggedIds, shortVisitorTag, toggleFlaggedQuestion } from '@/lib/visitor';
 import confetti from 'canvas-confetti';
 import {
   Timer,
@@ -23,23 +31,54 @@ import {
   AlertTriangle,
   Award,
   BookOpen,
+  Flag,
+  Keyboard,
 } from 'lucide-react';
+
+const QUIZ_MODES: QuizMode[] = ['exam', 'practice', 'mistakes', 'marathon', 'quick', 'weak', 'daily', 'flagged'];
+
+function parseMode(raw: string | null): QuizMode {
+  if (raw && QUIZ_MODES.includes(raw as QuizMode)) return raw as QuizMode;
+  return 'exam';
+}
 
 function TestContent() {
   const searchParams = useSearchParams();
   const { lang } = useLanguage();
 
-  const mode = (searchParams.get('mode') as 'exam' | 'practice' | 'mistakes' | 'marathon') || 'exam';
+  const mode = parseMode(searchParams.get('mode'));
   const categoryParam = searchParams.get('category') as CategoryId | null;
+  const learning = isLearningMode(mode);
+  const duration = quizDurationSeconds(mode);
 
   const [sessionQuestions, setSessionQuestions] = useState<Question[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<string, string>>({});
   const [showExplanation, setShowExplanation] = useState(false);
+  const [showHint, setShowHint] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(30 * 60); // 30 mins in seconds
+  const [timeLeft, setTimeLeft] = useState(duration || 30 * 60);
   const [timerActive, setTimerActive] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [flagged, setFlagged] = useState<string[]>([]);
+  const [freshLeft, setFreshLeft] = useState(0);
+  const [setTag, setSetTag] = useState('');
+
+  const startQuiz = useCallback((override?: Question[]) => {
+    const qList = override ?? buildQuiz(mode, categoryParam);
+    setSessionQuestions(qList);
+    setCurrentIndex(0);
+    setSelectedAnswers({});
+    setShowExplanation(false);
+    setShowHint(false);
+    setIsFinished(false);
+    setTimeLeft(duration || 30 * 60);
+    setTimerActive(duration > 0);
+    setFlagged(getFlaggedIds());
+    setFreshLeft(unseenCount());
+    setSetTag(qList.length ? examFingerprint(qList.map((q) => q.id)).slice(0, 10) : '');
+    setIsLoading(false);
+  }, [mode, categoryParam, duration]);
 
   const handleFinish = useCallback(() => {
     setIsFinished(true);
@@ -52,7 +91,7 @@ function TestContent() {
       }
     });
 
-    const isPassed = mode === 'exam' ? correctCount >= 13 : correctCount === sessionQuestions.length;
+    const isPassed = quizPassed(mode, correctCount, sessionQuestions.length);
 
     if (isPassed && mode === 'exam') {
       try {
@@ -68,9 +107,9 @@ function TestContent() {
 
     const session: ExamSession = {
       id: String(Date.now()),
-      startTime: Date.now() - (30 * 60 - timeLeft) * 1000,
+      startTime: Date.now() - ((duration || 30 * 60) - timeLeft) * 1000,
       endTime: Date.now(),
-      timeSpentSeconds: 30 * 60 - timeLeft,
+      timeSpentSeconds: (duration || 30 * 60) - timeLeft,
       questionIds: sessionQuestions.map((q) => q.id),
       userAnswers: selectedAnswers,
       isCompleted: true,
@@ -81,45 +120,12 @@ function TestContent() {
     };
 
     recordExamSession(session);
-  }, [sessionQuestions, selectedAnswers, mode, timeLeft, categoryParam]);
+  }, [sessionQuestions, selectedAnswers, mode, timeLeft, categoryParam, duration]);
 
-  // Initialize questions
   useEffect(() => {
-    const timer = setTimeout(() => {
-      let qList: Question[] = [];
-
-      if (mode === 'exam') {
-        const qIds = generateExamQuestions();
-        qList = qIds.map((id) => questions.find((q) => q.id === id)!).filter(Boolean);
-        setTimerActive(true);
-      } else if (mode === 'practice' && categoryParam) {
-        qList = questions.filter((q) => q.categoryId === categoryParam);
-        setTimerActive(false);
-      } else if (mode === 'mistakes') {
-        const stats = getStoredStats();
-        qList = stats.mistakeQuestionIds
-          .map((id) => questions.find((q) => q.id === id)!)
-          .filter(Boolean);
-        setTimerActive(false);
-      } else if (mode === 'marathon') {
-        qList = [...questions];
-        setTimerActive(false);
-      } else {
-        qList = [...questions].slice(0, 15);
-        setTimerActive(false);
-      }
-
-      setSessionQuestions(qList);
-      setCurrentIndex(0);
-      setSelectedAnswers({});
-      setShowExplanation(false);
-      setIsFinished(false);
-      setTimeLeft(30 * 60);
-      setIsLoading(false);
-    }, 0);
-
+    const timer = setTimeout(() => startQuiz(), 0);
     return () => clearTimeout(timer);
-  }, [mode, categoryParam]);
+  }, [startQuiz]);
 
   // Timer countdown
   useEffect(() => {
@@ -139,31 +145,63 @@ function TestContent() {
 
   const currentQ = sessionQuestions[currentIndex];
 
-  const handleSelectOption = (optId: string) => {
+  const handleSelectOption = useCallback((optId: string) => {
     if (isFinished) return;
-    if (mode === 'practice' && selectedAnswers[currentQ?.id]) return; // locked after answering in practice mode
+    const q = sessionQuestions[currentIndex];
+    if (!q) return;
+    if (learning && selectedAnswers[q.id]) return;
 
-    const newAnswers = { ...selectedAnswers, [currentQ.id]: optId };
-    setSelectedAnswers(newAnswers);
+    setSelectedAnswers((prev) => ({ ...prev, [q.id]: optId }));
 
-    if (mode === 'practice' || mode === 'mistakes') {
+    if (learning) {
       setShowExplanation(true);
     }
-  };
+  }, [isFinished, sessionQuestions, currentIndex, learning, selectedAnswers]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setShowExplanation(false);
-    if (currentIndex < sessionQuestions.length - 1) {
-      setCurrentIndex((prev) => prev + 1);
-    }
-  };
+    setShowHint(false);
+    setCurrentIndex((prev) => (prev < sessionQuestions.length - 1 ? prev + 1 : prev));
+  }, [sessionQuestions.length]);
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     setShowExplanation(false);
-    if (currentIndex > 0) {
-      setCurrentIndex((prev) => prev - 1);
-    }
-  };
+    setShowHint(false);
+    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : prev));
+  }, []);
+
+  const handleFlag = useCallback(() => {
+    const q = sessionQuestions[currentIndex];
+    if (!q) return;
+    const on = toggleFlaggedQuestion(q.id);
+    setFlagged((prev) => (on ? [...new Set([...prev, q.id])] : prev.filter((id) => id !== q.id)));
+  }, [sessionQuestions, currentIndex]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (isFinished || isLoading || !currentQ) return;
+      const tag = (e.target as HTMLElement)?.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+      const key = e.key.toLowerCase();
+      if (key === '1' || key === '2' || key === '3' || key === 'a' || key === 'b' || key === 'c') {
+        const idx = key === 'a' || key === '1' ? 0 : key === 'b' || key === '2' ? 1 : 2;
+        const opt = currentQ.options[idx];
+        if (opt) handleSelectOption(opt.id);
+      } else if (key === 'arrowright' || key === 'n') {
+        handleNext();
+      } else if (key === 'arrowleft' || key === 'p') {
+        handlePrev();
+      } else if (key === 'f') {
+        handleFlag();
+      } else if (key === 'h') {
+        setShowHint(true);
+      } else if (key === 'enter' && currentIndex === sessionQuestions.length - 1) {
+        handleFinish();
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isFinished, isLoading, currentQ, currentIndex, sessionQuestions.length, handleFinish, handleSelectOption, handleNext, handlePrev, handleFlag]);
 
   // Format timer
   const minutes = Math.floor(timeLeft / 60);
@@ -185,7 +223,15 @@ function TestContent() {
           <CheckCircle2 className="w-8 h-8" />
         </div>
         <h2 className="text-xl font-bold text-slate-900 dark:text-white">
-          {mode === 'mistakes' ? getTranslation('noMistakesYet', lang) : 'Küsimusi ei leitud'}
+          {mode === 'mistakes'
+            ? getTranslation('noMistakesYet', lang)
+            : mode === 'flagged'
+            ? lang === 'et'
+              ? 'Märgitud küsimusi pole veel.'
+              : lang === 'ru'
+              ? 'Пока нет отмеченных вопросов.'
+              : 'No flagged questions yet.'
+            : 'Küsimusi ei leitud'}
         </h2>
         <Link
           href="/"
@@ -207,7 +253,8 @@ function TestContent() {
       }
     });
     const mistakesCount = sessionQuestions.length - correctCount;
-    const isPassed = mode === 'exam' ? correctCount >= 13 : correctCount >= sessionQuestions.length * 0.85;
+    const isPassed = quizPassed(mode, correctCount, sessionQuestions.length);
+    const sessionWrong = sessionQuestions.filter((q) => selectedAnswers[q.id] !== q.correctAnswerId);
 
     return (
       <div className="max-w-2xl mx-auto space-y-8 py-4">
@@ -240,6 +287,18 @@ function TestContent() {
                   : lang === 'ru'
                   ? 'Требование Transpordiamet: минимум 13 правильных из 15 (макс. 2 ошибки).'
                   : 'Transpordiamet requirement: at least 13 of 15 correct (max 2 mistakes).'
+                : mode === 'quick'
+                ? lang === 'et'
+                  ? 'Blitz: sooritatud alates 6/7.'
+                  : lang === 'ru'
+                  ? 'Блиц: сдан от 6/7.'
+                  : 'Blitz: pass from 6/7.'
+                : mode === 'daily'
+                ? lang === 'et'
+                  ? 'Päeva väljakutse: sooritatud alates 8/10.'
+                  : lang === 'ru'
+                  ? 'Вызов дня: сдан от 8/10.'
+                  : 'Daily challenge: pass from 8/10.'
                 : ''}
             </p>
           </div>
@@ -271,21 +330,22 @@ function TestContent() {
           {/* Action buttons */}
           <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
             <button
-              onClick={() => {
-                const qIds = generateExamQuestions();
-                const qList = qIds.map((id) => questions.find((q) => q.id === id)!).filter(Boolean);
-                setSessionQuestions(qList);
-                setSelectedAnswers({});
-                setCurrentIndex(0);
-                setIsFinished(false);
-                setTimeLeft(30 * 60);
-                setTimerActive(mode === 'exam');
-              }}
+              onClick={() => startQuiz()}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold text-sm transition-all"
             >
               <RotateCcw className="w-4 h-4" />
               <span>{getTranslation('restart', lang)}</span>
             </button>
+
+            {sessionWrong.length > 0 && (
+              <button
+                onClick={() => startQuiz(sessionWrong)}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-semibold text-sm transition-all"
+              >
+                <Flag className="w-4 h-4" />
+                <span>{getTranslation('trainSessionMistakes', lang)}</span>
+              </button>
+            )}
 
             <Link
               href="/"
@@ -404,7 +464,7 @@ function TestContent() {
           )}
         </div>
 
-        {mode === 'exam' && (
+        {duration > 0 && (
           <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 font-mono font-bold text-xs sm:text-sm">
             <Timer className="w-4 h-4" />
             <span>{timeFormatted}</span>
@@ -417,6 +477,15 @@ function TestContent() {
         >
           {getTranslation('finishExam', lang)}
         </button>
+      </div>
+
+      <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500">
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-violet-500/10 text-violet-600 dark:text-violet-300 font-semibold">
+          {getTranslation('uniqueSet', lang)} · {shortVisitorTag()} · {setTag}
+        </span>
+        <span>
+          {getTranslation('unseenLeft', lang)}: {freshLeft}
+        </span>
       </div>
 
       {/* Progress Dots Navigation */}
@@ -456,15 +525,29 @@ function TestContent() {
         )}
 
         {/* Question Text */}
-        <h2 className="text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-white leading-snug">
-          {currentQ.question[lang]}
-        </h2>
+        <div className="flex items-start justify-between gap-3">
+          <h2 className="text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-white leading-snug">
+            {currentQ.question[lang]}
+          </h2>
+          <button
+            type="button"
+            onClick={handleFlag}
+            className={`shrink-0 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-semibold border ${
+              flagged.includes(currentQ.id)
+                ? 'bg-pink-500/15 text-pink-600 border-pink-500/40'
+                : 'bg-slate-100 dark:bg-slate-800 text-slate-500 border-transparent'
+            }`}
+          >
+            <Flag className="w-3.5 h-3.5" />
+            {getTranslation('flagQuestion', lang)}
+          </button>
+        </div>
 
         {/* Options List */}
         <div className="space-y-3">
-          {currentQ.options.map((opt) => {
+          {currentQ.options.map((opt, optIdx) => {
             const isSelected = currentAnswer === opt.id;
-            const isPracticeMode = mode === 'practice' || mode === 'mistakes';
+            const isPracticeMode = learning;
             const isRight = opt.id === currentQ.correctAnswerId;
 
             let buttonStyles =
@@ -492,7 +575,7 @@ function TestContent() {
               >
                 <div className="flex items-start gap-3">
                   <span className="w-6 h-6 rounded-lg bg-slate-200/80 dark:bg-slate-800 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
-                    {opt.id.replace('opt_', '')}
+                    {optIdx + 1}
                   </span>
                   <span className="text-xs sm:text-sm md:text-base leading-relaxed">
                     {opt.text[lang]}
@@ -514,7 +597,18 @@ function TestContent() {
         </div>
 
         {/* Practice Mode Instant Explanation */}
-        {(showExplanation || (mode === 'practice' && currentAnswer)) && (
+        {learning && !currentAnswer && (
+          <button
+            type="button"
+            onClick={() => setShowHint(true)}
+            className="text-xs font-semibold text-sky-600 dark:text-sky-400 hover:underline"
+          >
+            {getTranslation('showHint', lang)}
+            {showHint && currentQ.lawReference ? ` — ${currentQ.lawReference}` : ''}
+          </button>
+        )}
+
+        {(showExplanation || (learning && currentAnswer)) && (
           <div className="p-4 rounded-2xl bg-sky-500/5 dark:bg-sky-950/30 border border-sky-500/20 text-xs sm:text-sm text-slate-700 dark:text-slate-300 space-y-1">
             <div className="flex items-center gap-1.5 font-bold text-sky-700 dark:text-sky-400">
               <HelpCircle className="w-4 h-4" />
@@ -559,6 +653,11 @@ function TestContent() {
           </button>
         )}
       </div>
+
+      <p className="flex items-center justify-center gap-1.5 text-[11px] text-slate-500">
+        <Keyboard className="w-3.5 h-3.5" />
+        {getTranslation('keyboardHint', lang)}
+      </p>
     </div>
   );
 }

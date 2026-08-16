@@ -8,6 +8,8 @@ import { categories } from '@/data/categories';
 import { questions } from '@/data/questions';
 import { getStoredStats } from '@/lib/storage';
 import { UserStats } from '@/types';
+import { questionBankSize, unseenCount } from '@/lib/quizEngine';
+import { getFlaggedIds, getVisitorMemory, shortVisitorTag, touchVisitorVisit } from '@/lib/visitor';
 import {
   Timer,
   Layers,
@@ -23,16 +25,29 @@ import {
   Shield,
   ShieldCheck,
   Zap,
-  Gamepad2,
+  CalendarDays,
+  Target,
+  Flag,
+  Cookie,
 } from 'lucide-react';
 
 export default function HomePage() {
   const { lang } = useLanguage();
   const [stats, setStats] = useState<UserStats | null>(null);
+  const [freshLeft, setFreshLeft] = useState(0);
+  const [streak, setStreak] = useState(1);
+  const [visitorTag, setVisitorTag] = useState('');
+  const [flaggedCount, setFlaggedCount] = useState(0);
+  const bankSize = questionBankSize();
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setStats(getStoredStats());
+      const mem = touchVisitorVisit();
+      setFreshLeft(unseenCount());
+      setStreak(mem.streakDays || 1);
+      setVisitorTag(shortVisitorTag(getVisitorMemory().visitorId));
+      setFlaggedCount(getFlaggedIds().length);
     }, 0);
     return () => clearTimeout(timer);
   }, []);
@@ -58,6 +73,13 @@ export default function HomePage() {
           <p className="text-sm sm:text-base md:text-lg text-sky-100/90 leading-relaxed">
             {getTranslation('appTagline', lang)}
           </p>
+          <p className="text-xs sm:text-sm text-sky-100/80">
+            {lang === 'et'
+              ? `${bankSize} erinevat küsimust. Iga test on juhuslik ja seotud sinu küpsisega — kahel inimesel ei kordu sama komplekt.`
+              : lang === 'ru'
+              ? `${bankSize} разных вопросов. Каждый тест случайный и привязан к cookie — у двух людей набор не совпадёт.`
+              : `${bankSize} distinct questions. Every test is random and tied to your cookie — two people will not get the same set.`}
+          </p>
 
           <div className="pt-2 flex flex-wrap items-center gap-3">
             <Link
@@ -81,6 +103,35 @@ export default function HomePage() {
         {/* Decorative bike watermark icon */}
         <div className="absolute -right-8 -bottom-10 opacity-10 pointer-events-none">
           <Bike className="w-96 h-96 text-white" />
+        </div>
+      </section>
+
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div className="text-[11px] uppercase tracking-wide text-slate-500">{getTranslation('unseenLeft', lang)}</div>
+          <div className="text-2xl font-bold text-slate-900 dark:text-white">{freshLeft}</div>
+          <div className="text-xs text-slate-500">/ {bankSize}</div>
+        </div>
+        <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div className="text-[11px] uppercase tracking-wide text-slate-500">{getTranslation('streakDays', lang)}</div>
+          <div className="text-2xl font-bold text-amber-500">{streak}</div>
+        </div>
+        <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex items-start gap-2">
+          <Cookie className="w-4 h-4 text-sky-500 mt-0.5" />
+          <div>
+            <div className="text-[11px] uppercase tracking-wide text-slate-500">{getTranslation('visitorRemembered', lang)}</div>
+            <div className="text-lg font-mono font-bold text-slate-900 dark:text-white">{visitorTag || '—'}</div>
+          </div>
+        </div>
+        <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div className="text-[11px] uppercase tracking-wide text-slate-500">{getTranslation('uniqueSet', lang)}</div>
+          <div className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            {lang === 'et'
+              ? 'Nähtud küsimused jäetakse vahele, kuni pank saab otsa.'
+              : lang === 'ru'
+              ? 'Уже виденные вопросы пропускаются, пока банк не закончится.'
+              : 'Seen questions are skipped until the bank cycles.'}
+          </div>
         </div>
       </section>
 
@@ -152,7 +203,94 @@ export default function HomePage() {
           <span>{lang === 'et' ? 'Vali režiim' : lang === 'ru' ? 'Режимы тренировки' : 'Training Modes'}</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <Link
+            href="/test?mode=daily"
+            className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-violet-500 dark:hover:border-violet-500 shadow-sm hover:shadow-md transition-all"
+          >
+            <div className="space-y-3">
+              <div className="w-12 h-12 rounded-xl bg-violet-500/10 text-violet-600 dark:text-violet-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <CalendarDays className="w-6 h-6" />
+              </div>
+              <h3 className="font-bold text-lg text-slate-900 dark:text-white">
+                {getTranslation('dailyMode', lang)}
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                {getTranslation('dailyDesc', lang)}
+              </p>
+            </div>
+            <div className="mt-6 flex items-center gap-1 text-xs font-semibold text-violet-600 dark:text-violet-400 group-hover:translate-x-1 transition-transform">
+              <span>{lang === 'et' ? 'Täna 10 küsimust' : lang === 'ru' ? 'Сегодня 10 вопросов' : '10 questions today'}</span>
+              <ChevronRight className="w-4 h-4" />
+            </div>
+          </Link>
+
+          <Link
+            href="/test?mode=quick"
+            className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-500 dark:hover:border-cyan-500 shadow-sm hover:shadow-md transition-all"
+          >
+            <div className="space-y-3">
+              <div className="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Zap className="w-6 h-6" />
+              </div>
+              <h3 className="font-bold text-lg text-slate-900 dark:text-white">
+                {getTranslation('quickMode', lang)}
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                {getTranslation('quickDesc', lang)}
+              </p>
+            </div>
+            <div className="mt-6 flex items-center gap-1 text-xs font-semibold text-cyan-600 dark:text-cyan-400 group-hover:translate-x-1 transition-transform">
+              <span>{lang === 'et' ? '7 küsimust / 7 min' : lang === 'ru' ? '7 вопросов / 7 мин' : '7 questions / 7 min'}</span>
+              <ChevronRight className="w-4 h-4" />
+            </div>
+          </Link>
+
+          <Link
+            href="/test?mode=weak"
+            className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-orange-500 dark:hover:border-orange-500 shadow-sm hover:shadow-md transition-all"
+          >
+            <div className="space-y-3">
+              <div className="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-600 dark:text-orange-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Target className="w-6 h-6" />
+              </div>
+              <h3 className="font-bold text-lg text-slate-900 dark:text-white">
+                {getTranslation('weakMode', lang)}
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                {getTranslation('weakDesc', lang)}
+              </p>
+            </div>
+            <div className="mt-6 flex items-center gap-1 text-xs font-semibold text-orange-600 dark:text-orange-400 group-hover:translate-x-1 transition-transform">
+              <span>{lang === 'et' ? 'Treeni auke' : lang === 'ru' ? 'Закрыть пробелы' : 'Close the gaps'}</span>
+              <ChevronRight className="w-4 h-4" />
+            </div>
+          </Link>
+
+          {flaggedCount > 0 && (
+            <Link
+              href="/test?mode=flagged"
+              className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-pink-500 dark:hover:border-pink-500 shadow-sm hover:shadow-md transition-all"
+            >
+              <div className="space-y-3">
+                <div className="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-600 dark:text-pink-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Flag className="w-6 h-6" />
+                </div>
+                <h3 className="font-bold text-lg text-slate-900 dark:text-white">
+                  {getTranslation('flaggedMode', lang)}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  {flaggedCount}{' '}
+                  {lang === 'et' ? 'küsimust ootab kordamist.' : lang === 'ru' ? 'вопросов ждут повтора.' : 'questions waiting for review.'}
+                </p>
+              </div>
+              <div className="mt-6 flex items-center gap-1 text-xs font-semibold text-pink-600 dark:text-pink-400 group-hover:translate-x-1 transition-transform">
+                <span>{lang === 'et' ? 'Ava märked' : lang === 'ru' ? 'Открыть метки' : 'Open flags'}</span>
+                <ChevronRight className="w-4 h-4" />
+              </div>
+            </Link>
+          )}
+
           {/* 1. Exam Simulation */}
           <Link
             href="/test?mode=exam"
@@ -240,27 +378,6 @@ export default function HomePage() {
               <ChevronRight className="w-4 h-4" />
             </div>
           </Link>
-
-          <Link
-            href="/games"
-            className="group relative flex flex-col justify-between p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-violet-500 dark:hover:border-violet-500 shadow-sm hover:shadow-md transition-all"
-          >
-            <div className="space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-violet-500/10 text-violet-600 dark:text-violet-400 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Gamepad2 className="w-6 h-6" />
-              </div>
-              <h3 className="font-bold text-lg text-slate-900 dark:text-white">
-                {getTranslation('gamesTitle', lang)}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                {getTranslation('gamesDesc', lang)}
-              </p>
-            </div>
-            <div className="mt-6 flex items-center gap-1 text-xs font-semibold text-violet-600 dark:text-violet-400 group-hover:translate-x-1 transition-transform">
-              <span>{lang === 'et' ? 'Mängi' : lang === 'ru' ? 'Играть' : 'Play'}</span>
-              <ChevronRight className="w-4 h-4" />
-            </div>
-          </Link>
         </div>
       </section>
 
@@ -269,7 +386,7 @@ export default function HomePage() {
         <div className="flex items-center justify-between">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <Shield className="w-6 h-6 text-sky-500" />
-            <span>{lang === 'et' ? '15 eksamiteemat' : lang === 'ru' ? '15 тем экзамена' : '15 Exam Topics'}</span>
+            <span>{lang === 'et' ? 'Ametlikud eksamiteemad' : lang === 'ru' ? 'Официальные темы экзамена' : 'Official exam topics'}</span>
           </h2>
           <Link href="/topics" className="text-xs sm:text-sm font-semibold text-sky-600 dark:text-sky-400 hover:underline">
             {lang === 'et' ? 'Vaata kõiki' : lang === 'ru' ? 'Смотреть все' : 'View all'} →
@@ -277,7 +394,7 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
-          {categories.map((cat) => {
+          {categories.filter((c) => c.order <= 10).map((cat) => {
             const topicQuestions = questions.filter((q) => q.categoryId === cat.id);
             return (
               <Link
@@ -313,21 +430,38 @@ export default function HomePage() {
 
       <section className="space-y-4">
         <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-          <Gamepad2 className="w-6 h-6 text-violet-500" />
-          <span>{getTranslation('gamesTitle', lang)}</span>
+          <Sparkles className="w-6 h-6 text-violet-500" />
+          <span>{getTranslation('extraTopics', lang)}</span>
         </h2>
-        <Link
-          href="/games"
-          className="block p-6 rounded-2xl bg-gradient-to-br from-violet-900/50 to-slate-900 border border-violet-600/30 hover:border-violet-400 text-white transition-all"
-        >
-          <div className="flex items-center justify-between gap-4">
-            <div className="space-y-2">
-              <h3 className="text-xl font-bold">{getTranslation('gamesTitle', lang)}</h3>
-              <p className="text-sm text-slate-300 max-w-xl">{getTranslation('gamesDesc', lang)}</p>
-            </div>
-            <ChevronRight className="w-6 h-6 text-violet-300 shrink-0" />
-          </div>
-        </Link>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+          {categories.filter((c) => c.order > 10).map((cat) => {
+            const topicQuestions = questions.filter((q) => q.categoryId === cat.id);
+            return (
+              <Link
+                key={cat.id}
+                href={`/test?mode=practice&category=${cat.id}`}
+                className="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-violet-400 dark:hover:border-violet-500 transition-all flex flex-col justify-between gap-3 group"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-1.5">
+                    <span className="text-xs font-bold text-violet-600 dark:text-violet-400 px-2 py-0.5 rounded-md bg-violet-50 dark:bg-violet-950/50">
+                      #{cat.order}
+                    </span>
+                    <span className="text-xs text-slate-400">
+                      {topicQuestions.length} {lang === 'et' ? 'küsimust' : lang === 'ru' ? 'вопросов' : 'questions'}
+                    </span>
+                  </div>
+                  <h3 className="font-semibold text-sm text-slate-900 dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
+                    {cat.title[lang]}
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 mt-1">
+                    {cat.description[lang]}
+                  </p>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
       </section>
 
       {/* Road signs & quick cheat-sheet promo */}
