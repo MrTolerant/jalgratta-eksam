@@ -255,7 +255,7 @@ export const equipmentRounds: EquipmentRound[] = [
     },
     scene: 'lights_reflectors',
     faults: [
-      { id: 'front', label: { et: 'Valge / kollane esi tuli', ru: 'Белая / жёлтая фара спереди', en: 'White / amber front light' } },
+      { id: 'front', label: { et: 'Valge / kollane esituli', ru: 'Белая / жёлтая фара спереди', en: 'White / amber front light' } },
       { id: 'rear', label: { et: 'Punane tagatuli', ru: 'Красный задний фонарь', en: 'Red rear light' } },
       { id: 'radio', label: { et: 'Raadio', ru: 'Радио', en: 'A radio' } },
     ],
@@ -334,7 +334,7 @@ export const sprintItems: SprintItem[] = [
     id: 's2',
     statement: {
       et: 'Rattaga ülekäigurajal sõites on sul sama eesõigus kui jalakäijal.',
-      ru: 'Едучи по зебре на велосипеде, ты имеешь то же преимущество, что пешеход.',
+      ru: 'Если едешь по зебре на велосипеде, у тебя то же преимущество, что у пешехода.',
       en: 'Riding across a zebra gives you the same priority as a pedestrian.',
     },
     truth: false,
