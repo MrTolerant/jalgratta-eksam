@@ -20,10 +20,10 @@ export default function TopicsPage() {
         </h1>
         <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
           {lang === 'et'
-            ? '10 ametlikku Transpordiameti teemat pluss 5 lisaplokki (märguanded, õueala, veos, keelud, ringristmikud). Vali teema ja harjuta.'
+            ? 'Ametlikud teemad pluss lisaplokid. Iga kord tulevad veel nägemata küsimused juhuslikus järjekorras.'
             : lang === 'ru'
-            ? '10 официальных тем Transpordiamet плюс 5 дополнительных блоков (сигналы, жилая зона, груз, запреты, кольца). Выберите тему и тренируйтесь.'
-            : '10 official Transpordiamet topics plus 5 extra blocks (signals, living zones, cargo, bans, roundabouts). Pick a topic and practise.'}
+            ? 'Официальные темы плюс дополнительные блоки. Каждый раз — ещё не виденные вопросы в случайном порядке.'
+            : 'Official topics plus extra blocks. Each run prefers unseen questions in a random order.'}
         </p>
       </div>
 
