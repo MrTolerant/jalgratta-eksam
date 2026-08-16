@@ -2,149 +2,128 @@
 
 import React from 'react';
 import { useLanguage } from '@/context/LanguageContext';
-import { ShieldCheck, Users, Shield, Bike } from 'lucide-react';
+import { rulesMemo } from '@/data/rulesMemo';
+import {
+  ShieldCheck,
+  Users,
+  Shield,
+  Bike,
+  GitFork,
+  Navigation,
+  Hand,
+  Home,
+  Ban,
+  ShieldAlert,
+} from 'lucide-react';
+
+const ICON_WRAP: Record<string, string> = {
+  age: 'bg-sky-500/10 text-sky-600 dark:text-sky-400',
+  helmet: 'bg-rose-500/10 text-rose-600 dark:text-rose-400',
+  zebra: 'bg-amber-500/10 text-amber-600 dark:text-amber-400',
+  gear: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
+  yield: 'bg-orange-500/10 text-orange-600 dark:text-orange-400',
+  position: 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400',
+  junction: 'bg-violet-500/10 text-violet-600 dark:text-violet-400',
+  signal: 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400',
+  pedestrian: 'bg-pink-500/10 text-pink-600 dark:text-pink-400',
+  zone: 'bg-slate-500/10 text-slate-600 dark:text-slate-300',
+};
+
+function CardIcon({ name }: { name: string }) {
+  const cls = 'w-6 h-6';
+  if (name === 'age') return <span className="text-sm font-extrabold">10+</span>;
+  if (name === 'helmet') return <Shield className={cls} />;
+  if (name === 'zebra') return <Users className={cls} />;
+  if (name === 'gear') return <Bike className={cls} />;
+  if (name === 'yield') return <ShieldAlert className={cls} />;
+  if (name === 'position') return <Navigation className={cls} />;
+  if (name === 'junction') return <GitFork className={cls} />;
+  if (name === 'signal') return <Hand className={cls} />;
+  if (name === 'pedestrian') return <Users className={cls} />;
+  if (name === 'zone') return <Home className={cls} />;
+  return <Ban className={cls} />;
+}
 
 export default function RulesPage() {
   const { lang } = useLanguage();
+  const core = rulesMemo.filter((c) => c.group === 'core');
+  const exam = rulesMemo.filter((c) => c.group === 'exam');
 
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <div className="space-y-2">
         <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2.5">
           <ShieldCheck className="w-8 h-8 text-emerald-500" />
-          <span>{lang === 'et' ? 'Jalgratturi Meelespea ja Reeglid' : lang === 'ru' ? 'Памятка велосипедиста и ПДД Эстонии' : 'Estonian Cyclist Rules & Cheat Sheet'}</span>
+          <span>
+            {lang === 'et'
+              ? 'Jalgratturi Meelespea ja Reeglid'
+              : lang === 'ru'
+              ? 'Памятка велосипедиста и ПДД Эстонии'
+              : 'Estonian Cyclist Rules & Cheat Sheet'}
+          </span>
         </h1>
         <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
           {lang === 'et'
-            ? 'Kõige olulisemad punktid Eesti Liiklusseadusest (LS), mida kontrollitakse teooriaeksamil.'
+            ? 'Ametlik teooriaeksam: 15 küsimust, 10 teemat (Transpordiamet). All on kogu kava, mitte ainult neli „kuulsat“ punkti.'
             : lang === 'ru'
-            ? 'Ключевые пункты Закона о дорожном движении Эстонии (Liiklusseadus), проверяемые на экзамене.'
-            : 'Key provisions of the Estonian Traffic Act tested during the official cyclist examination.'}
+            ? 'Официальный экзамен: 15 вопросов, 10 тем (Transpordiamet). Ниже вся программа, не только четыре «громких» пункта.'
+            : 'Official theory exam: 15 questions, 10 topics (Transpordiamet). Below is the full syllabus, not only the four famous facts.'}
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
-          <div className="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center font-bold">
-            10+
-          </div>
-          <h2 className="font-bold text-lg text-slate-900 dark:text-white">
-            {lang === 'et' ? 'Vanus ja juhiluba' : lang === 'ru' ? 'Возраст и водительские права' : 'Age & License'}
-          </h2>
-          <ul className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
-            <li>
-              {lang === 'et'
-                ? 'Sõiduteel tohib iseseisvalt sõita vähemalt 10-aastane isik.'
-                : lang === 'ru'
-                ? 'Самостоятельно по проезжей части разрешено ехать с 10 лет.'
-                : 'Solo riding on roadways is allowed from 10 years of age.'}
-            </li>
-            <li>
-              {lang === 'et'
-                ? '10–15-aastasel ratturil peab sõiduteel sõites kaasas olema jalgratturi juhiluba.'
-                : lang === 'ru'
-                ? 'Велосипедисты 10–15 лет на проезжей части обязаны иметь при себе права.'
-                : 'Cyclists aged 10–15 must carry a cyclist driver license on roadways.'}
-            </li>
-            <li>
-              {lang === 'et'
-                ? 'Alates 16. eluaastast jalgratta juhtimiseks juhiluba ei nõuta.'
-                : lang === 'ru'
-                ? 'С 16 лет водительские права для езды на велосипеде не требуются.'
-                : 'From age 16, no license is required for cycling.'}
-            </li>
-          </ul>
+      <section className="space-y-3">
+        <h2 className="text-sm font-bold uppercase tracking-wide text-slate-500">
+          {lang === 'et'
+            ? 'Kõige sagedamini eksitavad'
+            : lang === 'ru'
+            ? 'Чаще всего валят именно здесь'
+            : 'Most often failed'}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {core.map((card) => (
+            <MemoCardView key={card.id} card={card} lang={lang} />
+          ))}
         </div>
+      </section>
 
-        <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
-          <div className="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center">
-            <Shield className="w-6 h-6" />
-          </div>
-          <h2 className="font-bold text-lg text-slate-900 dark:text-white">
-            {lang === 'et' ? 'Jalgratturikiiver' : lang === 'ru' ? 'Велосипедный шлем' : 'Bicycle Helmet'}
-          </h2>
-          <ul className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
-            <li>
-              {lang === 'et'
-                ? 'Kõigile alla 16-aastastele jalgratturitele on kiivri kandmine ja kinnitamine KOHUSTUSLIK teel sõites.'
-                : lang === 'ru'
-                ? 'Для всех лиц младше 16 лет ношение застёгнутого шлема ОБЯЗАТЕЛЬНО при езде по любой дороге.'
-                : 'Wearing a securely fastened helmet is MANDATORY for all cyclists under 16 years of age.'}
-            </li>
-            <li>
-              {lang === 'et'
-                ? 'Täiskasvanutele on kiiver tungivalt soovituslik turvalisuse tagamiseks.'
-                : lang === 'ru'
-                ? 'Для взрослых шлем настоятельно рекомендуется ради безопасности.'
-                : 'Strongly recommended for adults for personal injury prevention.'}
-            </li>
-          </ul>
+      <section className="space-y-3">
+        <h2 className="text-sm font-bold uppercase tracking-wide text-slate-500">
+          {lang === 'et'
+            ? 'Ülеjäänud eksamiteemad (siit tuleb suurem osa 15 küsimusest)'
+            : lang === 'ru'
+            ? 'Остальные темы экзамена (отсюда большая часть из 15 вопросов)'
+            : 'The rest of the exam (most of the 15 questions come from here)'}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {exam.map((card) => (
+            <MemoCardView key={card.id} card={card} lang={lang} />
+          ))}
         </div>
+      </section>
+    </div>
+  );
+}
 
-        <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
-          <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center">
-            <Users className="w-6 h-6" />
-          </div>
-          <h2 className="font-bold text-lg text-slate-900 dark:text-white">
-            {lang === 'et' ? 'Ülekäigurada (sebra)' : lang === 'ru' ? 'Пешеходный переход (зебра)' : 'Crosswalks (Zebras)'}
-          </h2>
-          <ul className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
-            <li>
-              {lang === 'et'
-                ? 'Jalgrattaga TOHIB ületada teed sebral sellel sõites jalakäija kiirusega.'
-                : lang === 'ru'
-                ? 'Переезжать по зебре верхом на велосипеде РАЗРЕШЕНО со скоростью шага пешехода.'
-                : 'Riding across a crosswalk on bike is PERMITTED at normal walking speed.'}
-            </li>
-            <li>
-              {lang === 'et'
-                ? 'HOIATUS: Reguleerimata ülekäigurajal sõites EI OLE jalgratturil autojuhi ees eesõigust (autod ei pea teed andma), v.a kui auto sooritab pööret.'
-                : lang === 'ru'
-                ? 'ВНИМАНИЕ: На нерегулируемом переходе у велосипедиста НЕТ преимущества перед машинами (авто не обязаны уступать), кроме случая поворота авто.'
-                : 'WARNING: On uncontrolled crosswalks, cycling gives NO right-of-way over straight-moving cars unless the car is making a turn.'}
-            </li>
-            <li>
-              {lang === 'et'
-                ? 'Ratast käekõrval lükates muutud jalakäijaks ja saad täieliku eesõiguse!'
-                : lang === 'ru'
-                ? 'Спешившись и ведя велосипед рядом, ты становишься пешеходом с полным преимуществом!'
-                : 'Dismounting and walking your bicycle makes you a pedestrian with full right-of-way.'}
-            </li>
-          </ul>
-        </div>
-
-        <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
-          <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
-            <Bike className="w-6 h-6" />
-          </div>
-          <h2 className="font-bold text-lg text-slate-900 dark:text-white">
-            {lang === 'et' ? 'Kohustuslik varustus' : lang === 'ru' ? 'Обязательное оснащение' : 'Mandatory Equipment'}
-          </h2>
-          <ul className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
-            <li>
-              {lang === 'et'
-                ? 'Töökorras pidurid ja signaalkell.'
-                : lang === 'ru'
-                ? 'Исправная тормозная система и звонок.'
-                : 'Operational brakes and a working bell.'}
-            </li>
-            <li>
-              {lang === 'et'
-                ? 'Helkurid: ees valge, taga punane, külgedel (ratastel) kollased või valged.'
-                : lang === 'ru'
-                ? 'Отражатели: спереди белый, сзади красный, на колёсах жёлтые или белые.'
-                : 'Reflectors: white front, red rear, yellow or white wheel side reflectors.'}
-            </li>
-            <li>
-              {lang === 'et'
-                ? 'Pimedas ja halva nähtavusega: ees valge põlev tuli, taga punane põlev tuli.'
-                : lang === 'ru'
-                ? 'В темноте и сумерках: спереди горящий белый фонарь, сзади красный фонарь.'
-                : 'In darkness/fog: working white front lamp and red rear lamp.'}
-            </li>
-          </ul>
-        </div>
+function MemoCardView({
+  card,
+  lang,
+}: {
+  card: (typeof rulesMemo)[number];
+  lang: 'et' | 'ru' | 'en';
+}) {
+  return (
+    <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
+      <div
+        className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold ${ICON_WRAP[card.icon]}`}
+      >
+        <CardIcon name={card.icon} />
       </div>
+      <h2 className="font-bold text-lg text-slate-900 dark:text-white">{card.title[lang]}</h2>
+      <ul className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
+        {card.points.map((point) => (
+          <li key={point.en}>{point[lang]}</li>
+        ))}
+      </ul>
     </div>
   );
 }
