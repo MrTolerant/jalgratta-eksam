@@ -142,7 +142,7 @@ mq('q3_pos_06', 'road_position', 'medium',
 mq('q3_turn_01', 'turns', 'medium',
     ['Vasaku pöörde teed kahes etapis: otse üle, siis ootad ja keerad. Miks see on ohutu?', 'Левый поворот в два этапа: прямо, потом ждёшь и поворачиваешь. Почему это безопасно?', 'You make a left turn in two stages: straight across, then wait and turn. Why is that safer?'],
     [
-      ['Välid sõidutee keskel seismist vastutuleva liikluse ees.', 'Не стоишь посреди проезжей части перед встречным потоком.', 'You avoid waiting in the middle of the roadway in front of oncoming traffic.'],
+      ['Väldid sõidutee keskel seismist vastutuleva liikluse ees.', 'Не стоишь посреди проезжей части перед встречным потоком.', 'You avoid waiting in the middle of the roadway in front of oncoming traffic.'],
       ['See on keelatud igal ristmikul.', 'Это запрещено на любом перекрёстке.', 'It is forbidden at every junction.'],
       ['Nii saad sõita punase tulega.', 'Так можно ехать на красный.', 'This lets you run a red light.'],
     ], 0,
