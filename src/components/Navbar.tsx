@@ -11,7 +11,7 @@ export const Navbar: React.FC = () => {
 
   const languages: { code: Language; label: string; flag: string }[] = [
     { code: 'ru', label: 'Русский', flag: '🇷🇺' },
-    { code: 'et', label: 'Eesti', flag: '🇪🇺' },
+    { code: 'et', label: 'Eesti', flag: '🇪🇹' },
     { code: 'en', label: 'English', flag: '🇬🇧' },
   ];
 
@@ -63,7 +63,6 @@ export const Navbar: React.FC = () => {
             </span>
           </Link>
 
-          {/* Language selector */}
           <div className="flex items-center bg-slate-100 dark:bg-slate-900 p-1 rounded-xl border border-slate-200 dark:border-slate-800">
             {languages.map((l) => (
               <button
