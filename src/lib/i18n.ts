@@ -329,5 +329,5 @@ export const translations = {
 };
 
 export function getTranslation(key: keyof typeof translations, lang: Language): string {
-  return translations[key]?.[lang] || translations[key]?.['et'] || '';
+  return translations[key]?.[lang] || translations[key]?.['ru'] || translations[key]?.['et'] || '';
 }
