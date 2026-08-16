@@ -1,0 +1,47 @@
+import { Question } from '@/types';
+
+export const base04: Question[] = [
+{
+    id: 'q_safe_05',
+    categoryId: 'safety_and_equipment',
+    difficulty: 'medium',
+    question: {
+      et: 'Kas jalgrattaga tohib sõita alkoholijoobes?',
+      ru: 'Разрешено ли управлять велосипедом в состоянии алкогольного опьянения?',
+      en: 'Is it permitted to ride a bicycle under the influence of alcohol?',
+    },
+    options: [
+      {
+        id: 'opt_1',
+        text: {
+          et: 'Ei, joobeseisundis sõiduki (sh jalgratta ja kergliikuri) juhtimine on rangelt keelatud ja karistatav.',
+          ru: 'Нет, управление любым транспортом (включая велосипед и самокат) в состоянии опьянения строго запрещено законом.',
+          en: 'No, operating any vehicle (including bicycles and e-scooters) while intoxicated is strictly prohibited.',
+        },
+      },
+      {
+        id: 'opt_2',
+        text: {
+          et: 'Jah, sest jalgratas ei ole mootorsõiduk.',
+          ru: 'Да, так как велосипед не автомобиль.',
+          en: 'Yes, because a bicycle is not a motor vehicle.',
+        },
+      },
+      {
+        id: 'opt_3',
+        text: {
+          et: 'Jah, aga ainult õuealal ja suvel.',
+          ru: 'Да, но только во дворе и летом.',
+          en: 'Yes, but only in courtyards in summer.',
+        },
+      },
+    ],
+    correctAnswerId: 'opt_1',
+    explanation: {
+      et: 'Liiklusseaduse kohaselt ei tohi ükski juht (sh jalgrattur) olla joobeseisundis. Politsei võib joobes jalgratturit trahvida.',
+      ru: 'Закон о дорожном движении прямо запрещает управлять велосипедом в состоянии опьянения под угрозой штрафа.',
+      en: 'Under traffic laws, no driver may operate a vehicle (including a bicycle) while intoxicated.',
+    },
+    lawReference: 'LS § 69',
+  }
+];

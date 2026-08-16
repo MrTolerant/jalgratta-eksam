@@ -1,33 +1,16 @@
-import { CategoryId, Question, VisualData } from '@/types';
+import { Question } from '@/types';
+import { more01 } from '@/data/banks/more01';
+import { more02 } from '@/data/banks/more02';
+import { more03 } from '@/data/banks/more03';
+import { more04 } from '@/data/banks/more04';
+import { more05 } from '@/data/banks/more05';
+import { more06 } from '@/data/banks/more06';
 
-type Triple = [string, string, string];
-
-function L(t: Triple): { et: string; ru: string; en: string } {
-  return { et: t[0], ru: t[1], en: t[2] };
-}
-
-function mq(
-  id: string,
-  categoryId: CategoryId,
-  difficulty: Question['difficulty'],
-  question: Triple,
-  options: Triple[],
-  correctIndex: number,
-  explanation: Triple,
-  lawReference?: string,
-  visual?: VisualData
-): Question {
-  return {
-    id,
-    categoryId,
-    difficulty,
-    question: L(question),
-    options: options.map((text, i) => ({ id: `opt_${i + 1}`, text: L(text) })),
-    correctAnswerId: `opt_${correctIndex + 1}`,
-    explanation: L(explanation),
-    lawReference,
-    visual,
-  };
-}
-
-export const moreQuestions: Question[] = [];
+export const moreQuestions: Question[] = [
+  ...more01,
+  ...more02,
+  ...more03,
+  ...more04,
+  ...more05,
+  ...more06,
+];
