@@ -216,11 +216,6 @@ export const translations = {
     ru: '12 вопросов из тем с самой низкой точностью.',
     en: '12 questions from the topics where your accuracy is lowest.',
   },
-  uniqueSet: {
-    et: 'Sinu unikaalne komplekt',
-    ru: 'Твой уникальный набор',
-    en: 'Your unique set',
-  },
   unseenLeft: {
     et: 'Uusi küsimusi jäänud',
     ru: 'Новых вопросов осталось',
@@ -250,11 +245,6 @@ export const translations = {
     et: 'Treeni ainult need vead',
     ru: 'Тренируй только эти ошибки',
     en: 'Train only these mistakes',
-  },
-  visitorRemembered: {
-    et: 'Külastaja meeles (küpsis)',
-    ru: 'Посетитель запомнен (cookie)',
-    en: 'Visitor remembered (cookie)',
   },
   extraTopics: {
     et: 'Lisateemad',
