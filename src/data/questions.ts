@@ -1,58 +1,26 @@
 import { Question } from '@/types';
 import { moreQuestions } from '@/data/questionsMore';
 import { extraBankQuestions } from '@/data/questionsBank3';
+import { base01 } from '@/data/banks/base01';
+import { base02 } from '@/data/banks/base02';
+import { base03 } from '@/data/banks/base03';
+import { base04 } from '@/data/banks/base04';
 
-const baseQuestions: Question[] = [
-  // -------------------------------------------------------------
-  // CATEGORY 1: Priority & Give Way (Teeandmise kohustus)
-  // -------------------------------------------------------------
-  {
-    id: 'q_prio_01',
-    categoryId: 'priority_give_way',
-    difficulty: 'easy',
-    question: {
-      et: 'Sõidad jalgrattaga õuealalt või hoovist sõiduteele. Kellele pead teed andma?',
-      ru: 'Вы выезжаете на велосипеде из двора или жилой зоны на проезжую часть. Кому вы обязаны уступить дорогу?',
-      en: 'You are riding a bicycle out of a courtyard or living zone onto the roadway. To whom must you give way?',
-    },
-    options: [
-      {
-        id: 'opt_1',
-        text: {
-          et: 'Ainult mootorsõidukitele, mis lähenevad vasakult.',
-          ru: 'Только автомобилям, приближающимся слева.',
-          en: 'Only to motor vehicles approaching from the left.',
-        },
-      },
-      {
-        id: 'opt_2',
-        text: {
-          et: 'Kõigile teel liiklejatele (nii sõidukitele kui ka jalakäijatele).',
-          ru: 'Всем участникам движения на дороге (как транспортным средствам, так и пешеходам).',
-          en: 'All road users on that road (both vehicles and pedestrians).',
-        },
-      },
-      {
-        id: 'opt_3',
-        text: {
-          et: 'Mitte kellelegi, kui oled juba hoo sisse saanud.',
-          ru: 'Никому, если вы уже набрали скорость.',
-          en: 'To no one, if you have already gained speed.',
-        },
-      },
-    ],
-    correctAnswerId: 'opt_2',
-    explanation: {
-      et: 'Liiklusseaduse järgi peab teega külgnevalt alalt, õuealalt või hoovist teele sõitev juht andma teed igale teel liiklejale.',
-      ru: 'Согласно Закону о дорожном движении, выезжая со двора или прилегающей территории, водитель обязан уступить дорогу всем участникам движения на дороге.',
-      en: 'According to traffic law, a driver entering the road from an adjacent area or courtyard must give way to all road users on that road.',
-    },
-    lawReference: 'LS § 17 lg 1',
-    visual: {
-      type: 'svg_intersection',
-      svgVariant: 'driveway_exit',
-    },
-  },
-];
+const baseQuestions: Question[] = [...base01, ...base02, ...base03, ...base04];
 
 export const questions: Question[] = [...baseQuestions, ...moreQuestions, ...extraBankQuestions];
+
+if (process.env.NODE_ENV !== 'production') {
+  const ids = new Set<string>();
+  const texts = new Set<string>();
+  for (const q of questions) {
+    if (ids.has(q.id)) {
+      console.error(`Duplicate question id: ${q.id}`);
+    }
+    ids.add(q.id);
+    if (texts.has(q.question.et)) {
+      console.error(`Duplicate Estonian question text: ${q.id}`);
+    }
+    texts.add(q.question.et);
+  }
+}
