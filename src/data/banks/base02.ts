@@ -15,7 +15,7 @@ export const base02: Question[] = [
         id: 'opt_1',
         text: {
           et: 'Sirutama vasaku käe kõrvale (või kõverdama parema käe küünarnukist ülespoole) aegsasti enne manöövrit.',
-          ru: 'Вытянуть левую руку в сторону (или согнуть правую руку в локте вверх) заблаговременно до маневра.',
+          ru: 'Вытянуть левую руку в сторону (или согнуть правую руку в локте вверх) заблаговременно до манёвра.',
           en: 'Extend the left arm sideways (or bend the right arm upward at the elbow) well in advance.',
         },
       },
@@ -39,7 +39,7 @@ export const base02: Question[] = [
     correctAnswerId: 'opt_1',
     explanation: {
       et: 'Enne manöövri alustamist peab jalgrattur andma käega selge suunamärguande ja lõpetama selle vahetult enne pööramist, et hoida mõlema käega juhtrauast kinni.',
-      ru: 'Перед началом маневра велосипедист должен заблаговременно подать сигнал рукой (левая рука в сторону) и вернуть руку на руль непосредственно перед поворотом.',
+      ru: 'Перед началом манёвра велосипедист должен заблаговременно подать сигнал рукой (левая рука в сторону) и вернуть руку на руль непосредственно перед поворотом.',
       en: 'Before maneuvering, the cyclist must give a clear hand signal (left arm outstretched) in advance, returning hands to handlebars right before turning.',
     },
     lawReference: 'LS § 39 lg 1',
@@ -101,7 +101,7 @@ export const base02: Question[] = [
     difficulty: 'medium',
     question: {
       et: 'Lähened samaliigiliste teede ristmikule (reguleerimata, liiklusmärke pole). Kellel on eesõigus?',
-      ru: 'Вы подъезжаете к перекрестку равнозначных дорог (нерегулируемый, знаков нет). Кто имеет преимущество?',
+      ru: 'Вы подъезжаете к перекрёстку равнозначных дорог (нерегулируемый, знаков нет). Кто имеет преимущество?',
       en: 'You approach an uncontrolled intersection of equal roads (no signs). Who has priority?',
     },
     options: [
@@ -133,7 +133,7 @@ export const base02: Question[] = [
     correctAnswerId: 'opt_2',
     explanation: {
       et: 'Samaliigiliste teede ristmikul kehtib parema käe reegel: juht peab andma teed paremalt lähenevale juhile.',
-      ru: 'На равнозначном перекрестке действует правило помехи справа: водитель обязан уступить дорогу приближающемуся справа транспортному средству.',
+      ru: 'На равнозначном перекрёстке действует правило помехи справа: водитель обязан уступить дорогу приближающемуся справа транспортному средству.',
       en: 'At an intersection of equivalent roads, the priority-to-the-right rule applies: give way to traffic from the right.',
     },
     lawReference: 'LS § 58 lg 1',
@@ -148,7 +148,7 @@ export const base02: Question[] = [
     difficulty: 'medium',
     question: {
       et: 'Sõidad reguleeritaval ristmikul rohelise fooritulega otse. Vastutulev auto soovib sooritada vasakpööret. Kes peab teed andma?',
-      ru: 'Вы едете прямо на перекрестке на зеленый сигнал светофора. Встречный автомобиль хочет повернуть налево. Кто должен уступить дорогу?',
+      ru: 'Вы едете прямо на перекрёстке на зелёный сигнал светофора. Встречный автомобиль хочет повернуть налево. Кто должен уступить дорогу?',
       en: 'You are going straight through a traffic light intersection on green. An oncoming car wants to turn left. Who gives way?',
     },
     options: [
@@ -219,7 +219,7 @@ export const base02: Question[] = [
         id: 'opt_3',
         text: {
           et: 'Lubatud on ainult tagasipööre.',
-          ru: 'Разрешен только разворот.',
+          ru: 'Разрешён только разворот.',
           en: 'Only a U-turn is permitted.',
         },
       },
@@ -336,7 +336,7 @@ export const base02: Question[] = [
     difficulty: 'easy',
     question: {
       et: 'Sõidad jalgratta- ja jalgteel ning lähened jalakäijatele selja tagant. Kuidas käitud?',
-      ru: 'Вы едете по совмещенной вело-пешеходной дорожке и приближаетесь к пешеходам со спины. Ваши действия?',
+      ru: 'Вы едете по совмещённой вело-пешеходной дорожке и приближаетесь к пешеходам со спины. Ваши действия?',
       en: 'You are riding on a shared pedestrian and cycle path approaching pedestrians from behind. What do you do?',
     },
     options: [
