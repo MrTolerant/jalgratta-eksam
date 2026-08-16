@@ -47,9 +47,9 @@ export const translations = {
     en: 'Marathon',
   },
   marathonDesc: {
-    et: 'Lahenda järjest läbi kõik andmebaasis olevad küsimused.',
-    ru: 'Пройдите подряд все доступные вопросы из базы данных.',
-    en: 'Go through all available questions in sequence.',
+    et: 'Kõik veel nägemata küsimused. Juba õpitu jäetakse vahele.',
+    ru: 'Все ещё не виденные вопросы. Уже пройденные пропускаются.',
+    en: 'All still-unseen questions. Already learned ones are skipped.',
   },
   signsGuide: {
     et: 'Liiklusmärgid',
@@ -192,9 +192,9 @@ export const translations = {
     en: 'Daily challenge',
   },
   dailyDesc: {
-    et: '10 küsimust, mis on täna ainult sinu küpsise järgi. Teisel inimesel on teine komplekt.',
-    ru: '10 вопросов только для тебя на сегодня по cookie. У другого человека другой набор.',
-    en: '10 questions unique to your cookie today. Another visitor gets a different set.',
+    et: '10 uut küsimust, mida see laps veel ei näinud. Järgmisel korral tuleb uus valik.',
+    ru: '10 новых вопросов, которые этот ребёнок ещё не видел. В следующий раз — другой набор.',
+    en: '10 new questions this child has not seen yet. The next visit is a different set.',
   },
   quickMode: {
     et: 'Kiirblitz',
