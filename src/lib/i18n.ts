@@ -82,7 +82,7 @@ export const translations = {
     en: 'Question',
   },
   of: {
-    et: 'st',
+    et: '/',
     ru: 'из',
     en: 'of',
   },
@@ -197,7 +197,7 @@ export const translations = {
     en: '10 new questions this child has not seen yet. The next visit is a different set.',
   },
   quickMode: {
-    et: 'Kiirblitz',
+    et: 'Kiirblits',
     ru: 'Блиц',
     en: 'Quick blitz',
   },
@@ -248,7 +248,7 @@ export const translations = {
   },
   trainSessionMistakes: {
     et: 'Treeni ainult need vead',
-    ru: 'Тренировать только эти ошибки',
+    ru: 'Тренируй только эти ошибки',
     en: 'Train only these mistakes',
   },
   visitorRemembered: {
@@ -269,7 +269,7 @@ export const translations = {
   gamesTitle: {
     et: 'Mängud',
     ru: 'Игры',
-    en: 'Games',
+    en: 'Игры',
   },
   gamesDesc: {
     et: 'Lühikesed mängud märkide, eesõiguse ja varustuse kinnistamiseks.',
